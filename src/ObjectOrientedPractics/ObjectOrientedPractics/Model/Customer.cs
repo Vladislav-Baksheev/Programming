@@ -4,32 +4,32 @@ using ObjectOrientedPractics.Services;
 namespace ObjectOrientedPractics.Model
 {
     /// <summary>
-    /// Хранит данные о покупателях
+    /// Хранит данные о покупателях.
     /// </summary>
     internal class Customer
     {
         /// <summary>
-        /// Id покупателя
+        /// Id покупателя.
         /// </summary>
         private readonly int _id;
 
         /// <summary>
-        /// Полное имя покупателя
+        /// Полное имя покупателя.
         /// </summary>
         private string _fullname;
 
         /// <summary>
-        /// Адрес доставки
+        /// Адрес доставки.
         /// </summary>
         private string _address;
 
         /// <summary>
-        /// Возвращает и задает id покупателя
+        /// Возвращает и задает id покупателя.
         /// </summary>
         public int Id { get; set;}
 
         /// <summary>
-        /// Возвращает и задает полное имя покупателя
+        /// Возвращает и задает полное имя покупателя.
         /// </summary>
         public string FullName 
         {
@@ -45,7 +45,7 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
-        /// Возвращает и задает адрес покупателя
+        /// Возвращает и задает адрес покупателя.
         /// </summary>
         public string Address
         {
@@ -62,9 +62,9 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Создает экземпляр класса <see cref="Customer"/>.
         /// </summary>
-        /// <param name="fullname">Полное имя покупателя</param>
-        /// <param name="address">Адрес покупателя</param>
-        /// <param name="id">ID покупателя</param>
+        /// <param name="fullname">Полное имя покупателя.</param>
+        /// <param name="address">Адрес покупателя.</param>
+        /// <param name="id">ID покупателя.</param>
         public Customer(string fullname, string address, int id)
         {
             Id = IdGenerator.GetIdNext();

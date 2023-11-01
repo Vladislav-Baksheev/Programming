@@ -4,37 +4,38 @@ using ObjectOrientedPractics.Services;
 namespace ObjectOrientedPractics.Model
 {
     /// <summary>
-    /// Хранит данные о товарах
+    /// Хранит данные о товарах.
     /// </summary>
     public class Item
     {
         /// <summary>
-        /// Id товара
+        /// Id товара.
         /// </summary>
         private readonly int _id;
 
         /// <summary>
-        /// Имя товара
+        /// Имя товара.
         /// </summary>
         private string _name;
 
         /// <summary>
-        /// Информация о товаре
+        /// Информация о товаре.
         /// </summary>
         private string _info;
 
         /// <summary>
-        /// Стоимость товара
+        /// Стоимость товара.
         /// </summary>
         private double _cost;
 
         /// <summary>
-        /// Возвращает и задает id товара
+        /// Возвращает и задает id товара.
         /// </summary>
         public int Id { get; set; }
+
         /// <summary>
         /// Возвращает и задает имя товара
-        /// Не больше 200 символов
+        /// Не больше 200 символов.
         /// </summary>
         public string Name 
         { 
@@ -51,7 +52,7 @@ namespace ObjectOrientedPractics.Model
         }
         /// <summary>
         /// Возвращает и задает информацию о товаре
-        /// Не больше 1000 символов
+        /// Не больше 1000 символов.
         /// </summary>
         public string Info
         {
@@ -67,7 +68,7 @@ namespace ObjectOrientedPractics.Model
         }
         /// <summary>
         /// Возвращает и задает стоимость товара
-        /// От 0 до 100000
+        /// От 0 до 100000.
         /// </summary>
         public double Cost
         {
@@ -85,9 +86,9 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Создает экземпляр класса <see cref="Item"/>.
         /// </summary>
-        /// <param name="name">Название товара</param>
-        /// <param name="info">Описание товара</param>
-        /// <param name="cost">Цена товара</param>
+        /// <param name="name">Название товара.</param>
+        /// <param name="info">Описание товара.</param>
+        /// <param name="cost">Цена товара.</param>
         public Item(string name, string info, double cost)
         {
             Id = IdGenerator.GetIdNext();
@@ -96,7 +97,7 @@ namespace ObjectOrientedPractics.Model
             Cost = cost;
         }
         /// <summary>
-        /// Создает экхемпляр класса <see cref="Item"/>.
+        /// Создает экземпляр класса <see cref="Item"/>.
         /// </summary>
         public Item()
         {
@@ -104,6 +105,6 @@ namespace ObjectOrientedPractics.Model
             Name = "None";
             Info = "None";
             Cost = 0;
-        }
+        }       
     }
 }

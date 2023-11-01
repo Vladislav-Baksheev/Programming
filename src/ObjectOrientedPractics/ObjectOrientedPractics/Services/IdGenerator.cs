@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 namespace ObjectOrientedPractics.Services
 {
     /// <summary>
-    /// Хранит функционал для создания id
+    /// Хранит функционал для создания id.
     /// </summary>
     public static class IdGenerator
     {
         /// <summary>
-        /// Уникальный идентификатор
+        /// Уникальный идентификатор.
         /// </summary>
         private static int _id = 0;
 
         /// <summary>
-        /// Предоставляет генерацию id
+        /// Предоставляет генерацию id.
         /// </summary>
         /// <returns>id в виде целочисленного числа</returns>
         public static int GetIdNext()
