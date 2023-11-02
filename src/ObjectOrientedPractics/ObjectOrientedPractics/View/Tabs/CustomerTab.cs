@@ -12,14 +12,31 @@ using System.Windows.Forms;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
+    /// <summary>
+    /// Хранит логику обработки событий окна.
+    /// </summary>
     public partial class CustomerTab : UserControl
     {
-
+        /// <summary>
+        /// Список покупателей.
+        /// </summary>
         private List<Customer> _customers = new List<Customer>();
 
+        /// <summary>
+        /// Текущий покупатель.
+        /// </summary>
         private Customer _currentCustomer;
 
+        /// <summary>
+        /// Создает автоматически сгенерированого покупателя.
+        /// </summary>
         private CustomerFactory _customerFactory;
+        /// <summary>
+        /// Возвращает и задает список покупателей.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         private List<Customer> Customers
         {
             get
@@ -39,11 +56,17 @@ namespace ObjectOrientedPractics.View.Tabs
                 CustomersListBox.SelectedIndex = 0;
             }
         }
+        /// <summary>
+        /// Создает экземпляр класса <see cref="CustomerTab"/>
+        /// </summary>
         public CustomerTab()
         {
             InitializeComponent();
             _customerFactory = new CustomerFactory();
         }
+        /// <summary>
+        /// Обновляет информацию в текст боксах.
+        /// </summary>
         private void UpdateTextboxes(Customer customer)
         {
             FullnameTextBox.Text = customer.FullName;

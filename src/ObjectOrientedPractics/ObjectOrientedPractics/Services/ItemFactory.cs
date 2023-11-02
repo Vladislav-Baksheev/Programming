@@ -4,10 +4,23 @@ using ObjectOrientedPractics.Model;
 
 namespace ObjectOrientedPractics.Services
 {
+    /// <summary>
+    /// Предоставляет методы для автоматического создания экземпляров объекта
+    /// <see cref="Item"/>.
+    /// </summary>
     class ItemFactory
     {
+        /// <summary>
+        /// Товар.
+        /// </summary>
         private Item _item;
+
         private Random _random = new Random();
+
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Item"/>.
+        /// </summary>
+        /// <returns>Экземпляр класса <see cref="Item"/></returns>
         public Item CreateItem()
         {
             string[] items = {"хлеб","лук" };

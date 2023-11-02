@@ -6,15 +6,29 @@ using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
+    /// <summary>
+    /// Хранит логику обработки событий окна.
+    /// </summary>
     public partial class ItemsTab : UserControl
     {
+        /// <summary>
+        /// Список товаров.
+        /// </summary>
         
         private List<Item> _items = new List<Item>();
 
+        /// <summary>
+        /// Создает товары с автоматически заполненными данными.
+        /// </summary>
         private ItemFactory _itemFactory;
 
+        /// <summary>
+        /// Текущий товар.
+        /// </summary>
         private Item _currentItem;
-        
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<Item> Items 
         { 
             get
@@ -34,11 +48,18 @@ namespace ObjectOrientedPractics.View.Tabs
                 ItemsListBox.SelectedIndex = 0;
             }
         }
+        /// <summary>
+        /// Создает экземпляр класса <see cref="ItemsTab"/>.
+        /// </summary>
         public ItemsTab()
         {
             InitializeComponent();
             _itemFactory = new ItemFactory();
         }
+
+        /// <summary>
+        /// Обновляет все текстовые поля.
+        /// </summary>
         private void UpdateTextboxes(Item item)
         {
             CostTextBox.Text = item.Cost.ToString();
@@ -68,7 +89,6 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void RemoveButton_Click(object sender, EventArgs e)
         {
-            int index = ItemsListBox.SelectedIndex;
             if (ItemsListBox.Items.Count == 0) 
             { 
                 return; 
@@ -78,8 +98,6 @@ namespace ObjectOrientedPractics.View.Tabs
             ItemsListBox.SelectedIndex = Items.Count > 0 ? 0 : -1;
             UpdateTextboxes(_currentItem);  
         }
-
-        public event EventHandler<EventArgs> ItemsChanged;
 
         private void GenerateButton_Click(object sender, EventArgs e)
         {

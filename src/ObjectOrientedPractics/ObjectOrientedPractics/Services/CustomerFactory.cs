@@ -9,8 +9,16 @@ namespace ObjectOrientedPractics.Services
 {
     class CustomerFactory
     {
+        /// <summary>
+        /// Покупатель.
+        /// </summary>
         private Customer _customer;
+
         private Random _random = new Random();
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Customer"/>.
+        /// </summary>
+        /// <returns>Экземпляр класса <see cref="Customer"/>.</returns>
         public Customer CreateCustomer()
         {
             string[] fullname = { "Анатольев Владислав Андреевич", "Шоколадов Антон Валерьевич", "Лучших Филипп Казаков", "Худших Дмитрий Олегов"};
