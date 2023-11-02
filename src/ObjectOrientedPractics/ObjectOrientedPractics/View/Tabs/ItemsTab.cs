@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
@@ -14,7 +15,8 @@ namespace ObjectOrientedPractics.View.Tabs
         private ItemFactory _itemFactory;
 
         private Item _currentItem;
-        
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<Item> Items 
         { 
             get

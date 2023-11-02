@@ -20,6 +20,8 @@ namespace ObjectOrientedPractics.View.Tabs
         private Customer _currentCustomer;
 
         private CustomerFactory _customerFactory;
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         private List<Customer> Customers
         {
             get

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MainTabControl = new System.Windows.Forms.TabControl();
             this.ItemsTabPage = new System.Windows.Forms.TabPage();
-            this.itemsTab1 = new ObjectOrientedPractics.View.Tabs.ItemsTab();
             this.CustomersTabPage = new System.Windows.Forms.TabPage();
             this.MainCustomerTab = new ObjectOrientedPractics.View.Tabs.CustomerTab();
             this.MainTabControl.SuspendLayout();
@@ -51,7 +51,6 @@
             // 
             // ItemsTabPage
             // 
-            this.ItemsTabPage.Controls.Add(this.itemsTab1);
             this.ItemsTabPage.Location = new System.Drawing.Point(4, 22);
             this.ItemsTabPage.Name = "ItemsTabPage";
             this.ItemsTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -62,11 +61,6 @@
             // 
             // itemsTab1
             // 
-            this.itemsTab1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.itemsTab1.Location = new System.Drawing.Point(3, 3);
-            this.itemsTab1.Name = "itemsTab1";
-            this.itemsTab1.Size = new System.Drawing.Size(786, 418);
-            this.itemsTab1.TabIndex = 0;
             // 
             // CustomersTabPage
             // 
@@ -93,6 +87,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.MainTabControl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Object Oriented Practics";
             this.MainTabControl.ResumeLayout(false);
@@ -106,7 +101,6 @@
 
         private System.Windows.Forms.TabControl MainTabControl;
         private System.Windows.Forms.TabPage ItemsTabPage;
-        private View.Tabs.ItemsTab itemsTab1;
         private System.Windows.Forms.TabPage CustomersTabPage;
         private View.Tabs.CustomerTab MainCustomerTab;
     }
