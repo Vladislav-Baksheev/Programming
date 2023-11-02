@@ -32,6 +32,7 @@
             this.TableLayoutPanelButtons = new System.Windows.Forms.TableLayoutPanel();
             this.AddButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
+            this.GenerateButton = new System.Windows.Forms.Button();
             this.ItemsListBox = new System.Windows.Forms.ListBox();
             this.ItemsLabel = new System.Windows.Forms.Label();
             this.SelectItemsPanel = new System.Windows.Forms.Panel();
@@ -44,7 +45,6 @@
             this.CostLabel = new System.Windows.Forms.Label();
             this.IDLabel = new System.Windows.Forms.Label();
             this.SelectedItemsLabel = new System.Windows.Forms.Label();
-            this.GenerateButton = new System.Windows.Forms.Button();
             this.ItemsPanel.SuspendLayout();
             this.TableLayoutPanelButtons.SuspendLayout();
             this.SelectItemsPanel.SuspendLayout();
@@ -96,6 +96,16 @@
             this.RemoveButton.UseVisualStyleBackColor = true;
             this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
+            // GenerateButton
+            // 
+            this.GenerateButton.Location = new System.Drawing.Point(163, 3);
+            this.GenerateButton.Name = "GenerateButton";
+            this.GenerateButton.Size = new System.Drawing.Size(75, 51);
+            this.GenerateButton.TabIndex = 2;
+            this.GenerateButton.Text = "Generate";
+            this.GenerateButton.UseVisualStyleBackColor = true;
+            this.GenerateButton.Click += new System.EventHandler(this.GenerateButton_Click);
+            // 
             // ItemsListBox
             // 
             this.ItemsListBox.FormattingEnabled = true;
@@ -138,6 +148,7 @@
             this.DescriptionTextBox.Name = "DescriptionTextBox";
             this.DescriptionTextBox.Size = new System.Drawing.Size(338, 131);
             this.DescriptionTextBox.TabIndex = 8;
+            this.DescriptionTextBox.TextChanged += new System.EventHandler(this.DescriptionTextBox_TextChanged);
             // 
             // DescriptionLabel
             // 
@@ -155,6 +166,7 @@
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(339, 96);
             this.NameTextBox.TabIndex = 6;
+            this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
             // 
             // CostTextBox
             // 
@@ -162,6 +174,7 @@
             this.CostTextBox.Name = "CostTextBox";
             this.CostTextBox.Size = new System.Drawing.Size(100, 20);
             this.CostTextBox.TabIndex = 5;
+            this.CostTextBox.TextChanged += new System.EventHandler(this.CostTextBox_TextChanged);
             // 
             // IDTextBox
             // 
@@ -207,16 +220,6 @@
             this.SelectedItemsLabel.Size = new System.Drawing.Size(102, 15);
             this.SelectedItemsLabel.TabIndex = 0;
             this.SelectedItemsLabel.Text = "Selected Items";
-            // 
-            // GenerateButton
-            // 
-            this.GenerateButton.Location = new System.Drawing.Point(163, 3);
-            this.GenerateButton.Name = "GenerateButton";
-            this.GenerateButton.Size = new System.Drawing.Size(75, 51);
-            this.GenerateButton.TabIndex = 2;
-            this.GenerateButton.Text = "Generate";
-            this.GenerateButton.UseVisualStyleBackColor = true;
-            this.GenerateButton.Click += new System.EventHandler(this.GenerateButton_Click);
             // 
             // ItemsTab
             // 

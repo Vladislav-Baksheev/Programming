@@ -71,5 +71,11 @@ namespace ObjectOrientedPractics.Model
             FullName = fullname;
             Address = address;
         }
+        public Customer()
+        {
+            Id = IdGenerator.GetIdNext();
+            FullName = "None";
+            Address = "None";
+        }
     }
 }

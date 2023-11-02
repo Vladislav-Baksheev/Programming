@@ -89,5 +89,57 @@ namespace ObjectOrientedPractics.View.Tabs
             ItemsListBox.SelectedIndex = Items.Count - 1;
             UpdateTextboxes(_currentItem);
         }
+
+        private void CostTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try 
+            {
+                CostTextBox.BackColor = AppColor.GoodBackColor;
+                _currentItem.Cost = Convert.ToDouble(CostTextBox.Text);
+            } 
+            catch (Exception ex)
+            { 
+                CostTextBox.BackColor = AppColor.ErrorBackColor;
+                if(Items.Count == 0)
+                {
+                    CostTextBox.BackColor = AppColor.GoodBackColor;
+                }
+            }
+        }
+
+        private void NameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                NameTextBox.BackColor = AppColor.GoodBackColor;
+                _currentItem.Name = NameTextBox.Text;
+                ItemsListBox.Items[Items.IndexOf(_currentItem)] = _currentItem.Name;
+            }
+            catch (Exception ex)
+            {
+                NameTextBox.BackColor = AppColor.ErrorBackColor;
+                if (Items.Count == 0)
+                {
+                    NameTextBox.BackColor = AppColor.GoodBackColor;
+                }
+            }
+        }
+
+        private void DescriptionTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DescriptionTextBox.BackColor = AppColor.GoodBackColor;
+                _currentItem.Info = DescriptionTextBox.Text;
+            }
+            catch (Exception ex)
+            {
+                DescriptionTextBox.BackColor = AppColor.ErrorBackColor;
+                if (Items.Count == 0)
+                {
+                    DescriptionTextBox.BackColor = AppColor.GoodBackColor;
+                }
+            }
+        }
     }
 }
