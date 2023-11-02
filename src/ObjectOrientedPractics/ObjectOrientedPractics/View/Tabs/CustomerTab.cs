@@ -34,9 +34,6 @@ namespace ObjectOrientedPractics.View.Tabs
         /// <summary>
         /// Возвращает и задает список покупателей.
         /// </summary>
-        [Browsable(false)]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         private List<Customer> Customers
         {
             get
