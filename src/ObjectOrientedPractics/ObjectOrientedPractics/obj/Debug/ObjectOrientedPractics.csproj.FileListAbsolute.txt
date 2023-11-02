@@ -11,3 +11,6 @@ C:\Users\Владик\Desktop\Programming\src\ObjectOrientedPractics\ObjectOrien
 C:\Users\Владик\Desktop\Programming\src\ObjectOrientedPractics\ObjectOrientedPractics\obj\Debug\ObjectOrientedPractics.exe
 C:\Users\Владик\Desktop\Programming\src\ObjectOrientedPractics\ObjectOrientedPractics\obj\Debug\ObjectOrientedPractics.pdb
 C:\Users\Владик\Desktop\Programming\src\ObjectOrientedPractics\ObjectOrientedPractics\obj\Debug\ObjectOrientedPractics.View.Tabs.CustomerTab.resources
+C:\Users\Владик\Desktop\Programming\src\ObjectOrientedPractics\ObjectOrientedPractics\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Владик\Desktop\Programming\src\ObjectOrientedPractics\ObjectOrientedPractics\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Владик\Desktop\Programming\src\ObjectOrientedPractics\ObjectOrientedPractics\obj\Debug\ObjectOrientedPractics.csproj.CopyComplete

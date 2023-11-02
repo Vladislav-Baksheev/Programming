@@ -1,26 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
     public partial class ItemsTab : UserControl
     {
-        public ItemsTab()
-        {
-            InitializeComponent();
-        }
+        
         private List<Item> _items = new List<Item>();
 
-        private Item _currentItem;
+        private ItemFactory _itemFactory;
 
+        private Item _currentItem;
+        
         public List<Item> Items 
         { 
             get
@@ -39,6 +33,11 @@ namespace ObjectOrientedPractics.View.Tabs
                 }
                 ItemsListBox.SelectedIndex = 0;
             }
+        }
+        public ItemsTab()
+        {
+            InitializeComponent();
+            _itemFactory = new ItemFactory();
         }
         private void UpdateTextboxes(Item item)
         {
@@ -65,11 +64,30 @@ namespace ObjectOrientedPractics.View.Tabs
             _currentItem = Items[index];
             UpdateTextboxes(_currentItem);
         }
-        public event EventHandler<EventArgs> ItemsChanged;
+        
 
         private void RemoveButton_Click(object sender, EventArgs e)
         {
-            
+            int index = ItemsListBox.SelectedIndex;
+            if (ItemsListBox.Items.Count == 0) 
+            { 
+                return; 
+            }
+            Items.Remove(_currentItem);
+            ItemsListBox.Items.Remove(_currentItem.Name);
+            ItemsListBox.SelectedIndex = Items.Count > 0 ? 0 : -1;
+            UpdateTextboxes(_currentItem);  
+        }
+
+        public event EventHandler<EventArgs> ItemsChanged;
+
+        private void GenerateButton_Click(object sender, EventArgs e)
+        {
+            _currentItem = _itemFactory.CreateItem();
+            Items.Add(_currentItem);
+            ItemsListBox.Items.Add(_currentItem.Name);
+            ItemsListBox.SelectedIndex = Items.Count - 1;
+            UpdateTextboxes(_currentItem);
         }
     }
 }
