@@ -21,6 +21,8 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private CustomerFactory _customerFactory;
 
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         private List<Customer> Customers
         {

@@ -16,6 +16,8 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private Item _currentItem;
 
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<Item> Items 
         { 
