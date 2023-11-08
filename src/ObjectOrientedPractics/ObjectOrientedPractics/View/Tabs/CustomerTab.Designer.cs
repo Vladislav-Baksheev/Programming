@@ -37,13 +37,12 @@
             this.CustomersLabel = new System.Windows.Forms.Label();
             this.SelectedCustomersPanel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.AddressTextBox = new System.Windows.Forms.TextBox();
             this.FullnameTextBox = new System.Windows.Forms.TextBox();
             this.IDTextBox = new System.Windows.Forms.TextBox();
-            this.AddressLabel = new System.Windows.Forms.Label();
             this.FullnameLabel = new System.Windows.Forms.Label();
             this.IDLabel = new System.Windows.Forms.Label();
             this.SelectedCustomersLabel = new System.Windows.Forms.Label();
+            this.addressControl1 = new ObjectOrientedPractics.View.Controls.AddressControl();
             this.CustomersPanel.SuspendLayout();
             this.ButtonTableLayoutPanel.SuspendLayout();
             this.SelectedCustomersPanel.SuspendLayout();
@@ -108,7 +107,7 @@
             // CustomersListBox
             // 
             this.CustomersListBox.FormattingEnabled = true;
-            this.CustomersListBox.Location = new System.Drawing.Point(4, 23);
+            this.CustomersListBox.Location = new System.Drawing.Point(-2, 26);
             this.CustomersListBox.Name = "CustomersListBox";
             this.CustomersListBox.Size = new System.Drawing.Size(241, 316);
             this.CustomersListBox.TabIndex = 1;
@@ -126,35 +125,25 @@
             // 
             // SelectedCustomersPanel
             // 
+            this.SelectedCustomersPanel.Controls.Add(this.addressControl1);
             this.SelectedCustomersPanel.Controls.Add(this.panel3);
-            this.SelectedCustomersPanel.Controls.Add(this.AddressTextBox);
             this.SelectedCustomersPanel.Controls.Add(this.FullnameTextBox);
             this.SelectedCustomersPanel.Controls.Add(this.IDTextBox);
-            this.SelectedCustomersPanel.Controls.Add(this.AddressLabel);
             this.SelectedCustomersPanel.Controls.Add(this.FullnameLabel);
             this.SelectedCustomersPanel.Controls.Add(this.IDLabel);
             this.SelectedCustomersPanel.Controls.Add(this.SelectedCustomersLabel);
-            this.SelectedCustomersPanel.Location = new System.Drawing.Point(254, 0);
+            this.SelectedCustomersPanel.Location = new System.Drawing.Point(254, 4);
             this.SelectedCustomersPanel.Name = "SelectedCustomersPanel";
-            this.SelectedCustomersPanel.Size = new System.Drawing.Size(356, 416);
+            this.SelectedCustomersPanel.Size = new System.Drawing.Size(583, 416);
             this.SelectedCustomersPanel.TabIndex = 1;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(3, 216);
+            this.panel3.Location = new System.Drawing.Point(3, 305);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(350, 194);
+            this.panel3.Size = new System.Drawing.Size(577, 105);
             this.panel3.TabIndex = 7;
-            // 
-            // AddressTextBox
-            // 
-            this.AddressTextBox.Location = new System.Drawing.Point(78, 88);
-            this.AddressTextBox.Multiline = true;
-            this.AddressTextBox.Name = "AddressTextBox";
-            this.AddressTextBox.Size = new System.Drawing.Size(275, 113);
-            this.AddressTextBox.TabIndex = 6;
-            this.AddressTextBox.TextChanged += new System.EventHandler(this.AddressTextBox_TextChanged);
             // 
             // FullnameTextBox
             // 
@@ -171,15 +160,6 @@
             this.IDTextBox.ReadOnly = true;
             this.IDTextBox.Size = new System.Drawing.Size(100, 20);
             this.IDTextBox.TabIndex = 4;
-            // 
-            // AddressLabel
-            // 
-            this.AddressLabel.AutoSize = true;
-            this.AddressLabel.Location = new System.Drawing.Point(7, 88);
-            this.AddressLabel.Name = "AddressLabel";
-            this.AddressLabel.Size = new System.Drawing.Size(48, 13);
-            this.AddressLabel.TabIndex = 3;
-            this.AddressLabel.Text = "Address:";
             // 
             // FullnameLabel
             // 
@@ -203,11 +183,19 @@
             // 
             this.SelectedCustomersLabel.AutoSize = true;
             this.SelectedCustomersLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SelectedCustomersLabel.Location = new System.Drawing.Point(4, 4);
+            this.SelectedCustomersLabel.Location = new System.Drawing.Point(7, 0);
             this.SelectedCustomersLabel.Name = "SelectedCustomersLabel";
             this.SelectedCustomersLabel.Size = new System.Drawing.Size(128, 15);
             this.SelectedCustomersLabel.TabIndex = 0;
             this.SelectedCustomersLabel.Text = "Selected Customer";
+            // 
+            // addressControl1
+            // 
+            this.addressControl1.Address = null;
+            this.addressControl1.Location = new System.Drawing.Point(3, 92);
+            this.addressControl1.Name = "addressControl1";
+            this.addressControl1.Size = new System.Drawing.Size(494, 207);
+            this.addressControl1.TabIndex = 8;
             // 
             // CustomerTab
             // 
@@ -216,7 +204,7 @@
             this.Controls.Add(this.SelectedCustomersPanel);
             this.Controls.Add(this.CustomersPanel);
             this.Name = "CustomerTab";
-            this.Size = new System.Drawing.Size(610, 416);
+            this.Size = new System.Drawing.Size(840, 416);
             this.CustomersPanel.ResumeLayout(false);
             this.CustomersPanel.PerformLayout();
             this.ButtonTableLayoutPanel.ResumeLayout(false);
@@ -236,13 +224,12 @@
         private System.Windows.Forms.Label CustomersLabel;
         private System.Windows.Forms.Panel SelectedCustomersPanel;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox AddressTextBox;
         private System.Windows.Forms.TextBox FullnameTextBox;
         private System.Windows.Forms.TextBox IDTextBox;
-        private System.Windows.Forms.Label AddressLabel;
         private System.Windows.Forms.Label FullnameLabel;
         private System.Windows.Forms.Label IDLabel;
         private System.Windows.Forms.Label SelectedCustomersLabel;
         private System.Windows.Forms.Button GenerateButton;
+        private Controls.AddressControl addressControl1;
     }
 }

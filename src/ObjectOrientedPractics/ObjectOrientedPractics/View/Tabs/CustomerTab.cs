@@ -67,7 +67,6 @@ namespace ObjectOrientedPractics.View.Tabs
         private void UpdateTextboxes(Customer customer)
         {
             FullnameTextBox.Text = customer.FullName;
-            AddressTextBox.Text = customer.Address;
             IDTextBox.Text = customer.Id.ToString();
         }
         private void AddButton_Click(object sender, EventArgs e)
@@ -129,21 +128,6 @@ namespace ObjectOrientedPractics.View.Tabs
             
         }
 
-        private void AddressTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                AddressTextBox.BackColor = AppColor.GoodBackColor;
-                _currentCustomer.Address = AddressTextBox.Text;
-            }
-            catch (Exception ex)
-            {
-                AddressTextBox.BackColor = AppColor.ErrorBackColor;
-                if (Customers.Count == 0)
-                {
-                    AddressTextBox.BackColor = AppColor.GoodBackColor;
-                }
-            }
-        }
+        
     }
 }

@@ -43,29 +43,15 @@ namespace ObjectOrientedPractics.Model
                 _fullname = value;
             }
         }
+        public Address Address { get; set; }
 
-        /// <summary>
-        /// Возвращает и задает адрес покупателя.
-        /// </summary>
-        public string Address
-        {
-            get
-            {
-                return _address;
-            }
-            set
-            {
-                Validator.AssertStringOnLength(value, 500, nameof(value));
-                _address = value;
-            }
-        }
         /// <summary>
         /// Создает экземпляр класса <see cref="Customer"/>.
         /// </summary>
         /// <param name="fullname">Полное имя покупателя.</param>
         /// <param name="address">Адрес покупателя.</param>
         /// <param name="id">ID покупателя.</param>
-        public Customer(string fullname, string address, int id)
+        public Customer(string fullname, Address address)
         {
             Id = IdGenerator.GetIdNext();
             FullName = fullname;
@@ -75,7 +61,7 @@ namespace ObjectOrientedPractics.Model
         {
             Id = IdGenerator.GetIdNext();
             FullName = "None";
-            Address = "None";
+            Address = new Address();
         }
     }
 }
