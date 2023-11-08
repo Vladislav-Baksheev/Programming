@@ -41,12 +41,12 @@ namespace ObjectOrientedPractics.View.Controls
         private void UpdateTextBoxes()
         {
 
-            PostIndexTextBox.Text = _address.Index.ToString();
-            CountryTextBox.Text = _address.Country;
-            CityTextBox.Text = _address.City;
-            StreetTextBox.Text = _address.Street;
-            BuildingTextBox.Text = _address.Building;
-            ApartmentTextBox.Text = _address.Apartment;
+            PostIndexTextBox.Text = Address.Index.ToString();
+            CountryTextBox.Text = Address.Country;
+            CityTextBox.Text = Address.City;
+            StreetTextBox.Text = Address.Street;
+            BuildingTextBox.Text = Address.House;
+            ApartmentTextBox.Text = Address.Apartment;
         }
 
         private void PostIndexTextBox_TextChanged(object sender, EventArgs e)
@@ -54,7 +54,7 @@ namespace ObjectOrientedPractics.View.Controls
             try
             {
                 PostIndexTextBox.BackColor = AppColor.GoodBackColor;
-                _address.Index = Convert.ToInt32(PostIndexTextBox.Text);
+                Address.Index = Convert.ToInt32(PostIndexTextBox.Text);
             }
             catch
             {
@@ -67,7 +67,7 @@ namespace ObjectOrientedPractics.View.Controls
             try
             {
                 CountryTextBox.BackColor = AppColor.GoodBackColor;
-                _address.Country = CountryTextBox.Text;
+                Address.Country = CountryTextBox.Text;
             }
             catch
             {
@@ -80,7 +80,7 @@ namespace ObjectOrientedPractics.View.Controls
             try
             {
                 StreetTextBox.BackColor = AppColor.GoodBackColor;
-                _address.Street = StreetTextBox.Text;
+                Address.Street = StreetTextBox.Text;
             }
             catch
             {
@@ -93,7 +93,7 @@ namespace ObjectOrientedPractics.View.Controls
             try
             {
                 BuildingTextBox.BackColor = AppColor.GoodBackColor;
-                _address.Building = BuildingTextBox.Text;
+                Address.House = BuildingTextBox.Text;
             }
             catch
             {
@@ -106,7 +106,7 @@ namespace ObjectOrientedPractics.View.Controls
             try
             {
                 CityTextBox.BackColor = AppColor.GoodBackColor;
-                _address.City = CityTextBox.Text;
+                Address.City = CityTextBox.Text;
             }
             catch
             {
@@ -119,7 +119,7 @@ namespace ObjectOrientedPractics.View.Controls
             try
             {
                 ApartmentTextBox.BackColor = AppColor.GoodBackColor;
-                _address.Apartment = ApartmentTextBox.Text;
+                Address.Apartment = ApartmentTextBox.Text;
             }
             catch
             {

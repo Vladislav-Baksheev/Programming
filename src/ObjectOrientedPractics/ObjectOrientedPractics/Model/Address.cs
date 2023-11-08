@@ -116,7 +116,7 @@ namespace ObjectOrientedPractics.Model
         /// Возвращает и получает номер дома.
         /// Не более 10 символов.
         /// </summary>
-        public string Building
+        public string House
         {
             get 
             { 
@@ -163,7 +163,7 @@ namespace ObjectOrientedPractics.Model
             Country = country;
             City = city;
             Street = street;
-            Building = building;
+            House = building;
             Apartment = apartment;
         }
 
@@ -176,7 +176,7 @@ namespace ObjectOrientedPractics.Model
             Country = "None";
             City = "None";
             Street = "None";
-            Building = "None";
+            House = "None";
             Apartment = "None";
         }
     }

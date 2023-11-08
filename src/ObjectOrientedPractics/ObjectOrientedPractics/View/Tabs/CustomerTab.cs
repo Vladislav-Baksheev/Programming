@@ -1,5 +1,6 @@
 ﻿using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
+using ObjectOrientedPractics.View.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -68,6 +69,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             FullnameTextBox.Text = customer.FullName;
             IDTextBox.Text = customer.Id.ToString();
+            addressControl1.Address = customer.Address;
         }
         private void AddButton_Click(object sender, EventArgs e)
         {
