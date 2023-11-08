@@ -14,6 +14,26 @@ namespace ObjectOrientedPractics.Model
         private readonly int _id;
 
         /// <summary>
+        /// Бренд машины.
+        /// </summary>
+        private string _carBrand = "";
+
+        /// <summary>
+        /// Модель машины
+        /// </summary>
+        private string _carModel = "";
+
+        /// <summary>
+        /// Год выпуска маишны.
+        /// </summary>
+        private string _carYear = "";
+
+        /// <summary>
+        /// Цвет машины.
+        /// </summary>
+        private string _carColor = "";
+
+        /// <summary>
         /// Имя товара.
         /// </summary>
         private string _name;
@@ -37,19 +57,28 @@ namespace ObjectOrientedPractics.Model
         /// Возвращает и задает имя товара
         /// Не больше 200 символов.
         /// </summary>
-        public string Name 
-        { 
-            get 
-            { 
-                return _name; 
+        public string Name
+        {
+            get
+            {
+                if(CarBrand != "")
+                {
+                    Name = CarBrand;
+                }
+                return _name;
             }
             set
             {
                 Validator.AssertStringOnLength(value, 200, nameof(value));
-                _name = value;
+                if(value != _name) 
+                { 
+                    _name = value;
+                }
+                
             }
 
         }
+
         /// <summary>
         /// Возвращает и задает информацию о товаре
         /// Не больше 1000 символов.
@@ -58,14 +87,21 @@ namespace ObjectOrientedPractics.Model
         {
             get
             {
+                if (CarColor != "" || CarModel != "" || CarYear != "")
+                    Info = $"{CarColor} {CarModel} {CarYear}";
                 return _info;
             }
-            set 
-            { 
+            set
+            {
                 Validator.AssertStringOnLength(value, 1000, nameof(value));
-                _info = value; 
+                if(value != _info)
+                {
+                    _info = value;
+                }
+                _info = value;
             }
         }
+
         /// <summary>
         /// Возвращает и задает стоимость товара
         /// От 0 до 100000.
@@ -84,18 +120,90 @@ namespace ObjectOrientedPractics.Model
 
         }
         /// <summary>
+        /// Возвращает и задает значения модели машины.
+        /// </summary>
+        public string CarModel
+        {
+            get
+            {
+                return _carModel;
+            }
+            set
+            {
+                Validator.AssertStringOnLength(value, 333, nameof(CarModel));
+                _carModel = value;
+            }
+        }
+        
+        /// <summary>
+        /// Возвращает и задает значения цвета машины. 
+        /// </summary>
+        public string CarColor
+        {
+            get
+            {
+                return _carColor;
+            }
+            set
+            {
+                Validator.AssertStringOnLength(value, 333, nameof(CarColor));
+                _carColor = value;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает и задает значения бренда машины.
+        /// </summary>
+        public string CarBrand
+        {
+            get
+            {
+                return _carBrand;
+            }
+            set
+            {
+                Validator.AssertStringOnLength(value, 200, nameof(CarBrand));
+                _carBrand = value;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает и задает значения года выпуска машины.
+        /// </summary>
+        public string CarYear
+        {
+            get
+            {
+                return _carYear;
+            }
+            set
+            {
+                Validator.AssertStringOnLength(value, 333, nameof(CarYear));
+                _carYear = value;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает и задает категорию товара.
+        /// </summary>
+        public Category Category {get; set; }
+
+        /// <summary>
         /// Создает экземпляр класса <see cref="Item"/>.
         /// </summary>
         /// <param name="name">Название товара.</param>
         /// <param name="info">Описание товара.</param>
         /// <param name="cost">Цена товара.</param>
-        public Item(string name, string info, double cost)
+        /// <param name="category">Категория товара</param>
+        public Item(string name, string info, double cost, Category category)
         {
             Id = IdGenerator.GetIdNext();
             Name = name;
             Info = info;
             Cost = cost;
+            Category = category;
         }
+
         /// <summary>
         /// Создает экземпляр класса <see cref="Item"/>.
         /// </summary>
@@ -105,6 +213,7 @@ namespace ObjectOrientedPractics.Model
             Name = "None";
             Info = "None";
             Cost = 0;
+            Category = Category.None;
         }       
     }
 }

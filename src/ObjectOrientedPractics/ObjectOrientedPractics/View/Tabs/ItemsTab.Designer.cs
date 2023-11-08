@@ -36,6 +36,8 @@
             this.ItemsListBox = new System.Windows.Forms.ListBox();
             this.ItemsLabel = new System.Windows.Forms.Label();
             this.SelectItemsPanel = new System.Windows.Forms.Panel();
+            this.CategoryLabel = new System.Windows.Forms.Label();
+            this.CategoryComboBox = new System.Windows.Forms.ComboBox();
             this.DescriptionTextBox = new System.Windows.Forms.TextBox();
             this.DescriptionLabel = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
@@ -127,6 +129,8 @@
             // 
             // SelectItemsPanel
             // 
+            this.SelectItemsPanel.Controls.Add(this.CategoryLabel);
+            this.SelectItemsPanel.Controls.Add(this.CategoryComboBox);
             this.SelectItemsPanel.Controls.Add(this.DescriptionTextBox);
             this.SelectItemsPanel.Controls.Add(this.DescriptionLabel);
             this.SelectItemsPanel.Controls.Add(this.NameTextBox);
@@ -140,6 +144,24 @@
             this.SelectItemsPanel.Name = "SelectItemsPanel";
             this.SelectItemsPanel.Size = new System.Drawing.Size(345, 404);
             this.SelectItemsPanel.TabIndex = 1;
+            // 
+            // CategoryLabel
+            // 
+            this.CategoryLabel.AutoSize = true;
+            this.CategoryLabel.Location = new System.Drawing.Point(6, 90);
+            this.CategoryLabel.Name = "CategoryLabel";
+            this.CategoryLabel.Size = new System.Drawing.Size(52, 13);
+            this.CategoryLabel.TabIndex = 10;
+            this.CategoryLabel.Text = "Category:";
+            // 
+            // CategoryComboBox
+            // 
+            this.CategoryComboBox.FormattingEnabled = true;
+            this.CategoryComboBox.Location = new System.Drawing.Point(70, 90);
+            this.CategoryComboBox.Name = "CategoryComboBox";
+            this.CategoryComboBox.Size = new System.Drawing.Size(121, 21);
+            this.CategoryComboBox.TabIndex = 9;
+            this.CategoryComboBox.TextChanged += new System.EventHandler(this.CategoryComboBox_TextChanged);
             // 
             // DescriptionTextBox
             // 
@@ -257,5 +279,7 @@
         private System.Windows.Forms.Label IDLabel;
         private System.Windows.Forms.Label SelectedItemsLabel;
         private System.Windows.Forms.Button GenerateButton;
+        private System.Windows.Forms.Label CategoryLabel;
+        private System.Windows.Forms.ComboBox CategoryComboBox;
     }
 }

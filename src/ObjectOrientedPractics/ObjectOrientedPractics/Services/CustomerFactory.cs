@@ -15,6 +15,7 @@ namespace ObjectOrientedPractics.Services
         private Customer _customer;
 
         private Random _random = new Random();
+
         /// <summary>
         /// Создает экземпляр класса <see cref="Customer"/>.
         /// </summary>

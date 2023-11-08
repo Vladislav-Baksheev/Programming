@@ -15,7 +15,16 @@ namespace ObjectOrientedPractics.Services
         /// </summary>
         private Item _item;
 
+        private DataAPI dataAPI;
+
+        private string _parametres = "CarBrand,CarModel,CarYear,CarColor";
+
         private Random _random = new Random();
+
+        public ItemFactory()
+        {
+            dataAPI = new DataAPI(_parametres);
+        }
 
         /// <summary>
         /// Создает экземпляр класса <see cref="Item"/>.
@@ -23,11 +32,9 @@ namespace ObjectOrientedPractics.Services
         /// <returns>Экземпляр класса <see cref="Item"/></returns>
         public Item CreateItem()
         {
-            string[] items = {"хлеб","лук" };
-            _item = new Item();
-            _item.Name = items[_random.Next(items.Length)];
+            _item = JsonConvert.DeserializeObject<Item>(dataAPI.GetJsonData());
             _item.Cost = _random.Next(1, 99999);
-            
+            _item.Category = Category.Car;
             return _item;
         }
     }
