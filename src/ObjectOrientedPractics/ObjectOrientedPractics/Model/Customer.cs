@@ -6,7 +6,7 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Хранит данные о покупателях.
     /// </summary>
-    internal class Customer
+    public class Customer
     {
         /// <summary>
         /// Id покупателя.
@@ -18,11 +18,11 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         private string _fullname;
 
-        private string _lastName;
+        private string _lastName = "";
 
-        private string _firstName;
+        private string _firstName = "";
 
-        private string _fatherName;
+        private string _fatherName = "";
 
         /// <summary>
         /// Адрес доставки.
@@ -37,22 +37,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает и задает полное имя покупателя.
         /// </summary>
-        public string FullName 
-        {
-            get 
-            {
-                if(FirstName != "" || LastName != "" || FatherName != "")
-                {
-                    FullName = $"{LastName} {FirstName} {FatherName}";
-                }
-                    return _fullname;
-            }
-            set
-            {
-                Validator.AssertStringOnLength(value, 200, nameof(value));
-                _fullname = value;
-            }
-        }
+       
         public string LastName
         {
             get 
@@ -86,6 +71,22 @@ namespace ObjectOrientedPractics.Model
             set
             {
                 _fatherName = value;
+            }
+        }
+        public string FullName
+        {
+            get
+            {
+                if (FirstName != "" || LastName != "" || FatherName != "")
+                {
+                    FullName = $"{LastName} {FirstName} {FatherName}";
+                }
+                return _fullname;
+            }
+            set
+            {
+                Validator.AssertStringOnLength(value, 200, nameof(value));
+                _fullname = value;
             }
         }
         public Address Address { get; set; }

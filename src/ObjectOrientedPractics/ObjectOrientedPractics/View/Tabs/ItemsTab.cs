@@ -49,8 +49,9 @@ namespace ObjectOrientedPractics.View.Tabs
                     {
                         ItemsListBox.Items.Add(item.Name);
                     }
+                    ItemsListBox.SelectedIndex = 0;
                 }
-                ItemsListBox.SelectedIndex = 0;
+                
             }
         }
 

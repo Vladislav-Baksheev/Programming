@@ -34,7 +34,7 @@ namespace ObjectOrientedPractics.Services
         {
             _item = JsonConvert.DeserializeObject<Item>(dataAPI.GetJsonData());
             _item.Cost = _random.Next(1, 99999);
-            _item.Category = Category.Car;
+            _item.Category = Category.Cars;
             return _item;
         }
     }

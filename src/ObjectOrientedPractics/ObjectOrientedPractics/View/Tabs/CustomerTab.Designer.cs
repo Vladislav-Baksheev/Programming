@@ -36,13 +36,13 @@
             this.CustomersListBox = new System.Windows.Forms.ListBox();
             this.CustomersLabel = new System.Windows.Forms.Label();
             this.SelectedCustomersPanel = new System.Windows.Forms.Panel();
+            this.addressControl1 = new ObjectOrientedPractics.View.Controls.AddressControl();
             this.panel3 = new System.Windows.Forms.Panel();
             this.FullnameTextBox = new System.Windows.Forms.TextBox();
             this.IDTextBox = new System.Windows.Forms.TextBox();
             this.FullnameLabel = new System.Windows.Forms.Label();
             this.IDLabel = new System.Windows.Forms.Label();
             this.SelectedCustomersLabel = new System.Windows.Forms.Label();
-            this.addressControl1 = new ObjectOrientedPractics.View.Controls.AddressControl();
             this.CustomersPanel.SuspendLayout();
             this.ButtonTableLayoutPanel.SuspendLayout();
             this.SelectedCustomersPanel.SuspendLayout();
@@ -107,7 +107,7 @@
             // CustomersListBox
             // 
             this.CustomersListBox.FormattingEnabled = true;
-            this.CustomersListBox.Location = new System.Drawing.Point(-2, 26);
+            this.CustomersListBox.Location = new System.Drawing.Point(3, 26);
             this.CustomersListBox.Name = "CustomersListBox";
             this.CustomersListBox.Size = new System.Drawing.Size(241, 316);
             this.CustomersListBox.TabIndex = 1;
@@ -136,6 +136,14 @@
             this.SelectedCustomersPanel.Name = "SelectedCustomersPanel";
             this.SelectedCustomersPanel.Size = new System.Drawing.Size(583, 416);
             this.SelectedCustomersPanel.TabIndex = 1;
+            // 
+            // addressControl1
+            // 
+            this.addressControl1.Address = null;
+            this.addressControl1.Location = new System.Drawing.Point(3, 92);
+            this.addressControl1.Name = "addressControl1";
+            this.addressControl1.Size = new System.Drawing.Size(494, 207);
+            this.addressControl1.TabIndex = 8;
             // 
             // panel3
             // 
@@ -188,14 +196,6 @@
             this.SelectedCustomersLabel.Size = new System.Drawing.Size(128, 15);
             this.SelectedCustomersLabel.TabIndex = 0;
             this.SelectedCustomersLabel.Text = "Selected Customer";
-            // 
-            // addressControl1
-            // 
-            this.addressControl1.Address = null;
-            this.addressControl1.Location = new System.Drawing.Point(3, 92);
-            this.addressControl1.Name = "addressControl1";
-            this.addressControl1.Size = new System.Drawing.Size(494, 207);
-            this.addressControl1.TabIndex = 8;
             // 
             // CustomerTab
             // 

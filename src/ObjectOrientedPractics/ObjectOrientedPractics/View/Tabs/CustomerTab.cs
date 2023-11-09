@@ -32,10 +32,14 @@ namespace ObjectOrientedPractics.View.Tabs
         /// Создает автоматически сгенерированого покупателя.
         /// </summary>
         private CustomerFactory _customerFactory;
+
         /// <summary>
         /// Возвращает и задает список покупателей.
         /// </summary>
-        private List<Customer> Customers
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public List<Customer> Customers
         {
             get
             {
@@ -50,8 +54,9 @@ namespace ObjectOrientedPractics.View.Tabs
                     {
                         CustomersListBox.Items.Add(customer.FullName);
                     }
+                    CustomersListBox.SelectedIndex = 0;
                 }
-                CustomersListBox.SelectedIndex = 0;
+                
             }
         }
         /// <summary>
@@ -76,6 +81,7 @@ namespace ObjectOrientedPractics.View.Tabs
             _currentCustomer = new Customer();
             Customers.Add(_currentCustomer);
             CustomersListBox.Items.Add(_currentCustomer.FullName);
+            CustomersListBox.SelectedIndex = Customers.Count - 1;
             UpdateTextboxes(_currentCustomer);
         }
 

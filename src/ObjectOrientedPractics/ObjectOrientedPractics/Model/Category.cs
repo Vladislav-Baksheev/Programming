@@ -12,11 +12,11 @@ namespace ObjectOrientedPractics.Model
     public enum Category
     {
         Food,
-        Clother,
-        Cosmetic,
-        Car,
-        Book,
-        Film,
+        Clothes,
+        Cosmetics,
+        Cars,
+        Books,
+        Films,
         Music,
         None
     }
