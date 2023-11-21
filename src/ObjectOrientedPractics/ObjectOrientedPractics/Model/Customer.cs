@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.Model
@@ -92,6 +93,16 @@ namespace ObjectOrientedPractics.Model
         public Address Address { get; set; }
 
         /// <summary>
+        /// Возвращает и задает корзину товаров покупателя. 
+        /// </summary>
+        public Cart Cart { get; set; }
+
+        /// <summary>
+        /// Возвращает и задает заказы покупателя.
+        /// </summary>
+        public List<Order> Orders { get; set; }
+
+        /// <summary>
         /// Создает экземпляр класса <see cref="Customer"/>.
         /// </summary>
         /// <param name="fullname">Полное имя покупателя.</param>
@@ -108,6 +119,7 @@ namespace ObjectOrientedPractics.Model
             Id = IdGenerator.GetIdNext();
             FullName = "None";
             Address = new Address();
+            Cart = new Cart();
         }
     }
 }
