@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ObjectOrientedPractics.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,9 +17,14 @@ namespace ObjectOrientedPractics.Model
         public string OrderCreationDate { get; }
 
         /// <summary>
+        /// Возвращает и задает статус заказа.
+        /// </summary>
+        public OrderStatus OrderStatus { get; set; }
+
+        /// <summary>
         /// Возвращает и задает адрес доставки заказа.
         /// </summary>
-        public string DeliveryAddress { get; set; }
+        public Address DeliveryAddress { get; set; }
 
         /// <summary>
         /// Возвращает и задает список товаров заказа.
@@ -48,7 +54,13 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
-
+        public Order()
+        {
+            Id = IdGenerator.GetIdNext();
+            Items = new List<Item>();
+            OrderStatus = OrderStatus.New;
+            OrderCreationDate = DateTime.Now.ToString();
+        }
 
     }
 }

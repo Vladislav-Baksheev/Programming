@@ -19,10 +19,19 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         private string _fullname;
 
+        /// <summary>
+        /// Фамилия покупателя.
+        /// </summary>
         private string _lastName = "";
 
+        /// <summary>
+        /// Имя покупателя.
+        /// </summary>
         private string _firstName = "";
 
+        /// <summary>
+        /// Отчество покупателя.
+        /// </summary>
         private string _fatherName = "";
 
         /// <summary>
@@ -36,9 +45,8 @@ namespace ObjectOrientedPractics.Model
         public int Id { get; set;}
 
         /// <summary>
-        /// Возвращает и задает полное имя покупателя.
+        /// Возвращает и задает фамилию покупателя.
         /// </summary>
-       
         public string LastName
         {
             get 
@@ -51,6 +59,9 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает имя покупателя.
+        /// </summary>
         public string FirstName
         {
             get 
@@ -63,6 +74,9 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает отчество покупателя
+        /// </summary>
         public string FatherName
         {
             get
@@ -74,6 +88,10 @@ namespace ObjectOrientedPractics.Model
                 _fatherName = value;
             }
         }
+
+        /// <summary>
+        /// Возвращает и задает полное имя покупателя.
+        /// </summary>
         public string FullName
         {
             get
@@ -90,6 +108,9 @@ namespace ObjectOrientedPractics.Model
                 _fullname = value;
             }
         }
+        /// <summary>
+        /// Возвращает и задает адрес пользователя.
+        /// </summary>
         public Address Address { get; set; }
 
         /// <summary>
