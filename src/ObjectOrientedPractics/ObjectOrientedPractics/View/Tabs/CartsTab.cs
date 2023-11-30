@@ -167,6 +167,7 @@ namespace ObjectOrientedPractics.View.Tabs
             CurrentCustomer.Cart.Items.Clear();
             CartListBox.Items.Clear();
             SumCostLabel.Text = CurrentCustomer.Cart.Amount.ToString();
+            CurrentCustomer.Orders.Add(order);
             UpdateCartListBox();
         }
     }

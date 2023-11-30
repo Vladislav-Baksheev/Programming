@@ -134,6 +134,8 @@ namespace ObjectOrientedPractics.Model
             Id = IdGenerator.GetIdNext();
             FullName = fullname;
             Address = address;
+            Cart = new Cart();
+            Orders = new List<Order>();
         }
         public Customer()
         {
@@ -141,6 +143,7 @@ namespace ObjectOrientedPractics.Model
             FullName = "None";
             Address = new Address();
             Cart = new Cart();
+            Orders = new List<Order>();
         }
     }
 }

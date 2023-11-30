@@ -37,7 +37,6 @@
             this.CustomersLabel = new System.Windows.Forms.Label();
             this.SelectedCustomersPanel = new System.Windows.Forms.Panel();
             this.addressControl1 = new ObjectOrientedPractics.View.Controls.AddressControl();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.FullnameTextBox = new System.Windows.Forms.TextBox();
             this.IDTextBox = new System.Windows.Forms.TextBox();
             this.FullnameLabel = new System.Windows.Forms.Label();
@@ -50,6 +49,8 @@
             // 
             // CustomersPanel
             // 
+            this.CustomersPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.CustomersPanel.Controls.Add(this.ButtonTableLayoutPanel);
             this.CustomersPanel.Controls.Add(this.CustomersListBox);
             this.CustomersPanel.Controls.Add(this.CustomersLabel);
@@ -60,6 +61,7 @@
             // 
             // ButtonTableLayoutPanel
             // 
+            this.ButtonTableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ButtonTableLayoutPanel.ColumnCount = 3;
             this.ButtonTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.ButtonTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
@@ -76,6 +78,7 @@
             // 
             // AddButton
             // 
+            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddButton.Location = new System.Drawing.Point(3, 3);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(73, 62);
@@ -86,6 +89,7 @@
             // 
             // RemoveButton
             // 
+            this.RemoveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.RemoveButton.Location = new System.Drawing.Point(82, 3);
             this.RemoveButton.Name = "RemoveButton";
             this.RemoveButton.Size = new System.Drawing.Size(73, 62);
@@ -96,6 +100,7 @@
             // 
             // GenerateButton
             // 
+            this.GenerateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.GenerateButton.Location = new System.Drawing.Point(161, 3);
             this.GenerateButton.Name = "GenerateButton";
             this.GenerateButton.Size = new System.Drawing.Size(74, 62);
@@ -106,6 +111,8 @@
             // 
             // CustomersListBox
             // 
+            this.CustomersListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.CustomersListBox.FormattingEnabled = true;
             this.CustomersListBox.Location = new System.Drawing.Point(3, 26);
             this.CustomersListBox.Name = "CustomersListBox";
@@ -125,8 +132,10 @@
             // 
             // SelectedCustomersPanel
             // 
+            this.SelectedCustomersPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedCustomersPanel.Controls.Add(this.addressControl1);
-            this.SelectedCustomersPanel.Controls.Add(this.panel3);
             this.SelectedCustomersPanel.Controls.Add(this.FullnameTextBox);
             this.SelectedCustomersPanel.Controls.Add(this.IDTextBox);
             this.SelectedCustomersPanel.Controls.Add(this.FullnameLabel);
@@ -140,21 +149,17 @@
             // addressControl1
             // 
             this.addressControl1.Address = null;
-            this.addressControl1.Location = new System.Drawing.Point(3, 92);
+            this.addressControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addressControl1.Location = new System.Drawing.Point(10, 87);
             this.addressControl1.Name = "addressControl1";
             this.addressControl1.Size = new System.Drawing.Size(494, 207);
             this.addressControl1.TabIndex = 8;
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(3, 305);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(577, 105);
-            this.panel3.TabIndex = 7;
-            // 
             // FullnameTextBox
             // 
+            this.FullnameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.FullnameTextBox.Location = new System.Drawing.Point(78, 61);
             this.FullnameTextBox.Name = "FullnameTextBox";
             this.FullnameTextBox.Size = new System.Drawing.Size(275, 20);
@@ -163,6 +168,8 @@
             // 
             // IDTextBox
             // 
+            this.IDTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.IDTextBox.Location = new System.Drawing.Point(78, 33);
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.ReadOnly = true;
@@ -223,7 +230,6 @@
         private System.Windows.Forms.ListBox CustomersListBox;
         private System.Windows.Forms.Label CustomersLabel;
         private System.Windows.Forms.Panel SelectedCustomersPanel;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox FullnameTextBox;
         private System.Windows.Forms.TextBox IDTextBox;
         private System.Windows.Forms.Label FullnameLabel;

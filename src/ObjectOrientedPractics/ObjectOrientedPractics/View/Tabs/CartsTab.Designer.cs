@@ -64,6 +64,8 @@
             // 
             // ItemsListBox
             // 
+            this.ItemsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.ItemsListBox.FormattingEnabled = true;
             this.ItemsListBox.Location = new System.Drawing.Point(6, 45);
             this.ItemsListBox.Name = "ItemsListBox";
@@ -72,6 +74,7 @@
             // 
             // AddToCartButton
             // 
+            this.AddToCartButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddToCartButton.Location = new System.Drawing.Point(6, 446);
             this.AddToCartButton.Name = "AddToCartButton";
             this.AddToCartButton.Size = new System.Drawing.Size(114, 54);
@@ -82,6 +85,8 @@
             // 
             // CustomersComboBox
             // 
+            this.CustomersComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CustomersComboBox.FormattingEnabled = true;
             this.CustomersComboBox.Location = new System.Drawing.Point(356, 44);
             this.CustomersComboBox.Name = "CustomersComboBox";
@@ -100,6 +105,8 @@
             // 
             // CartListBox
             // 
+            this.CartListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CartListBox.FormattingEnabled = true;
             this.CartListBox.Location = new System.Drawing.Point(274, 110);
             this.CartListBox.Name = "CartListBox";
@@ -108,6 +115,7 @@
             // 
             // AmountLabel
             // 
+            this.AmountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AmountLabel.AutoSize = true;
             this.AmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AmountLabel.Location = new System.Drawing.Point(542, 308);
@@ -118,13 +126,14 @@
             // 
             // SumCostLabel
             // 
+            this.SumCostLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.SumCostLabel.AutoSize = true;
             this.SumCostLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SumCostLabel.Location = new System.Drawing.Point(527, 340);
             this.SumCostLabel.Name = "SumCostLabel";
-            this.SumCostLabel.Size = new System.Drawing.Size(119, 31);
+            this.SumCostLabel.Size = new System.Drawing.Size(30, 31);
             this.SumCostLabel.TabIndex = 8;
-            this.SumCostLabel.Text = "4444,90";
+            this.SumCostLabel.Text = "0";
             // 
             // CreateOrderButton
             // 
@@ -138,6 +147,7 @@
             // 
             // RemoveItemButton
             // 
+            this.RemoveItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.RemoveItemButton.Location = new System.Drawing.Point(451, 413);
             this.RemoveItemButton.Name = "RemoveItemButton";
             this.RemoveItemButton.Size = new System.Drawing.Size(91, 32);
@@ -148,6 +158,7 @@
             // 
             // ClearCartButton
             // 
+            this.ClearCartButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ClearCartButton.Location = new System.Drawing.Point(548, 413);
             this.ClearCartButton.Name = "ClearCartButton";
             this.ClearCartButton.Size = new System.Drawing.Size(98, 32);

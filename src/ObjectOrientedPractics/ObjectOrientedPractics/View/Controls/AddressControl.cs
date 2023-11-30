@@ -126,5 +126,24 @@ namespace ObjectOrientedPractics.View.Controls
                 ApartmentTextBox.BackColor = AppColor.ErrorBackColor;
             }
         }
+        /// <summary>
+        /// Очищает контрол.
+        /// </summary>
+        public void Clear()
+        {
+            PostIndexTextBox.Clear();
+            CountryTextBox.Clear();
+            CityTextBox.Clear();
+            StreetTextBox.Clear();
+            BuildingTextBox.Clear();
+            ApartmentTextBox.Clear();
+
+            PostIndexTextBox.BackColor = AppColor.GoodBackColor;
+            CountryTextBox.BackColor = AppColor.GoodBackColor;
+            CityTextBox.BackColor = AppColor.GoodBackColor;
+            StreetTextBox.BackColor = AppColor.GoodBackColor;
+            BuildingTextBox.BackColor = AppColor.GoodBackColor;
+            ApartmentTextBox.BackColor = AppColor.GoodBackColor;
+        }
     }
 }

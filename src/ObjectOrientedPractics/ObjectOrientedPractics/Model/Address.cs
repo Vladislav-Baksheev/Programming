@@ -149,6 +149,15 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
+        /// Возвращает адрес в виде строки.
+        /// </summary>
+        /// <returns></returns>
+        public string AddressToString()
+        {
+            return $"{Index} {Country}, {City}, {Street}, {House}, {Apartment}";
+        }
+
+        /// <summary>
         /// Создает экземпляр класса <see cref="Address"/>
         /// </summary>
         /// <param name="index">Почтовый индекс.</param>
