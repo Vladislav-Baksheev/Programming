@@ -1,5 +1,6 @@
 ﻿using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
+using ObjectOrientedPractics.View.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -31,10 +33,14 @@ namespace ObjectOrientedPractics.View.Tabs
         /// Создает автоматически сгенерированого покупателя.
         /// </summary>
         private CustomerFactory _customerFactory;
+
         /// <summary>
         /// Возвращает и задает список покупателей.
         /// </summary>
-        private List<Customer> Customers
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public List<Customer> Customers
         {
             get
             {
@@ -49,8 +55,9 @@ namespace ObjectOrientedPractics.View.Tabs
                     {
                         CustomersListBox.Items.Add(customer.FullName);
                     }
+                    CustomersListBox.SelectedIndex = 0;
                 }
-                CustomersListBox.SelectedIndex = 0;
+                
             }
         }
         /// <summary>
@@ -67,14 +74,16 @@ namespace ObjectOrientedPractics.View.Tabs
         private void UpdateTextboxes(Customer customer)
         {
             FullnameTextBox.Text = customer.FullName;
-            AddressTextBox.Text = customer.Address;
             IDTextBox.Text = customer.Id.ToString();
+            addressControl1.Address = customer.Address;
+            IsPriorityCheckBox.Checked = customer.IsPriority;
         }
         private void AddButton_Click(object sender, EventArgs e)
         {
             _currentCustomer = new Customer();
             Customers.Add(_currentCustomer);
             CustomersListBox.Items.Add(_currentCustomer.FullName);
+            CustomersListBox.SelectedIndex = Customers.Count - 1;
             UpdateTextboxes(_currentCustomer);
         }
 
@@ -129,20 +138,11 @@ namespace ObjectOrientedPractics.View.Tabs
             
         }
 
-        private void AddressTextBox_TextChanged(object sender, EventArgs e)
+        private void IsPriorityCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            try
+            if (IsPriorityCheckBox.Checked == true)
             {
-                AddressTextBox.BackColor = AppColor.GoodBackColor;
-                _currentCustomer.Address = AddressTextBox.Text;
-            }
-            catch (Exception ex)
-            {
-                AddressTextBox.BackColor = AppColor.ErrorBackColor;
-                if (Customers.Count == 0)
-                {
-                    AddressTextBox.BackColor = AppColor.GoodBackColor;
-                }
+                _currentCustomer.IsPriority = true;
             }
         }
     }

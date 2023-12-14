@@ -1,4 +1,5 @@
-﻿using ObjectOrientedPractics.Model;
+﻿using Newtonsoft.Json;
+using ObjectOrientedPractics.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,18 +15,25 @@ namespace ObjectOrientedPractics.Services
         /// </summary>
         private Customer _customer;
 
-        private Random _random = new Random();
+        private DataAPI dataAPI;
+
+        private string _parametres = "LastName,FirstName,FatherName,Country,City,Street,Apartment,House";
+
+        public CustomerFactory()
+        {
+            dataAPI = new DataAPI(_parametres);
+        }
+
         /// <summary>
         /// Создает экземпляр класса <see cref="Customer"/>.
         /// </summary>
         /// <returns>Экземпляр класса <see cref="Customer"/>.</returns>
         public Customer CreateCustomer()
         {
-            string[] fullname = { "Анатольев Владислав Андреевич", "Шоколадов Антон Валерьевич", "Лучших Филипп Казаков", "Худших Дмитрий Олегов"};
-            string[] address = {"ул. Школьная 26", "ул. Ленина 17"};
-            _customer = new Customer();
-            _customer.FullName = fullname[_random.Next(fullname.Length)];
-            _customer.Address = address[_random.Next(address.Length)];
+            
+            _customer = JsonConvert.DeserializeObject<Customer>(dataAPI.GetJsonData());
+            _customer.Address = JsonConvert.DeserializeObject<Address>(dataAPI.GetJsonData());
+
             return _customer;
         }
     }

@@ -36,6 +36,8 @@
             this.ItemsListBox = new System.Windows.Forms.ListBox();
             this.ItemsLabel = new System.Windows.Forms.Label();
             this.SelectItemsPanel = new System.Windows.Forms.Panel();
+            this.CategoryLabel = new System.Windows.Forms.Label();
+            this.CategoryComboBox = new System.Windows.Forms.ComboBox();
             this.DescriptionTextBox = new System.Windows.Forms.TextBox();
             this.DescriptionLabel = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
@@ -52,6 +54,9 @@
             // 
             // ItemsPanel
             // 
+            this.ItemsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ItemsPanel.Controls.Add(this.TableLayoutPanelButtons);
             this.ItemsPanel.Controls.Add(this.ItemsListBox);
             this.ItemsPanel.Controls.Add(this.ItemsLabel);
@@ -62,6 +67,7 @@
             // 
             // TableLayoutPanelButtons
             // 
+            this.TableLayoutPanelButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.TableLayoutPanelButtons.ColumnCount = 3;
             this.TableLayoutPanelButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.95F));
             this.TableLayoutPanelButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.05F));
@@ -108,6 +114,8 @@
             // 
             // ItemsListBox
             // 
+            this.ItemsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.ItemsListBox.FormattingEnabled = true;
             this.ItemsListBox.Location = new System.Drawing.Point(6, 21);
             this.ItemsListBox.Name = "ItemsListBox";
@@ -127,6 +135,11 @@
             // 
             // SelectItemsPanel
             // 
+            this.SelectItemsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SelectItemsPanel.Controls.Add(this.CategoryLabel);
+            this.SelectItemsPanel.Controls.Add(this.CategoryComboBox);
             this.SelectItemsPanel.Controls.Add(this.DescriptionTextBox);
             this.SelectItemsPanel.Controls.Add(this.DescriptionLabel);
             this.SelectItemsPanel.Controls.Add(this.NameTextBox);
@@ -141,8 +154,28 @@
             this.SelectItemsPanel.Size = new System.Drawing.Size(345, 404);
             this.SelectItemsPanel.TabIndex = 1;
             // 
+            // CategoryLabel
+            // 
+            this.CategoryLabel.AutoSize = true;
+            this.CategoryLabel.Location = new System.Drawing.Point(6, 90);
+            this.CategoryLabel.Name = "CategoryLabel";
+            this.CategoryLabel.Size = new System.Drawing.Size(52, 13);
+            this.CategoryLabel.TabIndex = 10;
+            this.CategoryLabel.Text = "Category:";
+            // 
+            // CategoryComboBox
+            // 
+            this.CategoryComboBox.FormattingEnabled = true;
+            this.CategoryComboBox.Location = new System.Drawing.Point(70, 90);
+            this.CategoryComboBox.Name = "CategoryComboBox";
+            this.CategoryComboBox.Size = new System.Drawing.Size(121, 21);
+            this.CategoryComboBox.TabIndex = 9;
+            this.CategoryComboBox.TextChanged += new System.EventHandler(this.CategoryComboBox_TextChanged);
+            // 
             // DescriptionTextBox
             // 
+            this.DescriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DescriptionTextBox.Location = new System.Drawing.Point(4, 266);
             this.DescriptionTextBox.Multiline = true;
             this.DescriptionTextBox.Name = "DescriptionTextBox";
@@ -161,6 +194,8 @@
             // 
             // NameTextBox
             // 
+            this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NameTextBox.Location = new System.Drawing.Point(3, 146);
             this.NameTextBox.Multiline = true;
             this.NameTextBox.Name = "NameTextBox";
@@ -172,7 +207,7 @@
             // 
             this.CostTextBox.Location = new System.Drawing.Point(70, 63);
             this.CostTextBox.Name = "CostTextBox";
-            this.CostTextBox.Size = new System.Drawing.Size(100, 20);
+            this.CostTextBox.Size = new System.Drawing.Size(121, 20);
             this.CostTextBox.TabIndex = 5;
             this.CostTextBox.TextChanged += new System.EventHandler(this.CostTextBox_TextChanged);
             // 
@@ -181,7 +216,7 @@
             this.IDTextBox.Location = new System.Drawing.Point(70, 34);
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.ReadOnly = true;
-            this.IDTextBox.Size = new System.Drawing.Size(100, 20);
+            this.IDTextBox.Size = new System.Drawing.Size(121, 20);
             this.IDTextBox.TabIndex = 4;
             // 
             // NameLabel
@@ -257,5 +292,7 @@
         private System.Windows.Forms.Label IDLabel;
         private System.Windows.Forms.Label SelectedItemsLabel;
         private System.Windows.Forms.Button GenerateButton;
+        private System.Windows.Forms.Label CategoryLabel;
+        private System.Windows.Forms.ComboBox CategoryComboBox;
     }
 }

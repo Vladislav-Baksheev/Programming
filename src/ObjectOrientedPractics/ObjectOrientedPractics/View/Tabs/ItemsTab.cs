@@ -27,6 +27,10 @@ namespace ObjectOrientedPractics.View.Tabs
         /// Текущий товар.
         /// </summary>
         private Item _currentItem;
+
+        /// <summary>
+        /// Задает и получает сведения о товарах.
+        /// </summary>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -45,10 +49,12 @@ namespace ObjectOrientedPractics.View.Tabs
                     {
                         ItemsListBox.Items.Add(item.Name);
                     }
+                    ItemsListBox.SelectedIndex = 0;
                 }
-                ItemsListBox.SelectedIndex = 0;
+                
             }
         }
+
         /// <summary>
         /// Создает экземпляр класса <see cref="ItemsTab"/>.
         /// </summary>
@@ -56,8 +62,12 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             InitializeComponent();
             _itemFactory = new ItemFactory();
+            foreach (Enum valueCategory in Enum.GetValues(typeof(Category)))
+            {
+                CategoryComboBox.Items.Add(valueCategory);
+            }
         }
-
+        
         /// <summary>
         /// Обновляет все текстовые поля.
         /// </summary>
@@ -67,6 +77,7 @@ namespace ObjectOrientedPractics.View.Tabs
             NameTextBox.Text = item.Name;
             DescriptionTextBox.Text = item.Info;
             IDTextBox.Text = item.Id.ToString();
+            CategoryComboBox.Text = item.Category.ToString(); 
         }
         private void AddButton_Click(object sender, EventArgs e)
         {
@@ -159,6 +170,11 @@ namespace ObjectOrientedPractics.View.Tabs
                     DescriptionTextBox.BackColor = AppColor.GoodBackColor;
                 }
             }
+        }
+
+        private void CategoryComboBox_TextChanged(object sender, EventArgs e)
+        {
+            _currentItem.Category = (Category)CategoryComboBox.SelectedIndex;
         }
     }
 }
