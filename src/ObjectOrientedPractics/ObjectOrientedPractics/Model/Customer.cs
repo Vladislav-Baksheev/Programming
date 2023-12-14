@@ -44,6 +44,8 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public int Id { get; set;}
 
+        public bool IsPriority { get; set; }
+
         /// <summary>
         /// Возвращает и задает фамилию покупателя.
         /// </summary>
@@ -144,6 +146,7 @@ namespace ObjectOrientedPractics.Model
             Address = new Address();
             Cart = new Cart();
             Orders = new List<Order>();
+            IsPriority = false; 
         }
     }
 }

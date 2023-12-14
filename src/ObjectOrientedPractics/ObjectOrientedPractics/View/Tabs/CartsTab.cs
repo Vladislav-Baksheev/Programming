@@ -161,13 +161,23 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void CreateOrderButton_Click(object sender, EventArgs e)
         {
-            Order order = new Order();
-            order.Items.AddRange(CurrentCustomer.Cart.Items);
-            order.DeliveryAddress = CurrentCustomer.Address;
+            if(CurrentCustomer.IsPriority == true)
+            {
+                PriorityOrder priorityOrder = new PriorityOrder(DateTime.Now);
+                priorityOrder.Items.AddRange(CurrentCustomer.Cart.Items);
+                priorityOrder.DeliveryAddress = CurrentCustomer.Address;
+                CurrentCustomer.Orders.Add(priorityOrder);
+            }
+            else
+            {
+                Order order = new Order();
+                order.Items.AddRange(CurrentCustomer.Cart.Items);
+                order.DeliveryAddress = CurrentCustomer.Address;
+                CurrentCustomer.Orders.Add(order);
+            }           
             CurrentCustomer.Cart.Items.Clear();
             CartListBox.Items.Clear();
             SumCostLabel.Text = CurrentCustomer.Cart.Amount.ToString();
-            CurrentCustomer.Orders.Add(order);
             UpdateCartListBox();
         }
     }

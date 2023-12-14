@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -75,6 +76,7 @@ namespace ObjectOrientedPractics.View.Tabs
             FullnameTextBox.Text = customer.FullName;
             IDTextBox.Text = customer.Id.ToString();
             addressControl1.Address = customer.Address;
+            IsPriorityCheckBox.Checked = customer.IsPriority;
         }
         private void AddButton_Click(object sender, EventArgs e)
         {
@@ -136,6 +138,12 @@ namespace ObjectOrientedPractics.View.Tabs
             
         }
 
-        
+        private void IsPriorityCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPriorityCheckBox.Checked == true)
+            {
+                _currentCustomer.IsPriority = true;
+            }
+        }
     }
 }
