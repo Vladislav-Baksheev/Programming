@@ -29,6 +29,9 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private PriorityOrder _selectedPriorityOrder;
 
+        /// <summary>
+        /// Время доставки.
+        /// </summary>
         private List<string> _valueOfString
             = new List<string> {
                 "None", "9:00-11:00", "11:00-13:00", "13:00-15:00",
