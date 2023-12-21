@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace ObjectOrientedPractics.Model
+using ObjectOrientedPractics.Model.Enums;
+namespace ObjectOrientedPractics.Model.Discounts
 {
-    public class PercentDiscount
+    public class PercentDiscount : IDiscount
     {
         /// <summary>
         /// Текущая скидка.
@@ -24,6 +24,9 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         private double _totalSpent;
 
+        /// <summary>
+        /// Категория товара.
+        /// </summary>
         Category Category { get; set; }
 
 

@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ObjectOrientedPractics.Model
+namespace ObjectOrientedPractics.Model.Discounts
 {
     /// <summary>
     /// Хранит информацию о скидочных баллах.
     /// </summary>
-    public class PointsDiscount
+    public class PointsDiscount : IDiscount
     {
         /// <summary>
         /// Кол-во скидочных баллов.

@@ -1,6 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Model.Enums;
 
 namespace ObjectOrientedPractics.Services
 {

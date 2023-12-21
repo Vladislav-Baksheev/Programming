@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace ObjectOrientedPractics.Model
+using System.Windows.Forms;
+using ObjectOrientedPractics.Model.Enums;
+namespace ObjectOrientedPractics.Model.Orders
 {
     public class Order
     {
@@ -25,6 +26,22 @@ namespace ObjectOrientedPractics.Model
         /// Возвращает и задает адрес доставки заказа.
         /// </summary>
         public Address DeliveryAddress { get; set; }
+
+        /// <summary>
+        /// Сумма скидок.
+        /// </summary>
+        public double DiscountAmount { get; set; }
+
+        /// <summary>
+        /// Возвращает стоимость заказа после применения скидок.
+        /// </summary>
+        public double Total 
+        {
+            get
+            {
+                return TotalCost - DiscountAmount;
+            }
+        }
 
         /// <summary>
         /// Возвращает и задает список товаров заказа.
