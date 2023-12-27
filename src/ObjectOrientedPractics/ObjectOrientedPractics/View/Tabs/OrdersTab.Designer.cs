@@ -47,11 +47,11 @@
             this.CreatedTextBox = new System.Windows.Forms.TextBox();
             this.StatusComboBox = new System.Windows.Forms.ComboBox();
             this.OrderItemsListBox = new System.Windows.Forms.ListBox();
-            this.addressControl1 = new ObjectOrientedPractics.View.Controls.AddressControl();
             this.DeliveryTimeComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PriorityPanel = new System.Windows.Forms.Panel();
+            this.addressControl1 = new ObjectOrientedPractics.View.Controls.AddressControl();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.PriorityPanel.SuspendLayout();
             this.SuspendLayout();
@@ -221,16 +221,6 @@
             this.OrderItemsListBox.Size = new System.Drawing.Size(484, 134);
             this.OrderItemsListBox.TabIndex = 10;
             // 
-            // addressControl1
-            // 
-            this.addressControl1.Address = null;
-            this.addressControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.addressControl1.Location = new System.Drawing.Point(615, 109);
-            this.addressControl1.Name = "addressControl1";
-            this.addressControl1.Size = new System.Drawing.Size(581, 207);
-            this.addressControl1.TabIndex = 0;
-            // 
             // DeliveryTimeComboBox
             // 
             this.DeliveryTimeComboBox.FormattingEnabled = true;
@@ -268,6 +258,16 @@
             this.PriorityPanel.Name = "PriorityPanel";
             this.PriorityPanel.Size = new System.Drawing.Size(241, 61);
             this.PriorityPanel.TabIndex = 25;
+            // 
+            // addressControl1
+            // 
+            this.addressControl1.Address = null;
+            this.addressControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addressControl1.Location = new System.Drawing.Point(615, 109);
+            this.addressControl1.Name = "addressControl1";
+            this.addressControl1.Size = new System.Drawing.Size(581, 207);
+            this.addressControl1.TabIndex = 0;
             // 
             // OrdersTab
             // 

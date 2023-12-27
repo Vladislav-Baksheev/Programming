@@ -44,12 +44,12 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Список скидок пользователя.
         /// </summary>
-        List<IDiscount> Discounts { get; set; }
+        public List<IDiscount> Discounts { get; set; } = new List<IDiscount>();
 
         /// <summary>
         /// Накопительная скидка.
         /// </summary>
-        PointsDiscount pointsDiscount;
+        PointsDiscount pointsDiscount = new PointsDiscount();
 
         /// <summary>
         /// Возвращает и задает id покупателя.

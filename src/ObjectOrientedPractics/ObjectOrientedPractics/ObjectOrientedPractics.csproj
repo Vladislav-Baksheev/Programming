@@ -68,11 +68,23 @@
     <Compile Include="Services\IdGenerator.cs" />
     <Compile Include="Services\ItemFactory.cs" />
     <Compile Include="Services\Validator.cs" />
+    <Compile Include="View\AddPercentDiscountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AddPercentDiscountForm.Designer.cs">
+      <DependentUpon>AddPercentDiscountForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Controls\AddressControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\Controls\AddressControl.Designer.cs">
       <DependentUpon>AddressControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\DiscountsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\DiscountsControl.Designer.cs">
+      <DependentUpon>DiscountsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
@@ -121,8 +133,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\AddPercentDiscountForm.resx">
+      <DependentUpon>AddPercentDiscountForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Controls\AddressControl.resx">
       <DependentUpon>AddressControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\DiscountsControl.resx">
+      <DependentUpon>DiscountsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
