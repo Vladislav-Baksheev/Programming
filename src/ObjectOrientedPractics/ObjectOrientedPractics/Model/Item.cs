@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
+using ObjectOrientedPractics.Model.Enums;
 using ObjectOrientedPractics.Services;
 namespace ObjectOrientedPractics.Model
 {

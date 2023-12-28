@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using ObjectOrientedPractics.Services;
+using ObjectOrientedPractics.Model.Discounts;
+using ObjectOrientedPractics.Model.Orders;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -40,10 +42,23 @@ namespace ObjectOrientedPractics.Model
         private string _address;
 
         /// <summary>
+        /// Список скидок пользователя.
+        /// </summary>
+        public List<IDiscount> Discounts { get; set; } = new List<IDiscount>();
+
+        /// <summary>
+        /// Накопительная скидка.
+        /// </summary>
+        PointsDiscount pointsDiscount = new PointsDiscount();
+
+        /// <summary>
         /// Возвращает и задает id покупателя.
         /// </summary>
         public int Id { get; set;}
 
+        /// <summary>
+        /// Приоритетный покупатель.
+        /// </summary>
         public bool IsPriority { get; set; }
 
         /// <summary>
@@ -131,13 +146,14 @@ namespace ObjectOrientedPractics.Model
         /// <param name="fullname">Полное имя покупателя.</param>
         /// <param name="address">Адрес покупателя.</param>
         /// <param name="id">ID покупателя.</param>
-        public Customer(string fullname, Address address)
+        public Customer(string fullname, Address address, List<IDiscount> Discounts)
         {
             Id = IdGenerator.GetIdNext();
             FullName = fullname;
             Address = address;
             Cart = new Cart();
             Orders = new List<Order>();
+            Discounts.Add(pointsDiscount);
         }
         public Customer()
         {
@@ -147,6 +163,7 @@ namespace ObjectOrientedPractics.Model
             Cart = new Cart();
             Orders = new List<Order>();
             IsPriority = false; 
+            Discounts.Add(pointsDiscount);
         }
     }
 }

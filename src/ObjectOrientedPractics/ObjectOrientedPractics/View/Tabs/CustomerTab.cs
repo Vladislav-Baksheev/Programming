@@ -77,6 +77,7 @@ namespace ObjectOrientedPractics.View.Tabs
             IDTextBox.Text = customer.Id.ToString();
             addressControl1.Address = customer.Address;
             IsPriorityCheckBox.Checked = customer.IsPriority;
+            discountsControl1.Discounts = customer.Discounts;
         }
         private void AddButton_Click(object sender, EventArgs e)
         {
@@ -145,5 +146,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentCustomer.IsPriority = true;
             }
         }
+
+
     }
 }
