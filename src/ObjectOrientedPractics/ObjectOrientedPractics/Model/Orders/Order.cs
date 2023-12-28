@@ -67,7 +67,7 @@ namespace ObjectOrientedPractics.Model.Orders
                     sum += item.Cost;
                 }
 
-                return sum;
+                return sum - DiscountAmount;
             }
         }
 

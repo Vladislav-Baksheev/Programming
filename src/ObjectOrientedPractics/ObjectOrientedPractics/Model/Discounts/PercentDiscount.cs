@@ -29,11 +29,28 @@ namespace ObjectOrientedPractics.Model.Discounts
         /// </summary>
         Category Category { get; set; }
 
+        /// <summary>
+        /// Возвращает и задает кол-во скидочных баллов.
+        /// </summary>
+        public double CurrentDiscount
+        {
+            get
+            {
+                return _currentDiscount;
+            }
+            private set
+            {
+                if (value > 0)
+                {
+                    _currentDiscount = value;
+                }
+            }
+        }
 
         /// <summary>
         /// Возвращает информацию о кол-ве скидочных баллов и название скидки.
         /// </summary>
-        public string Info { get => $"Процентная {Category} - {_currentDiscount * 100}%"; }
+        public string Info { get => $"Процентная {Category} - {CurrentDiscount * 100}%"; }
 
         /// <summary>
         /// Инициализирует экземпляр класса <see cref="PointsDiscount"/>
@@ -42,7 +59,7 @@ namespace ObjectOrientedPractics.Model.Discounts
         {
             Category = category;
         }
-
+        
         /// <summary>
         /// Возвращает и задает сумму денег потраченную на товары.
         /// определенной категории.
@@ -66,18 +83,17 @@ namespace ObjectOrientedPractics.Model.Discounts
         /// <returns>Размер скидки.</returns>
         public double Calculate(List<Item> items)
         {
-            double sum = 0;
+            double sumCost = 0;
 
-            foreach(var item in items)
+            foreach (var item in items)
             {
-                if(item.Category == Category)
+                if (item.Category == Category)
                 {
-                    sum += item.Cost;
+                    sumCost += item.Cost;
                 }
             }
-            _currentDiscount = Math.Min(_maxDiscount, Math.Floor(sum / 1000) * 0.01);
 
-            return _currentDiscount;
+            return sumCost * CurrentDiscount;
         }
 
         /// <summary>
@@ -87,27 +103,17 @@ namespace ObjectOrientedPractics.Model.Discounts
         /// <returns>Размер скидки.</returns>
         public double Apply(List<Item> items)
         {
-            double sum = 0;
+            double sumCost = 0;
 
             foreach (var item in items)
             {
                 if (item.Category == Category)
                 {
-                    sum += item.Cost;
+                    sumCost += item.Cost;
                 }
             }
 
-            _currentDiscount = Math.Min(_maxDiscount, Math.Floor(sum / 1000) * 0.01);
-
-            foreach (var item in items)
-            {
-                if (item.Category == Category)
-                {
-                    item.Cost = item.Cost * _currentDiscount;
-                }
-            }
-
-            return _currentDiscount;
+            return sumCost * CurrentDiscount;
         }
 
         /// <summary>
