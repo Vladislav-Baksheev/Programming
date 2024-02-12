@@ -49,6 +49,14 @@ namespace ObjectOrientedPractics.View.Tabs
         public List<Customer> Customers { get; set; }
 
         /// <summary>
+        /// Возвращает и задает список товаров.
+        /// </summary>
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public List<Item> Items { get; set; }
+
+        /// <summary>
         /// Создает экземпляр класса <see cref="OrdersTab"/>.
         /// </summary>
         public OrdersTab()
@@ -139,7 +147,11 @@ namespace ObjectOrientedPractics.View.Tabs
             CreatedTextBox.Text = _selectedOrder.OrderCreationDate;
             StatusComboBox.SelectedItem = _selectedOrder.OrderStatus;
             addressControl1.Address = _selectedOrder.DeliveryAddress;
-            TotalCostLabel.Text = _selectedOrder.TotalCost.ToString();    
+            TotalCostLabel.Text = _selectedOrder.TotalCost.ToString();
+            foreach (var item in Items)
+            {
+                OrderItemsListBox.Items.Add(item.Name);
+            }
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
