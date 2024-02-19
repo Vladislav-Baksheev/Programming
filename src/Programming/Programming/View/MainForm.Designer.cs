@@ -46,6 +46,7 @@
             ParseButton = new Button();
             ParseTextBox = new TextBox();
             label1 = new Label();
+            RectanglesTabPage = new TabPage();
             EnumsGroupBox.SuspendLayout();
             tabControl1.SuspendLayout();
             EnumsTabPage.SuspendLayout();
@@ -126,6 +127,7 @@
             // tabControl1
             // 
             tabControl1.Controls.Add(EnumsTabPage);
+            tabControl1.Controls.Add(RectanglesTabPage);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
@@ -235,6 +237,16 @@
             label1.TabIndex = 2;
             label1.Text = "Type value for parsing:";
             // 
+            // RectanglesTabPage
+            // 
+            RectanglesTabPage.Location = new Point(4, 24);
+            RectanglesTabPage.Name = "RectanglesTabPage";
+            RectanglesTabPage.Padding = new Padding(3);
+            RectanglesTabPage.Size = new Size(792, 510);
+            RectanglesTabPage.TabIndex = 1;
+            RectanglesTabPage.Text = "Rectangles";
+            RectanglesTabPage.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -274,5 +286,6 @@
         private Button GoButton;
         private ComboBox SeasonComboBox;
         private Label label2;
+        private TabPage RectanglesTabPage;
     }
 }
