@@ -9,7 +9,7 @@
         Height="400" 
         Width="500"
         MinWidth="500"
-        MinHeight="425">
+        MinHeight="425" Icon="/ContactsApp_96x96.ico">
 
     <Grid Margin="15px">
         <Grid.RowDefinitions>
