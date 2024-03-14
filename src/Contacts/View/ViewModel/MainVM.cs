@@ -13,10 +13,19 @@ namespace View.ViewModel
 {
     class MainVM : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Сериализатор.
+        /// </summary>
         ContactSerializer _serializer = new ContactSerializer();
 
+        /// <summary>
+        /// Возвращает и задает контакт.
+        /// </summary>
         public Contact Contact { get; set; } = new Contact();
 
+        /// <summary>
+        /// Возвращает и задает имя контакта.
+        /// </summary>
         public string? Name
         {
             get => Contact.Name;
@@ -27,6 +36,9 @@ namespace View.ViewModel
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает номер телефона контакта.
+        /// </summary>
         public string? PhoneNumber
         {
             get => Contact.PhoneNumber;
@@ -36,6 +48,9 @@ namespace View.ViewModel
                 OnPropertyChanged(nameof (PhoneNumber));
             }
         }
+        /// <summary>
+        /// Возвращает и задает email контакта.
+        /// </summary>
         public string? Email
         {
             get => Contact.Email;
@@ -46,21 +61,38 @@ namespace View.ViewModel
             }
         }
        
+        /// <summary>
+        /// Возвращает команду для загрузки данных из файла.
+        /// </summary>
         public ICommand LoadCommand { get; }
 
+        /// <summary>
+        /// Возвращает команду для сохранения данных в файл.
+        /// </summary>
         public ICommand SaveCommand { get; }
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="MainVM"/>.
+        /// </summary>
         public MainVM()
         {
             SaveCommand = new SaveCommand(SaveContact);
             LoadCommand = new LoadCommand(LoadContact);
         }
 
+        /// <summary>
+        /// Сохраняет данные о контакте в файл.
+        /// </summary>
+        /// <param name="parameter">Параметр.</param>
         private void SaveContact(object? parameter)
         {
             _serializer.Save(Contact);
         }
 
+        /// <summary>
+        /// Загружает данные о контакте из файла.
+        /// </summary>
+        /// <param name="parameter">Параметр.</param>
         private void LoadContact(object? parameter)
         {
             var contact = _serializer.Load();
@@ -69,11 +101,18 @@ namespace View.ViewModel
             Email = contact.Email;
         }
 
+        /// <summary>
+        /// Вызывает событие при вызове.
+        /// </summary>
+        /// <param name="prop">Свойство, вызвавшее событие.</param>
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
+        /// <summary>
+        /// Событие изменения свойства.
+        /// </summary>
         public event PropertyChangedEventHandler? PropertyChanged;
     }
 }

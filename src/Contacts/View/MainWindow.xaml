@@ -24,9 +24,9 @@
         <GroupBox Header="Edit Contact" Grid.Row="0" Grid.Column="0" Margin="3">
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="Name:" Margin="3"/>
-                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="3"/>
+                <TextBox Text="{Binding Name2, UpdateSourceTrigger=PropertyChanged}" Margin="3"/>
                 <TextBlock Text="Phone Number:" Margin="3"/>
-                <TextBox Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged}" Margin="3"/>
+                <TextBox Text="{Binding PhoneNumber1, UpdateSourceTrigger=PropertyChanged}" Margin="3"/>
                 <TextBlock Text="Email:" Margin="3"/>
                 <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Margin="3"/>
             </StackPanel>
