@@ -15,21 +15,26 @@ namespace View.Model.Services
         {
 
         }
-        public void Save(Contact contact)
+        public void Save(Contact? contact)
         {
-            StreamWriter wr = new StreamWriter(Path);
-            wr.Write(JsonConvert.SerializeObject(contact));
+            using (StreamWriter wr = new StreamWriter(Path))
+            {
+                wr.Write(JsonConvert.SerializeObject(contact));
+            }
         }
 
-        public Contact Load() 
-        { 
+        public Contact? Load() 
+        {
             var contact = new Contact();
 
-            if(File.Exists(Path))
+            if (File.Exists(Path))
             {
-                StreamReader sr = new StreamReader(Path);
-                contact = JsonConvert.DeserializeObject<Contact>(sr.ReadToEnd());
+                using (StreamReader sr = new StreamReader(Path))
+                {
+                    contact = JsonConvert.DeserializeObject<Contact?>(sr.ReadToEnd());
+                }
             }
+
             return contact;
         }
     }

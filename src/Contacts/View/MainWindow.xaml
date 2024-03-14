@@ -35,16 +35,16 @@
         <GroupBox Header="Read Contact" Grid.Row="0" Grid.Column="1" Margin="3">
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="Name:" Margin="3"/>
-                <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="3"/>
+                <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="3" FontWeight="Bold"/>
                 <TextBlock Text="Phone Number:" Margin="3"/>
-                <TextBlock Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged}" Margin="3"/>
+                <TextBlock Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged}" Margin="3" FontWeight="Bold"/>
                 <TextBlock Text="Email:" Margin="3"/>
-                <TextBlock Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Margin="3"/>
+                <TextBlock Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Margin="3" FontWeight="Bold"/>
             </StackPanel>
         </GroupBox>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Content="Save" Width="75" Height="25" Margin="3"></Button>
-            <Button Content="Load" Width="75" Height="25" Margin="3"></Button>
+            <Button x:Name="SaveButton" Content="Save" Width="75" Height="25" Margin="3" Command="{Binding SaveCommand}"/>
+            <Button x:Name="LoadButton" Content="Load" Width="75" Height="25" Margin="3" Command="{Binding LoadCommand}"/>
         </StackPanel>
     </Grid>
 </Window>
