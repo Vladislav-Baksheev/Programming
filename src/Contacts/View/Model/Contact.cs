@@ -8,57 +8,19 @@ namespace View.Model
 {
     public class Contact
     {
-        private string _name;
+        public string? Name { get; set; }
+        public string? PhoneNumber { get; set; }
 
-        private string _phone;
-
-        private string _email;
-
-        public string Name 
-        { 
-            get 
-            { 
-                return _name; 
-            } 
-            set 
-            { 
-                _name = value; 
-            } 
-        }
-        public string Phone
-        {
-            get
-            {
-                return _phone;
-            }
-            set
-            {
-                _phone = value;
-            }
-        }
-
-        public string Email
-        {
-            get
-            {
-                return _email;
-            }
-            set
-            {
-                _email = value;
-            }
-        }
+        public string? Email { get; set; }
         public Contact()
         {
-            Name = string.Empty;
-            Phone = string.Empty;
-            Email = string.Empty;
+
         }
 
         public Contact(string name, string phone, string email)
         {
             Name = name;
-            Phone = phone;
+            PhoneNumber = phone;
             Email = email;
         }
     }
