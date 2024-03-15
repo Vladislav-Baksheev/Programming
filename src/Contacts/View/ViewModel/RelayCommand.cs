@@ -9,7 +9,7 @@ using View.Model.Services;
 namespace View.ViewModel
 {
     /// <summary>
-    /// Команда на загрузку контакта.
+    /// Предоставляет реализацию команд.
     /// </summary>
     class RelayCommand : ICommand
     {
