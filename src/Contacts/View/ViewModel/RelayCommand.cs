@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using View.Model;
 using View.Model.Services;
 
 namespace View.ViewModel
 {
     /// <summary>
-    /// Команда на сохранение контакта.
+    /// Команда на загрузку контакта.
     /// </summary>
-    class SaveCommand : ICommand
+    class RelayCommand : ICommand
     {
         /// <summary>
         /// Событие, предоставляющее информацию о возможности вызове команды.
@@ -39,10 +38,10 @@ namespace View.ViewModel
         }
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="SaveCommand"/>.
+        /// Создает экземпляр класса <see cref="RelayCommand"/>.
         /// </summary>
         /// <param name="execute">Делегат для вызова команды.</param>
-        public SaveCommand(Action<object?> execute)
+        public RelayCommand(Action<object?> execute) 
         {
             _execute = execute;
         }

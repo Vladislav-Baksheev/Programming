@@ -79,8 +79,8 @@ namespace View.ViewModel
         /// </summary>
         public MainVM()
         {
-            SaveCommand = new SaveCommand(SaveContact);
-            LoadCommand = new LoadCommand(LoadContact);
+            SaveCommand = new RelayCommand(SaveContact);
+            LoadCommand = new RelayCommand(LoadContact);
         }
 
         /// <summary>
