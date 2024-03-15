@@ -11,6 +11,9 @@ using View.Model.Services;
 
 namespace View.ViewModel
 {
+    /// <summary>
+    /// ViewModel для главного окна.
+    /// </summary>
     class MainVM : INotifyPropertyChanged
     {
         /// <summary>

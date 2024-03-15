@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 namespace View.Model.Services
 {
+    /// <summary>
+    /// Представляет реализацию для сериализации.
+    /// </summary>
     class ContactSerializer
     {
         /// <summary>

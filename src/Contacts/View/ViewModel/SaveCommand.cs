@@ -9,6 +9,9 @@ using View.Model.Services;
 
 namespace View.ViewModel
 {
+    /// <summary>
+    /// Команда на сохранение контакта.
+    /// </summary>
     class SaveCommand : ICommand
     {
         /// <summary>

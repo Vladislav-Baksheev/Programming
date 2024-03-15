@@ -8,6 +8,9 @@ using View.Model.Services;
 
 namespace View.ViewModel
 {
+    /// <summary>
+    /// Команда на загрузку контакта.
+    /// </summary>
     class LoadCommand : ICommand
     {
         /// <summary>
