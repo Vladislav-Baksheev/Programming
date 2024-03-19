@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Programming.Model
+namespace Programming.Model.Classes
 {
     public class Flight
     {
@@ -12,21 +12,21 @@ namespace Programming.Model
         private string _destination;
         private int _time;
 
-        public string DeparturePoint { get;set; }
+        public string DeparturePoint { get; set; }
 
         public string Destination { get; set; }
 
-        public int Time 
-        { 
-            get 
-            { 
-                return _time; 
-            } 
-            set 
-            { 
+        public int Time
+        {
+            get
+            {
+                return _time;
+            }
+            set
+            {
                 if (value > 0)
-                    _time = value; 
-            } 
+                    _time = value;
+            }
         }
 
         public Flight(string departurePoint, string destination, int time)
@@ -38,7 +38,7 @@ namespace Programming.Model
 
         public Flight()
         {
-            DeparturePoint = string.Empty; 
+            DeparturePoint = string.Empty;
             Destination = string.Empty;
             Time = 0;
         }

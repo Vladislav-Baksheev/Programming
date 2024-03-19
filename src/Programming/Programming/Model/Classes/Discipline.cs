@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Programming.Model
+namespace Programming.Model.Classes
 {
     public class Discipline
     {
@@ -14,17 +14,17 @@ namespace Programming.Model
 
         public string Name { get; set; }
 
-        public int Mark 
-        { 
-            get 
+        public int Mark
+        {
+            get
             {
-                return _mark; 
-            } 
-            set 
-            { 
+                return _mark;
+            }
+            set
+            {
                 if (value >= 2 && value <= 5)
-                    _mark = value; 
-            } 
+                    _mark = value;
+            }
         }
 
         public int Hours

@@ -30,22 +30,14 @@
         {
             tabControl1 = new TabControl();
             EnumsTabPage = new TabPage();
+            seasonHandleControl1 = new View.Controls.SeasonHandleControl();
             weekdayParsingControl1 = new View.Controls.WeekdayParsingControl();
             enumerationControl1 = new View.Controls.EnumerationControl();
             RectanglesTabPage = new TabPage();
-            RectanglesGroupBox = new GroupBox();
-            ColorTextBox = new TextBox();
-            LengthTextBox = new TextBox();
-            WidthTextBox = new TextBox();
-            label4 = new Label();
-            label5 = new Label();
-            label3 = new Label();
-            RectanglesListBox = new ListBox();
-            seasonHandleControl1 = new View.Controls.SeasonHandleControl();
+            rectangleControl1 = new View.Controls.RectangleControl();
             tabControl1.SuspendLayout();
             EnumsTabPage.SuspendLayout();
             RectanglesTabPage.SuspendLayout();
-            RectanglesGroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -72,6 +64,13 @@
             EnumsTabPage.TabIndex = 0;
             EnumsTabPage.Text = "Enums";
             // 
+            // seasonHandleControl1
+            // 
+            seasonHandleControl1.Location = new Point(368, 276);
+            seasonHandleControl1.Name = "seasonHandleControl1";
+            seasonHandleControl1.Size = new Size(405, 160);
+            seasonHandleControl1.TabIndex = 5;
+            // 
             // weekdayParsingControl1
             // 
             weekdayParsingControl1.Location = new Point(6, 276);
@@ -89,7 +88,7 @@
             // 
             // RectanglesTabPage
             // 
-            RectanglesTabPage.Controls.Add(RectanglesGroupBox);
+            RectanglesTabPage.Controls.Add(rectangleControl1);
             RectanglesTabPage.Location = new Point(4, 24);
             RectanglesTabPage.Name = "RectanglesTabPage";
             RectanglesTabPage.Padding = new Padding(3);
@@ -98,87 +97,13 @@
             RectanglesTabPage.Text = "Rectangles";
             RectanglesTabPage.UseVisualStyleBackColor = true;
             // 
-            // RectanglesGroupBox
+            // rectangleControl1
             // 
-            RectanglesGroupBox.Controls.Add(ColorTextBox);
-            RectanglesGroupBox.Controls.Add(LengthTextBox);
-            RectanglesGroupBox.Controls.Add(WidthTextBox);
-            RectanglesGroupBox.Controls.Add(label4);
-            RectanglesGroupBox.Controls.Add(label5);
-            RectanglesGroupBox.Controls.Add(label3);
-            RectanglesGroupBox.Controls.Add(RectanglesListBox);
-            RectanglesGroupBox.Dock = DockStyle.Fill;
-            RectanglesGroupBox.Location = new Point(3, 3);
-            RectanglesGroupBox.Name = "RectanglesGroupBox";
-            RectanglesGroupBox.Size = new Size(786, 504);
-            RectanglesGroupBox.TabIndex = 0;
-            RectanglesGroupBox.TabStop = false;
-            RectanglesGroupBox.Text = "Rectangles";
-            // 
-            // ColorTextBox
-            // 
-            ColorTextBox.Location = new Point(150, 128);
-            ColorTextBox.Name = "ColorTextBox";
-            ColorTextBox.Size = new Size(100, 23);
-            ColorTextBox.TabIndex = 2;
-            // 
-            // LengthTextBox
-            // 
-            LengthTextBox.Location = new Point(150, 40);
-            LengthTextBox.Name = "LengthTextBox";
-            LengthTextBox.Size = new Size(100, 23);
-            LengthTextBox.TabIndex = 2;
-            // 
-            // WidthTextBox
-            // 
-            WidthTextBox.Location = new Point(150, 84);
-            WidthTextBox.Name = "WidthTextBox";
-            WidthTextBox.Size = new Size(100, 23);
-            WidthTextBox.TabIndex = 2;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(150, 22);
-            label4.Name = "label4";
-            label4.Size = new Size(47, 15);
-            label4.TabIndex = 1;
-            label4.Text = "Length:";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(150, 110);
-            label5.Name = "label5";
-            label5.Size = new Size(39, 15);
-            label5.TabIndex = 1;
-            label5.Text = "Color:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(150, 66);
-            label3.Name = "label3";
-            label3.Size = new Size(42, 15);
-            label3.TabIndex = 1;
-            label3.Text = "Width:";
-            // 
-            // RectanglesListBox
-            // 
-            RectanglesListBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            RectanglesListBox.FormattingEnabled = true;
-            RectanglesListBox.ItemHeight = 15;
-            RectanglesListBox.Location = new Point(5, 22);
-            RectanglesListBox.Name = "RectanglesListBox";
-            RectanglesListBox.Size = new Size(139, 214);
-            RectanglesListBox.TabIndex = 0;
-            // 
-            // seasonHandleControl1
-            // 
-            seasonHandleControl1.Location = new Point(368, 276);
-            seasonHandleControl1.Name = "seasonHandleControl1";
-            seasonHandleControl1.Size = new Size(405, 160);
-            seasonHandleControl1.TabIndex = 5;
+            rectangleControl1.Dock = DockStyle.Fill;
+            rectangleControl1.Location = new Point(3, 3);
+            rectangleControl1.Name = "rectangleControl1";
+            rectangleControl1.Size = new Size(786, 504);
+            rectangleControl1.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -191,8 +116,6 @@
             tabControl1.ResumeLayout(false);
             EnumsTabPage.ResumeLayout(false);
             RectanglesTabPage.ResumeLayout(false);
-            RectanglesGroupBox.ResumeLayout(false);
-            RectanglesGroupBox.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -200,16 +123,9 @@
         private TabControl tabControl1;
         private TabPage EnumsTabPage;
         private TabPage RectanglesTabPage;
-        private GroupBox RectanglesGroupBox;
-        private TextBox ColorTextBox;
-        private TextBox LengthTextBox;
-        private TextBox WidthTextBox;
-        private Label label4;
-        private Label label5;
-        private Label label3;
-        private ListBox RectanglesListBox;
         private View.Controls.EnumerationControl enumerationControl1;
         private View.Controls.WeekdayParsingControl weekdayParsingControl1;
         private View.Controls.SeasonHandleControl seasonHandleControl1;
+        private View.Controls.RectangleControl rectangleControl1;
     }
 }

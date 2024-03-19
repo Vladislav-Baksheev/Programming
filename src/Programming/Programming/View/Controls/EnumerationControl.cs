@@ -23,7 +23,7 @@ namespace Programming.View.Controls
         {
             ValueListBox.Items.Clear();
 
-            Type type = Type.GetType($"Programming.Model.{EnumsListBox.SelectedItem}");
+            Type type = Type.GetType($"Programming.Model.Enums.{EnumsListBox.SelectedItem}");
 
             var values = Enum.GetValues(type);
 

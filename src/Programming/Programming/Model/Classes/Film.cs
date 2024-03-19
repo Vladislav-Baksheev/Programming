@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Programming.Model
+namespace Programming.Model.Classes
 {
     public class Film
     {
@@ -15,30 +15,30 @@ namespace Programming.Model
         private double _rating;
 
         public string Name { get; set; }
-        public int Duration 
-        { 
-            get 
-            { 
+        public int Duration
+        {
+            get
+            {
                 return _duration;
             }
             set
             {
-                if(value > 0) 
+                if (value > 0)
                     _duration = value;
             }
         }
 
-        public int YearOfRelease 
-        { 
-            get 
-            { 
-                return _yearOfRelease; 
-            } 
-            set 
-            { 
-                if(value > 1900 && value <= 2024)
+        public int YearOfRelease
+        {
+            get
+            {
+                return _yearOfRelease;
+            }
+            set
+            {
+                if (value > 1900 && value <= 2024)
                     _yearOfRelease = value;
-            } 
+            }
         }
 
         public string Genre { get; set; }
@@ -49,11 +49,11 @@ namespace Programming.Model
             {
                 return _rating;
             }
-            set 
-            { 
-                if(value > 0 && value <= 10)
-                    _rating = value; 
-            } 
+            set
+            {
+                if (value > 0 && value <= 10)
+                    _rating = value;
+            }
         }
 
         public Film(string name, int duration, int yearOfRelease, string genre, double rating)
@@ -70,7 +70,7 @@ namespace Programming.Model
             Name = string.Empty; ;
             Duration = 0;
             YearOfRelease = 0;
-            Genre = string.Empty; 
+            Genre = string.Empty;
             Rating = 0;
         }
     }

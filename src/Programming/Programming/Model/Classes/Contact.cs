@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Programming.Model
+namespace Programming.Model.Classes
 {
     public class Contact
     {
@@ -18,14 +18,14 @@ namespace Programming.Model
 
         public string Number { get; set; }
 
-        public Contact(string firstName, string lastName, string number) 
-        { 
+        public Contact(string firstName, string lastName, string number)
+        {
             FirstName = firstName;
             LastName = lastName;
             Number = number;
         }
 
-        public Contact() 
+        public Contact()
         {
             FirstName = string.Empty;
             LastName = string.Empty;

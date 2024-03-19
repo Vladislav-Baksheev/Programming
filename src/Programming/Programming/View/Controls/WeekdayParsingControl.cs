@@ -1,4 +1,4 @@
-﻿using Programming.Model;
+﻿using Programming.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
