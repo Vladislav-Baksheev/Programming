@@ -53,11 +53,11 @@ namespace Programming.View.Controls
                 _currentRectangle.Length = Convert.ToDouble(LengthTextBox.Text);
                 LengthTextBox.BackColor = AppColor.NormalBackColor;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 LengthTextBox.BackColor = AppColor.ErrorBackColor;
             }
-            
+
         }
 
         private void WidthTextBox_TextChanged(object sender, EventArgs e)
@@ -71,21 +71,31 @@ namespace Programming.View.Controls
             {
                 WidthTextBox.BackColor = AppColor.ErrorBackColor;
             }
-            
+
         }
 
         private void ColorTextBox_TextChanged(object sender, EventArgs e)
         {
-            try
+            _currentRectangle.Color = ColorTextBox.Text;
+        }
+
+        private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
+        {
+            int index = 0;
+
+            for (int i = 1; i < rectangles.Length; i++)
             {
-                _currentRectangle.Color = ColorTextBox.Text;
-                ColorTextBox.BackColor = AppColor.NormalBackColor;
+                if (rectangles[i - 1].Width > rectangles[i].Width)
+                {
+                    index = i - 1;
+                }
             }
-            catch 
-            {
-                ColorTextBox.BackColor = AppColor.ErrorBackColor;
-            }
-            
+            return index;
+        }
+
+        private void FindButton_Click(object sender, EventArgs e)
+        {
+            RectanglesListBox.SelectedIndex = FindRectangleWithMaxWidth(_rectangles);
         }
     }
 }

@@ -36,11 +36,13 @@
             label5 = new Label();
             label3 = new Label();
             RectanglesListBox = new ListBox();
+            FindButton = new Button();
             RectanglesGroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // RectanglesGroupBox
             // 
+            RectanglesGroupBox.Controls.Add(FindButton);
             RectanglesGroupBox.Controls.Add(ColorTextBox);
             RectanglesGroupBox.Controls.Add(LengthTextBox);
             RectanglesGroupBox.Controls.Add(WidthTextBox);
@@ -118,6 +120,16 @@
             RectanglesListBox.TabIndex = 0;
             RectanglesListBox.SelectedIndexChanged += RectanglesListBox_SelectedIndexChanged;
             // 
+            // FindButton
+            // 
+            FindButton.Location = new Point(162, 468);
+            FindButton.Name = "FindButton";
+            FindButton.Size = new Size(75, 23);
+            FindButton.TabIndex = 3;
+            FindButton.Text = "Find";
+            FindButton.UseVisualStyleBackColor = true;
+            FindButton.Click += FindButton_Click;
+            // 
             // RectangleControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -140,5 +152,6 @@
         private Label label5;
         private Label label3;
         private ListBox RectanglesListBox;
+        private Button FindButton;
     }
 }
