@@ -21,7 +21,7 @@
             <ColumnDefinition Width="1.8*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid>
+        <Grid Background="#f8f8f8" Margin="8">
             <DockPanel 
                 Grid.Column="0" 
                 LastChildFill="True">
@@ -83,10 +83,11 @@
             Grid.Column="1" 
             ShowsPreview="False" 
             Width="3"
+            Background="White"
             HorizontalAlignment="Center" 
             VerticalAlignment="Stretch" />
 
-        <Grid Grid.Column="2">
+        <Grid Grid.Column="2" Margin="8">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
@@ -109,6 +110,8 @@
                     Grid.Row="1"
                     Grid.Column="0" 
                     Width="100" 
+                    Height="100"
+                    Margin="3"
                     Source="Resources/photo_placeholder_100x100.png"
                     VerticalAlignment="Top"/>
                 <TextBlock
