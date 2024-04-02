@@ -32,7 +32,7 @@ namespace Programming.View.Controls
             for (int i = 0; i < _rectangles.Length; i++)
             {
                 _rectangles[i] = new Rectangle(random.Next(0, 1000), random.Next(0, 1000),
-                                               _colors[random.Next(_colors.Length)]);
+                                               _colors[random.Next(_colors.Length)], random.Next(0, 100), random.Next(0, 100));
 
                 RectanglesListBox.Items.Add(_rectangles[i].ToString());
             }
@@ -41,9 +41,12 @@ namespace Programming.View.Controls
         private void RectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             _currentRectangle = _rectangles[RectanglesListBox.SelectedIndex];
+            IDTextBox.Text = _currentRectangle.Id.ToString();
             LengthTextBox.Text = _currentRectangle.Length.ToString();
             WidthTextBox.Text = _currentRectangle.Width.ToString();
             ColorTextBox.Text = _currentRectangle.Color.ToString();
+            XTextBox.Text = _currentRectangle.Center.X.ToString();
+            YTextBox.Text = _currentRectangle.Center.Y.ToString();
         }
 
         private void LengthTextBox_TextChanged(object sender, EventArgs e)
@@ -57,7 +60,6 @@ namespace Programming.View.Controls
             {
                 LengthTextBox.BackColor = AppColor.ErrorBackColor;
             }
-
         }
 
         private void WidthTextBox_TextChanged(object sender, EventArgs e)
@@ -81,21 +83,39 @@ namespace Programming.View.Controls
 
         private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
         {
-            int index = 0;
+            int indexMaxWidth = 0;
+            double maxWidth = 0;
 
-            for (int i = 1; i < rectangles.Length; i++)
+            for (int i = 0; i < rectangles.Length; i++)
             {
-                if (rectangles[i - 1].Width > rectangles[i].Width)
+                if (rectangles[i].Width > maxWidth)
                 {
-                    index = i - 1;
+                    maxWidth = rectangles[i].Width;
+                    indexMaxWidth = i;
                 }
             }
-            return index;
+
+            return indexMaxWidth;
         }
 
         private void FindButton_Click(object sender, EventArgs e)
         {
             RectanglesListBox.SelectedIndex = FindRectangleWithMaxWidth(_rectangles);
+        }
+
+        private void XTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void YTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void IDTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

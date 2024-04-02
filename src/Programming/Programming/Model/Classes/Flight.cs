@@ -24,8 +24,8 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value > 0)
-                    _time = value;
+                Validator.AssertOnPositiveValue(value, nameof(Time));
+                _time = value;
             }
         }
 

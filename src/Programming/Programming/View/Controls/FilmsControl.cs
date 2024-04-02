@@ -1,4 +1,5 @@
 ﻿using Programming.Model.Classes;
+using Programming.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,18 +14,109 @@ namespace Programming.View.Controls
 {
     public partial class FilmsControl : UserControl
     {
-        private Film[] films;
+        private Film[] _films;
 
         private Film _currentFilm;
+
+        Random random = new Random();
+
+        private string[] _genres;
+
+        private string[] _names = { "Evangelion", "Breaking Bad", "The Walking Dead", "Schindler's List", "Godfather" };
 
         public FilmsControl()
         {
             InitializeComponent();
+
+            _films = new Film[5];
+            _genres = Enum.GetNames(typeof(Genre));
+            for (int i = 0; i < _films.Length; i++)
+            {
+                _films[i] = new Film(_names[i], random.Next(1, 1000), random.Next(1900, 2024), _genres[random.Next(_genres.Length)], random.Next(1, 10));
+
+                FilmsListBox.Items.Add(_films[i].ToString());
+            }
         }
 
         private void FindMovieButton_Click(object sender, EventArgs e)
         {
+            FilmsListBox.SelectedIndex = FindFilmWithMaxRating(_films);
+        }
 
+        private int FindFilmWithMaxRating(Film[] films)
+        {
+            int indexMaxWidth = 0;
+            double maxRating = 0;
+
+            for (int i = 0; i < films.Length; i++)
+            {
+                if (films[i].Rating > maxRating)
+                {
+                    maxRating = films[i].Rating;
+                    indexMaxWidth = i;
+                }
+            }
+
+            return indexMaxWidth;
+        }
+
+        private void FilmsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _currentFilm = _films[FilmsListBox.SelectedIndex];
+            NameTextBox.Text = _currentFilm.Name;
+            DurationTextBox.Text = _currentFilm.Duration.ToString();
+            YearTextBox.Text = _currentFilm.YearOfRelease.ToString();
+            GenreTextBox.Text = _currentFilm.Genre.ToString();
+            RatingTextBox.Text = _currentFilm.Rating.ToString();
+        }
+
+        private void NameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            _currentFilm.Name = NameTextBox.Text;
+        }
+
+        private void DurationTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentFilm.Duration = Convert.ToInt32(DurationTextBox.Text);
+                DurationTextBox.BackColor = AppColor.NormalBackColor;
+            }
+            catch (Exception ex)
+            {
+                DurationTextBox.BackColor = AppColor.ErrorBackColor;
+            }
+        }
+
+        private void YearTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentFilm.YearOfRelease = Convert.ToInt32(YearTextBox.Text);
+                YearTextBox.BackColor = AppColor.NormalBackColor;
+            }
+            catch (Exception ex)
+            {
+                YearTextBox.BackColor = AppColor.ErrorBackColor;
+            }
+        }
+
+        private void GenreTextBox_TextChanged(object sender, EventArgs e)
+        {
+            _currentFilm.Genre = GenreTextBox.Text;
+        }
+
+        private void RatingTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentFilm.Rating = Convert.ToInt32(RatingTextBox.Text);
+                RatingTextBox.BackColor = AppColor.NormalBackColor;
+            }
+            catch (Exception ex)
+            {
+                RatingTextBox.BackColor = AppColor.ErrorBackColor;
+            }
         }
     }
 }

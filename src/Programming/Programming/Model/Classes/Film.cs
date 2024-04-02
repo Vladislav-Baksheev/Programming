@@ -8,13 +8,21 @@ namespace Programming.Model.Classes
 {
     public class Film
     {
+        private int _id;
+        private static int _allFilmsCount = 0;
         private string _name;
         private int _duration;
         private int _yearOfRelease;
         private string _genre;
-        private double _rating;
+        private int _rating;
 
         public string Name { get; set; }
+
+        public int Id
+        {
+            get => _id;
+        }
+
         public int Duration
         {
             get
@@ -23,8 +31,8 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value > 0)
-                    _duration = value;
+                Validator.AssertOnPositiveValue(value, nameof(Duration));
+                _duration = value;
             }
         }
 
@@ -36,14 +44,14 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value > 1900 && value <= 2024)
-                    _yearOfRelease = value;
+                Validator.AssertValueInRange(value, 1900, 2024, nameof(YearOfRelease));
+                _yearOfRelease = value;
             }
         }
 
         public string Genre { get; set; }
 
-        public double Rating
+        public int Rating
         {
             get
             {
@@ -51,18 +59,20 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value > 0 && value <= 10)
-                    _rating = value;
+                Validator.AssertValueInRange(value, 0, 10, nameof(Rating));
+                _rating = value;
             }
         }
 
-        public Film(string name, int duration, int yearOfRelease, string genre, double rating)
+        public Film(string name, int duration, int yearOfRelease, string genre, int rating)
         {
             Name = name;
             Duration = duration;
             YearOfRelease = yearOfRelease;
             Genre = genre;
             Rating = rating;
+            _allFilmsCount++;
+            _id = _allFilmsCount;
         }
 
         public Film()
@@ -72,6 +82,13 @@ namespace Programming.Model.Classes
             YearOfRelease = 0;
             Genre = string.Empty;
             Rating = 0;
+            _allFilmsCount++;
+            _id = _allFilmsCount;
+        }
+
+        public override string ToString()
+        {
+            return $"Film {Id}";
         }
     }
 }

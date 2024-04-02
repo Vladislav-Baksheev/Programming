@@ -34,6 +34,7 @@
             weekdayParsingControl1 = new View.Controls.WeekdayParsingControl();
             enumerationControl1 = new View.Controls.EnumerationControl();
             RectanglesTabPage = new TabPage();
+            filmsControl1 = new View.Controls.FilmsControl();
             rectangleControl1 = new View.Controls.RectangleControl();
             tabControl1.SuspendLayout();
             EnumsTabPage.SuspendLayout();
@@ -88,6 +89,7 @@
             // 
             // RectanglesTabPage
             // 
+            RectanglesTabPage.Controls.Add(filmsControl1);
             RectanglesTabPage.Controls.Add(rectangleControl1);
             RectanglesTabPage.Location = new Point(4, 24);
             RectanglesTabPage.Name = "RectanglesTabPage";
@@ -97,12 +99,20 @@
             RectanglesTabPage.Text = "Rectangles";
             RectanglesTabPage.UseVisualStyleBackColor = true;
             // 
+            // filmsControl1
+            // 
+            filmsControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            filmsControl1.Location = new Point(365, 3);
+            filmsControl1.Name = "filmsControl1";
+            filmsControl1.Size = new Size(419, 504);
+            filmsControl1.TabIndex = 1;
+            // 
             // rectangleControl1
             // 
-            rectangleControl1.Dock = DockStyle.Fill;
+            rectangleControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             rectangleControl1.Location = new Point(3, 3);
             rectangleControl1.Name = "rectangleControl1";
-            rectangleControl1.Size = new Size(786, 504);
+            rectangleControl1.Size = new Size(356, 504);
             rectangleControl1.TabIndex = 0;
             // 
             // MainForm
@@ -127,5 +137,6 @@
         private View.Controls.WeekdayParsingControl weekdayParsingControl1;
         private View.Controls.SeasonHandleControl seasonHandleControl1;
         private View.Controls.RectangleControl rectangleControl1;
+        private View.Controls.FilmsControl filmsControl1;
     }
 }

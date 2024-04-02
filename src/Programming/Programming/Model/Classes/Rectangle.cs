@@ -24,8 +24,8 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value > 0)
-                    _length = value;
+                Validator.AssertOnPositiveValue(value, nameof(Length));
+                _length = value;
             }
         }
 
@@ -37,25 +37,28 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value > 0)
-                    _width = value;
+                Validator.AssertOnPositiveValue(value, nameof(Width));
+                _width = value;
             }
         }
 
         public string Color { get; set; }
+
+        public Point2D Center { get; set; }
 
         public int Id
         {
             get => _id;
         }
 
-        public Rectangle(double length, double width, string color)
+        public Rectangle(double length, double width, string color, int xCenter, int yCenter)
         {
             Length = length;
             Width = width;
             Color = color;
+            Center = new Point2D(xCenter, yCenter);
             _allRectanglesCount++;
-            _id = _allRectanglesCount;
+            _id = _allRectanglesCount;  
         }
 
         public Rectangle()
