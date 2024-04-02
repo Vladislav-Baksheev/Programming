@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Programming.Model.Classes;
 
-namespace Programming.Model.Classes
+namespace Programming.Model.Geometry
 {
     public class Rectangle
     {
@@ -12,11 +13,11 @@ namespace Programming.Model.Classes
 
         private int _id;
 
-        private double _length;
-        private double _width;
+        private int _length;
+        private int _width;
         private string _color;
 
-        public double Length
+        public int Length
         {
             get
             {
@@ -29,7 +30,7 @@ namespace Programming.Model.Classes
             }
         }
 
-        public double Width
+        public int Width
         {
             get
             {
@@ -44,9 +45,9 @@ namespace Programming.Model.Classes
 
         public static int AllRectanglesCount
         {
-            get 
-            { 
-                return _allRectanglesCount; 
+            get
+            {
+                return _allRectanglesCount;
             }
         }
 
@@ -59,14 +60,14 @@ namespace Programming.Model.Classes
             get => _id;
         }
 
-        public Rectangle(double length, double width, string color, int xCenter, int yCenter)
+        public Rectangle(int length, int width, string color, int xCenter, int yCenter)
         {
             Length = length;
             Width = width;
             Color = color;
             Center = new Point2D(xCenter, yCenter);
             _allRectanglesCount++;
-            _id = _allRectanglesCount;  
+            _id = _allRectanglesCount;
         }
 
         public Rectangle()
@@ -77,7 +78,10 @@ namespace Programming.Model.Classes
             _allRectanglesCount++;
             _id = _allRectanglesCount;
         }
-
+        public string GetRectangleInfo()
+        {
+            return $"{Id}: (X={Center.X}; Y={Center.Y}; W={Width}; H={Length})";
+        }
         public override string ToString()
         {
             return $"Rectangle {Id}";

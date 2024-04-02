@@ -33,18 +33,22 @@
             seasonHandleControl1 = new View.Controls.SeasonHandleControl();
             weekdayParsingControl1 = new View.Controls.WeekdayParsingControl();
             enumerationControl1 = new View.Controls.EnumerationControl();
-            RectanglesTabPage = new TabPage();
+            ClassesTabPage = new TabPage();
             filmsControl1 = new View.Controls.FilmsControl();
             rectangleControl1 = new View.Controls.RectangleControl();
+            tabPage1 = new TabPage();
+            rectangleCollisionControl1 = new View.Controls.RectangleCollisionControl();
             tabControl1.SuspendLayout();
             EnumsTabPage.SuspendLayout();
-            RectanglesTabPage.SuspendLayout();
+            ClassesTabPage.SuspendLayout();
+            tabPage1.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
             // 
             tabControl1.Controls.Add(EnumsTabPage);
-            tabControl1.Controls.Add(RectanglesTabPage);
+            tabControl1.Controls.Add(ClassesTabPage);
+            tabControl1.Controls.Add(tabPage1);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
@@ -87,17 +91,17 @@
             enumerationControl1.Size = new Size(796, 270);
             enumerationControl1.TabIndex = 3;
             // 
-            // RectanglesTabPage
+            // ClassesTabPage
             // 
-            RectanglesTabPage.Controls.Add(filmsControl1);
-            RectanglesTabPage.Controls.Add(rectangleControl1);
-            RectanglesTabPage.Location = new Point(4, 24);
-            RectanglesTabPage.Name = "RectanglesTabPage";
-            RectanglesTabPage.Padding = new Padding(3);
-            RectanglesTabPage.Size = new Size(792, 510);
-            RectanglesTabPage.TabIndex = 1;
-            RectanglesTabPage.Text = "Rectangles";
-            RectanglesTabPage.UseVisualStyleBackColor = true;
+            ClassesTabPage.Controls.Add(filmsControl1);
+            ClassesTabPage.Controls.Add(rectangleControl1);
+            ClassesTabPage.Location = new Point(4, 24);
+            ClassesTabPage.Name = "ClassesTabPage";
+            ClassesTabPage.Padding = new Padding(3);
+            ClassesTabPage.Size = new Size(792, 510);
+            ClassesTabPage.TabIndex = 1;
+            ClassesTabPage.Text = "Classes";
+            ClassesTabPage.UseVisualStyleBackColor = true;
             // 
             // filmsControl1
             // 
@@ -115,6 +119,25 @@
             rectangleControl1.Size = new Size(356, 504);
             rectangleControl1.TabIndex = 0;
             // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(rectangleCollisionControl1);
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(792, 510);
+            tabPage1.TabIndex = 2;
+            tabPage1.Text = "Rectangles";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // rectangleCollisionControl1
+            // 
+            rectangleCollisionControl1.Dock = DockStyle.Fill;
+            rectangleCollisionControl1.Location = new Point(3, 3);
+            rectangleCollisionControl1.Name = "rectangleCollisionControl1";
+            rectangleCollisionControl1.Size = new Size(786, 504);
+            rectangleCollisionControl1.TabIndex = 0;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -125,18 +148,21 @@
             Text = "Programming Demo";
             tabControl1.ResumeLayout(false);
             EnumsTabPage.ResumeLayout(false);
-            RectanglesTabPage.ResumeLayout(false);
+            ClassesTabPage.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
         private TabControl tabControl1;
         private TabPage EnumsTabPage;
-        private TabPage RectanglesTabPage;
+        private TabPage ClassesTabPage;
         private View.Controls.EnumerationControl enumerationControl1;
         private View.Controls.WeekdayParsingControl weekdayParsingControl1;
         private View.Controls.SeasonHandleControl seasonHandleControl1;
         private View.Controls.RectangleControl rectangleControl1;
         private View.Controls.FilmsControl filmsControl1;
+        private TabPage tabPage1;
+        private View.Controls.RectangleCollisionControl rectangleCollisionControl1;
     }
 }

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Programming.Model.Classes;
 
-namespace Programming.Model.Classes
+namespace Programming.Model.Geometry
 {
     public class Point2D
     {
-        private int _x; 
+        private int _x;
 
         private int _y;
 
@@ -18,7 +19,7 @@ namespace Programming.Model.Classes
             {
                 return _x;
             }
-            private set
+            set
             {
                 Validator.AssertOnPositiveValue(value, nameof(X));
                 _x = value;
@@ -27,11 +28,11 @@ namespace Programming.Model.Classes
 
         public int Y
         {
-            get 
+            get
             {
                 return _y;
             }
-            private set
+            set
             {
                 Validator.AssertOnPositiveValue(value, nameof(Y));
                 _y = value;

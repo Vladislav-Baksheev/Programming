@@ -18,5 +18,14 @@ namespace Programming.Model.Classes
         /// </summary>
         public static readonly Color NormalBackColor = Color.White;
 
+        /// <summary>
+        /// Цвет непересекающихся фигур.
+        /// </summary>
+        public static readonly Color NotCollision = Color.FromArgb(127, 127, 255, 127);
+
+        /// <summary>
+        /// Цвет пересекающихся фигур.
+        /// </summary>
+        public static readonly Color Collision = Color.FromArgb(127, 255, 127, 127);
     }
 }

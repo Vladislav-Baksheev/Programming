@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Color = Programming.Model.Enums.Color;
-using Rectangle = Programming.Model.Classes.Rectangle;
+using Rectangle = Programming.Model.Geometry.Rectangle;
 
 namespace Programming.View.Controls
 {
@@ -57,7 +57,7 @@ namespace Programming.View.Controls
         {
             try
             {
-                _currentRectangle.Length = Convert.ToDouble(LengthTextBox.Text);
+                _currentRectangle.Length = Convert.ToInt32(LengthTextBox.Text);
                 Validator.AssertValueInRange(_currentRectangle.Length, _min, _max, nameof(LengthTextBox));
                 LengthTextBox.BackColor = AppColor.NormalBackColor;
             }
@@ -71,7 +71,7 @@ namespace Programming.View.Controls
         {
             try
             {
-                _currentRectangle.Width = Convert.ToDouble(WidthTextBox.Text);
+                _currentRectangle.Width = Convert.ToInt32(WidthTextBox.Text);
                 Validator.AssertValueInRange(_currentRectangle.Width, _min, _max, nameof(WidthTextBox));
                 WidthTextBox.BackColor = AppColor.NormalBackColor;
             }
