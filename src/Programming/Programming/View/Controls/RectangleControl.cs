@@ -22,6 +22,10 @@ namespace Programming.View.Controls
 
         private string[] _colors;
 
+        private readonly int _min = 0;
+
+        private readonly int _max = 999;
+
         public RectangleControl()
         {
             InitializeComponent();
@@ -54,6 +58,7 @@ namespace Programming.View.Controls
             try
             {
                 _currentRectangle.Length = Convert.ToDouble(LengthTextBox.Text);
+                Validator.AssertValueInRange(_currentRectangle.Length, _min, _max, nameof(LengthTextBox));
                 LengthTextBox.BackColor = AppColor.NormalBackColor;
             }
             catch (Exception ex)
@@ -67,6 +72,7 @@ namespace Programming.View.Controls
             try
             {
                 _currentRectangle.Width = Convert.ToDouble(WidthTextBox.Text);
+                Validator.AssertValueInRange(_currentRectangle.Width, _min, _max, nameof(WidthTextBox));
                 WidthTextBox.BackColor = AppColor.NormalBackColor;
             }
             catch (Exception ex)

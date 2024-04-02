@@ -43,5 +43,21 @@ namespace Programming.Model.Classes
                 throw new ArgumentException($"Некорректное значение в поле: {propertyName}.");
             }
         }
+
+        public static void AssertValueInRange(double value, int min, int max, string propertyName)
+        {
+            if ((value < min) || (value > max))
+            {
+                throw new ArgumentException($"Некорректное значение в поле: {propertyName}.");
+            }
+        }
+
+        public static void AssertOnBiggerValue(double low, double big, string propertyName)
+        {
+            if(low > big)
+            {
+                throw new ArgumentException($"Некорректное значение в поле: {propertyName}.");
+            }
+        }
     }
 }

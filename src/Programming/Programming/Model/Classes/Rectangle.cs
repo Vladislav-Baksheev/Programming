@@ -42,6 +42,14 @@ namespace Programming.Model.Classes
             }
         }
 
+        public static int AllRectanglesCount
+        {
+            get 
+            { 
+                return _allRectanglesCount; 
+            }
+        }
+
         public string Color { get; set; }
 
         public Point2D Center { get; set; }
