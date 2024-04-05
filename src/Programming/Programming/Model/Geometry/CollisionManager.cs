@@ -21,12 +21,10 @@ namespace Programming.Model.Geometry
         /// Возвращает false, если прямоугольники не пересекаются.</returns>
         public static bool IsCollision(Rectangle rectangle1, Rectangle rectangle2)
         {
-            if (Math.Abs(rectangle1.Center.X - rectangle2.Center.X) < rectangle1.Width / 2 + rectangle2.Width / 2 &&
-            Math.Abs(rectangle1.Center.Y - rectangle2.Center.Y) < rectangle1.Length / 2 + rectangle2.Length / 2)
-            {
-                return true;
-            }
-            return false;
+            return rectangle1.Center.X < rectangle2.Center.X + rectangle2.Length &&
+                   rectangle1.Center.X + rectangle1.Length > rectangle2.Center.X &&
+                   rectangle1.Center.Y < rectangle2.Center.Y + rectangle2.Width &&
+                   rectangle1.Width + rectangle1.Center.Y > rectangle2.Center.Y;
         }
 
         /// <summary>

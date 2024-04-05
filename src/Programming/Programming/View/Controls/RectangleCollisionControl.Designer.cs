@@ -31,8 +31,6 @@
             label1 = new Label();
             RectanglesListBox = new ListBox();
             RectanglesPanel = new Panel();
-            AddButton = new Button();
-            RemoveButton = new Button();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
@@ -44,6 +42,10 @@
             YTextBox = new TextBox();
             WidthTextBox = new TextBox();
             HeightTextBox = new TextBox();
+            AddButtonPictureBox = new PictureBox();
+            RemoveButtonPictureBox = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)AddButtonPictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)RemoveButtonPictureBox).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -73,26 +75,6 @@
             RectanglesPanel.Name = "RectanglesPanel";
             RectanglesPanel.Size = new Size(394, 488);
             RectanglesPanel.TabIndex = 2;
-            // 
-            // AddButton
-            // 
-            AddButton.Location = new Point(23, 251);
-            AddButton.Name = "AddButton";
-            AddButton.Size = new Size(63, 23);
-            AddButton.TabIndex = 0;
-            AddButton.Text = "button1";
-            AddButton.UseVisualStyleBackColor = true;
-            AddButton.Click += AddButton_Click;
-            // 
-            // RemoveButton
-            // 
-            RemoveButton.Location = new Point(107, 251);
-            RemoveButton.Name = "RemoveButton";
-            RemoveButton.Size = new Size(63, 23);
-            RemoveButton.TabIndex = 0;
-            RemoveButton.Text = "button1";
-            RemoveButton.UseVisualStyleBackColor = true;
-            RemoveButton.Click += RemoveButton_Click;
             // 
             // label2
             // 
@@ -155,7 +137,6 @@
             IDTextBox.ReadOnly = true;
             IDTextBox.Size = new Size(124, 23);
             IDTextBox.TabIndex = 0;
-            IDTextBox.TextChanged += IDTextBox_TextChanged;
             // 
             // XTextBox
             // 
@@ -189,10 +170,36 @@
             HeightTextBox.TabIndex = 0;
             HeightTextBox.TextChanged += HeightTextBox_TextChanged;
             // 
+            // AddButtonPictureBox
+            // 
+            AddButtonPictureBox.Image = Properties.Resources.rectangle_add_24x24_uncolor;
+            AddButtonPictureBox.Location = new Point(32, 251);
+            AddButtonPictureBox.Name = "AddButtonPictureBox";
+            AddButtonPictureBox.Size = new Size(62, 28);
+            AddButtonPictureBox.TabIndex = 0;
+            AddButtonPictureBox.TabStop = false;
+            AddButtonPictureBox.Click += AddButtonPictureBox_Click;
+            AddButtonPictureBox.MouseEnter += AddButtonPictureBox_MouseEnter;
+            AddButtonPictureBox.MouseLeave += AddButtonPictureBox_MouseLeave;
+            // 
+            // RemoveButtonPictureBox
+            // 
+            RemoveButtonPictureBox.Image = Properties.Resources.rectangle_remove_24x24_uncolor;
+            RemoveButtonPictureBox.Location = new Point(129, 251);
+            RemoveButtonPictureBox.Name = "RemoveButtonPictureBox";
+            RemoveButtonPictureBox.Size = new Size(62, 28);
+            RemoveButtonPictureBox.TabIndex = 0;
+            RemoveButtonPictureBox.TabStop = false;
+            RemoveButtonPictureBox.Click += RemoveButtonPictureBox_Click;
+            RemoveButtonPictureBox.MouseEnter += RemoveButtonPictureBox_MouseEnter;
+            RemoveButtonPictureBox.MouseLeave += RemoveButtonPictureBox_MouseLeave;
+            // 
             // RectangleCollisionControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(RemoveButtonPictureBox);
+            Controls.Add(AddButtonPictureBox);
             Controls.Add(HeightTextBox);
             Controls.Add(WidthTextBox);
             Controls.Add(YTextBox);
@@ -204,13 +211,13 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(RemoveButton);
-            Controls.Add(AddButton);
             Controls.Add(RectanglesPanel);
             Controls.Add(RectanglesListBox);
             Controls.Add(label1);
             Name = "RectangleCollisionControl";
             Size = new Size(645, 494);
+            ((System.ComponentModel.ISupportInitialize)AddButtonPictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)RemoveButtonPictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -233,5 +240,7 @@
         private TextBox YTextBox;
         private TextBox WidthTextBox;
         private TextBox HeightTextBox;
+        private PictureBox AddButtonPictureBox;
+        private PictureBox RemoveButtonPictureBox;
     }
 }
