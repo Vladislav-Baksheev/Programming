@@ -6,12 +6,29 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Classes
 {
+    /// <summary>
+    /// Хранит данные о времени.
+    /// </summary>
     public class Time
     {
+        /// <summary>
+        /// Часы.
+        /// </summary>
         private int _hours;
+
+        /// <summary>
+        /// Минуты.
+        /// </summary>
         private int _minutes;
+
+        /// <summary>
+        /// Секунды.
+        /// </summary>
         private int _seconds;
 
+        /// <summary>
+        /// Возвращает и задает часы.
+        /// </summary>
         public int Hours
         {
             get
@@ -25,6 +42,9 @@ namespace Programming.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает минуты.
+        /// </summary>
         public int Minutes
         {
             get
@@ -38,6 +58,9 @@ namespace Programming.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает секунды.
+        /// </summary>
         public int Seconds
         {
             get
@@ -51,6 +74,12 @@ namespace Programming.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Time"/>
+        /// </summary>
+        /// <param name="hours">Часы.</param>
+        /// <param name="minutes">Минуты.</param>
+        /// <param name="seconds">Секунды.</param>
         public Time(int hours, int minutes, int seconds)
         {
             Hours = hours;
@@ -58,6 +87,9 @@ namespace Programming.Model.Classes
             Seconds = seconds;
         }
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Time"/>
+        /// </summary>
         public Time()
         {
             Hours = 0;

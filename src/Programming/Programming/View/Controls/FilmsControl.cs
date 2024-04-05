@@ -14,14 +14,26 @@ namespace Programming.View.Controls
 {
     public partial class FilmsControl : UserControl
     {
+        /// <summary>
+        /// Массив фильмов.
+        /// </summary>
         private Film[] _films;
 
+        /// <summary>
+        /// Текущий фильм.
+        /// </summary>
         private Film _currentFilm;
 
         Random random = new Random();
 
+        /// <summary>
+        /// Массив жанров.
+        /// </summary>
         private string[] _genres;
 
+        /// <summary>
+        /// Массив названий.
+        /// </summary>
         private string[] _names = { "Evangelion", "Breaking Bad", "The Walking Dead", "Schindler's List", "Godfather" };
 
         public FilmsControl()
@@ -43,6 +55,11 @@ namespace Programming.View.Controls
             FilmsListBox.SelectedIndex = FindFilmWithMaxRating(_films);
         }
 
+        /// <summary>
+        /// Ищет фильмы с максимальным рейтингом.
+        /// </summary>
+        /// <param name="films">Фильмы.</param>
+        /// <returns>Индекс фильма с самым большим рейтингом.</returns>
         private int FindFilmWithMaxRating(Film[] films)
         {
             int indexMaxWidth = 0;

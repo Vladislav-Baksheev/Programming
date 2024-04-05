@@ -14,16 +14,31 @@ namespace Programming.View.Controls
 {
     public partial class RectangleControl : UserControl
     {
+        /// <summary>
+        /// Список объектов класса <see cref="Rectangle"/>
+        /// </summary>
         private Rectangle[] _rectangles;
 
+        /// <summary>
+        /// Текущий прямоугольник.
+        /// </summary>
         private Rectangle _currentRectangle;
 
         Random random = new Random();
 
+        /// <summary>
+        /// Массив цветов.
+        /// </summary>
         private string[] _colors;
 
+        /// <summary>
+        /// Минимальное количество символов в TextBoxes.
+        /// </summary>
         private readonly int _min = 0;
 
+        /// <summary>
+        /// Максимальное количество символов в TextBoxes.
+        /// </summary>
         private readonly int _max = 999;
 
         public RectangleControl()
@@ -87,6 +102,11 @@ namespace Programming.View.Controls
             _currentRectangle.Color = ColorTextBox.Text;
         }
 
+        /// <summary>
+        /// Ищет прямоугольник с максимальной шириной.
+        /// </summary>
+        /// <param name="rectangles">Массив прямоугольников.</param>
+        /// <returns>Индекс прямоугольника с максимальной шириной.</returns>
         private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
         {
             int indexMaxWidth = 0;

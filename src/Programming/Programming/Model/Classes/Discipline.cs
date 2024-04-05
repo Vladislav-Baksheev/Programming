@@ -6,14 +6,29 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Classes
 {
+    /// <summary>
+    /// Хранит данные о дисциплине.
+    /// </summary>
     public class Discipline
     {
-        string _name;
-        int _mark;
-        int _hours;
+        /// <summary>
+        /// Оценка.
+        /// </summary>
+        private int _mark;
 
+        /// <summary>
+        /// Часы.
+        /// </summary>
+        private int _hours;
+
+        /// <summary>
+        /// Возвращает и задает название дисциплины.
+        /// </summary>
         public string Name { get; set; }
 
+        /// <summary>
+        /// Возвращает и задает оценку по дисциплине.
+        /// </summary>
         public int Mark
         {
             get
@@ -27,6 +42,9 @@ namespace Programming.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает количество часов по дисциплине.
+        /// </summary>
         public int Hours
         {
             get
@@ -40,6 +58,12 @@ namespace Programming.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Discipline"/>
+        /// </summary>
+        /// <param name="name">Название дисциплины.</param>
+        /// <param name="mark">Оценка дисциплины.</param>
+        /// <param name="hours">Часы дисциплины.</param>
         public Discipline(string name, int mark, int hours)
         {
             Name = name;
@@ -47,6 +71,9 @@ namespace Programming.Model.Classes
             Hours = hours;
         }
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Discipline"/>
+        /// </summary>
         public Discipline()
         {
             Name = string.Empty;

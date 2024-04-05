@@ -12,14 +12,26 @@ namespace Programming.View.Controls
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Список объектов класса <see cref="Rectangle"/>
+        /// </summary>
         private List<Rectangle> _rectangles = new List<Rectangle>();
 
+        /// <summary>
+        /// Выбранный прямоугольник.
+        /// </summary>
         private Rectangle _currentRectangle;
 
         public Random random = new Random();
 
+        /// <summary>
+        /// Список объектов класса <see cref="Panel"/>
+        /// </summary>
         private List<Panel> _rectanglePanels = new List<Panel>();
 
+        /// <summary>
+        /// Индекс выбранного прямоугольника.
+        /// </summary>
         private int _currentIndexRectangle;
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -61,6 +73,10 @@ namespace Programming.View.Controls
                 UpdateRectangleInfo();
             }
         }
+
+        /// <summary>
+        /// Находит пересекающиеся прямоугольники и перекрашивает их.
+        /// </summary>
         public void FindCollisions()
         {
             for (int i = 0; i < _rectanglePanels.Count; i++)
@@ -84,6 +100,10 @@ namespace Programming.View.Controls
                 }
             }
         }
+
+        /// <summary>
+        /// Очищает все TextBoxes.
+        /// </summary>
         public void ClearRectangleInfo()
         {
             IDTextBox.Clear();
@@ -92,6 +112,10 @@ namespace Programming.View.Controls
             WidthTextBox.Clear();
             HeightTextBox.Clear();
         }
+
+        /// <summary>
+        /// Обновляет информацию в TextBoxes.
+        /// </summary>
         private void UpdateRectangleInfo()
         {
             IDTextBox.Text = _currentRectangle.Id.ToString();

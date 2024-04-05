@@ -8,12 +8,29 @@ using System.Xml.Linq;
 
 namespace Programming.Model.Classes
 {
+    /// <summary>
+    /// Хранит данные о контакте человека.
+    /// </summary>
     public class Contact
     {
+        /// <summary>
+        /// Имя.
+        /// </summary>
         private string _firstName;
+
+        /// <summary>
+        /// Фамилия.
+        /// </summary>
         private string _surname;
+
+        /// <summary>
+        /// Номер телефона.
+        /// </summary>
         private string _number;
 
+        /// <summary>
+        /// Возвращает и задает имя человека.
+        /// </summary>
         public string FirstName 
         {
             get
@@ -28,6 +45,9 @@ namespace Programming.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает фамилию человека.
+        /// </summary>
         public string Surname 
         {
             get
@@ -42,6 +62,9 @@ namespace Programming.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает номер телефона человека.
+        /// </summary>
         public string Number 
         {
             get
@@ -62,6 +85,12 @@ namespace Programming.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Contact"/>
+        /// </summary>
+        /// <param name="firstName">Имя.</param>
+        /// <param name="surname">Фамилия.</param>
+        /// <param name="number">Номер телефона.</param>
         public Contact(string firstName, string surname, string number)
         {
             FirstName = firstName;
@@ -69,6 +98,9 @@ namespace Programming.Model.Classes
             Number = number;
         }
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Contact"/>
+        /// </summary>
         public Contact()
         {
             FirstName = string.Empty;

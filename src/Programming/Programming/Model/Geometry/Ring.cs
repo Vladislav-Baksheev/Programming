@@ -9,12 +9,24 @@ namespace Programming.Model.Geometry
 {
     public class Ring
     {
+        /// <summary>
+        /// Возвращает и задает центральную точку.
+        /// </summary>
         public Point2D _point { get; set; }
 
+        /// <summary>
+        /// Внутренний радиус.
+        /// </summary>
         private double _innerRadius;
 
+        /// <summary>
+        /// Внешний радиус.
+        /// </summary>
         private double _outerRadius;
 
+        /// <summary>
+        /// Возвращает и задает внутренний радиус.
+        /// </summary>
         public double InnerRadius
         {
             get
@@ -28,6 +40,9 @@ namespace Programming.Model.Geometry
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает внешний радиус.
+        /// </summary>
         public double OuterRadius
         {
             get
@@ -42,6 +57,9 @@ namespace Programming.Model.Geometry
             }
         }
 
+        /// <summary>
+        /// Возвращает площадь.
+        /// </summary>
         public double Area
         {
             get
@@ -55,6 +73,11 @@ namespace Programming.Model.Geometry
         /// </summary>
         public Point2D Center { get; set; }
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Ring"/>
+        /// </summary>
+        /// <param name="inner">Внутренний радиус.</param>
+        /// <param name="outer">Внешний радиус.</param>
         public Ring(double inner, double outer)
         {
             InnerRadius = inner;
