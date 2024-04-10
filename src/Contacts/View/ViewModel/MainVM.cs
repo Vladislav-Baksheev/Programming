@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm;
-using System.Windows.Input;
-using View.Model;
+﻿using View.Model;
 using View.Model.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -60,7 +51,7 @@ namespace View.ViewModel
         /// </summary>
         public MainVM()
         {
-
+            Contacts = _serializer.Load();
         }
 
         [RelayCommand]
@@ -123,6 +114,12 @@ namespace View.ViewModel
                 CurrentContact = Contacts[CurrentIndex];
             }
             IsApply = true;
+        }
+
+        [RelayCommand]
+        private void SaveContacts()
+        {
+            _serializer.Save(Contacts);
         }
 
         /// <summary>
