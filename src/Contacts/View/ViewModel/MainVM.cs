@@ -5,16 +5,20 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using CommunityToolkit.Mvvm;
 using System.Windows.Input;
 using View.Model;
 using View.Model.Services;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System.Collections.ObjectModel;
 
 namespace View.ViewModel
 {
     /// <summary>
     /// ViewModel для главного окна.
     /// </summary>
-    class MainVM : INotifyPropertyChanged
+    public partial class MainVM : ObservableObject
     {
         /// <summary>
         /// Сериализатор.
@@ -27,95 +31,44 @@ namespace View.ViewModel
         public Contact Contact { get; set; } = new Contact();
 
         /// <summary>
-        /// Возвращает и задает имя контакта.
+        /// Объект, хранящий текущий контакт.
         /// </summary>
-        public string? Name
-        {
-            get => Contact.Name;
-            set
-            {
-                Contact.Name = value;
-                OnPropertyChanged(nameof (Name));
-            }
-        }
-
-        /// <summary>
-        /// Возвращает и задает номер телефона контакта.
-        /// </summary>
-        public string? PhoneNumber
-        {
-            get => Contact.PhoneNumber;
-            set
-            {
-                Contact.PhoneNumber = value;
-                OnPropertyChanged(nameof (PhoneNumber));
-            }
-        }
-        /// <summary>
-        /// Возвращает и задает email контакта.
-        /// </summary>
-        public string? Email
-        {
-            get => Contact.Email;
-            set
-            {
-                Contact.Email = value;
-                OnPropertyChanged(nameof (Email));
-            }
-        }
-       
-        /// <summary>
-        /// Возвращает команду для загрузки данных из файла.
-        /// </summary>
-        public ICommand LoadCommand { get; }
-
-        /// <summary>
-        /// Возвращает команду для сохранения данных в файл.
-        /// </summary>
-        public ICommand SaveCommand { get; }
+        [ObservableProperty]
+        [NotifyCanExecuteChangedFor(nameof(AddContactCommand), nameof(EditContactCommand))]
+        private ContactVM _currentContact;
 
         /// <summary>
         /// Создает экземпляр класса <see cref="MainVM"/>.
         /// </summary>
         public MainVM()
         {
-            SaveCommand = new RelayCommand(SaveContact);
-            LoadCommand = new RelayCommand(LoadContact);
+
         }
 
-        /// <summary>
-        /// Сохраняет данные о контакте в файл.
-        /// </summary>
-        /// <param name="parameter">Параметр.</param>
-        private void SaveContact(object? parameter)
+        public ObservableCollection<ContactVM> Contacts { get; set; } = new ObservableCollection<ContactVM>();
+
+        [RelayCommand]
+        private void AddContact()
         {
-            _serializer.Save(Contact);
+            CurrentContact = new ContactVM(new Contact());
         }
 
-        /// <summary>
-        /// Загружает данные о контакте из файла.
-        /// </summary>
-        /// <param name="parameter">Параметр.</param>
-        private void LoadContact(object? parameter)
+        [RelayCommand]
+        private void RemoveContact()
         {
-            var contact = _serializer.Load();
-            Name = contact.Name;
-            PhoneNumber = contact.PhoneNumber;
-            Email = contact.Email;
+
         }
 
-        /// <summary>
-        /// Вызывает событие при вызове.
-        /// </summary>
-        /// <param name="prop">Свойство, вызвавшее событие.</param>
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        [RelayCommand]
+        private void EditContact()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+
         }
 
-        /// <summary>
-        /// Событие изменения свойства.
-        /// </summary>
-        public event PropertyChangedEventHandler? PropertyChanged;
+        [RelayCommand]
+        private void ApplyContact()
+        {
+            Contacts.Add(CurrentContact);
+        }
     }
 }

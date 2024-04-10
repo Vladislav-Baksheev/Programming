@@ -40,7 +40,7 @@ namespace View.Model
         /// <param name="name">Имя.</param>
         /// <param name="phone">Номер телефона.</param>
         /// <param name="email">Электронная почта.</param>
-        public Contact(string name, string phone, string email)
+        public Contact(string? name, string? phone, string? email)
         {
             Name = name;
             PhoneNumber = phone;
