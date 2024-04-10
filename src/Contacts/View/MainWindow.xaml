@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
         Title="Contacts" 
+        xmlns:local="clr-namespace:View.Converters"
         Width="650"
         Height="400"
         MinWidth="450"
@@ -13,6 +13,8 @@
         Icon="/ContactsApp_96x96.ico">
     <Window.Resources>
         <Image x:Key="resImage" Source="Resources/photo_placeholder_100x100.png"/>
+        <local:BoolInvertedValueConverter x:Key="BoolInvertedValueConverter"/>
+        <local:ButtonVisibilityConverter x:Key="ButtonVisibilityConverter"/>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -47,35 +49,49 @@
                             Grid.Column="0"
                             Height="25"
                             Margin="3" 
-                            Command="{Binding AddContactCommand}"/>
+                            Command="{Binding AddContactCommand}"
+                            IsEnabled="{Binding Path=IsReadOnly}"/>
                         <Button 
                             x:Name="EditButton" 
                             Content="Edit" 
                             Grid.Column="1"
                             Height="25" 
                             Margin="3" 
-                            Command="{Binding EditContactCommand}"/>
+                            Command="{Binding EditContactCommand}"
+                            IsEnabled="{Binding Path=IsReadOnly}"/>
                         <Button 
+                            Validation.ErrorTemplate="{x:Null}"
                             x:Name="RemoveButton" 
                             Content="Remove"  
                             Grid.Column="2"
                             Height="25" 
                             Margin="3" 
-                            Command="{Binding RemoveContactCommand}"/>
+                            Command="{Binding RemoveContactCommand}"
+                            CommandParameter="{Binding CurrentContact}"
+                            IsEnabled="{Binding Path=IsReadOnly}"/>
                         <Button 
                             x:Name="AutoButton" 
                             Content="Generate"                             
                             Grid.Column="3"
                             Height="25" 
                             Margin="3" 
-                            Command="{Binding AddContactCommand}"/>
+                            Command="{Binding AddContactCommand}"
+                            IsEnabled="{Binding Path=IsReadOnly}"/>
                     </Grid>
                     <DockPanel>
                         <ListBox 
                             x:Name="usersList" 
                             Margin="3"
+                            Validation.ErrorTemplate="{x:Null}"
                             ItemsSource="{Binding Path=Contacts}"
                             SelectedItem="{Binding Path=CurrentContact, UpdateSourceTrigger=PropertyChanged}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Margin="5">
+                                        <TextBlock Text="{Binding Path=Name}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
                         </ListBox>
                     </DockPanel>
                 </DockPanel>
@@ -99,7 +115,9 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Grid DataContext="{Binding Path=CurrentContact, UpdateSourceTrigger=PropertyChanged}">
+            <Grid 
+                Validation.ErrorTemplate="{x:Null}"
+                DataContext="{Binding Path=CurrentContact, UpdateSourceTrigger=PropertyChanged}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
@@ -123,7 +141,7 @@
                     Text="Name:"/>
                 <StackPanel Grid.Column="1" Grid.Row="1">
                     <TextBox 
-                    Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" 
+                    Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"
                     Margin="3"/>
                     <TextBlock 
                     Text="Phone Number:" 
@@ -147,7 +165,10 @@
                 Grid.Row="1" 
                 Content="Apply" 
                 Margin="50"
-                Command="{Binding ApplyContactCommand}"/>
+                Command="{Binding ApplyContactCommand}"
+                IsEnabled="{Binding Path=CurrentContact.HasErrors, 
+                Converter={StaticResource BoolInvertedValueConverter}}"
+                Visibility="{Binding Path=IsVisible, Converter={StaticResource ButtonVisibilityConverter}, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
     </Grid>
 </Window>
