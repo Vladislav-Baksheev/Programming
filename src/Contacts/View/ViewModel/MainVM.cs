@@ -14,7 +14,9 @@ namespace View.ViewModel
         /// <summary>
         /// Сериализатор.
         /// </summary>
-        ContactSerializer _serializer = new ContactSerializer();
+        private ContactSerializer _serializer = new ContactSerializer();
+
+        private ContactVMFactoty _contactVMFactoty = new ContactVMFactoty();
 
         /// <summary>
         /// Возвращает и задает контакт.
@@ -120,6 +122,14 @@ namespace View.ViewModel
         private void SaveContacts()
         {
             _serializer.Save(Contacts);
+        }
+
+        [RelayCommand]
+        private void AutoGenerateContact()
+        {
+            var tempContact = _contactVMFactoty.CreateContact();
+            Contacts.Add(tempContact);
+            CurrentContact = tempContact;
         }
 
         /// <summary>

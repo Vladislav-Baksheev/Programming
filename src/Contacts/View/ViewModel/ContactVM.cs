@@ -11,20 +11,20 @@ namespace View.ViewModel
         [Required]
         [MinLength(2)]
         [MaxLength(100)]
-        public string? Name
+        public string? FirstName
         {
-            get => Contact.Name;
+            get => Contact.FirstName;
 
-            set => SetProperty(Contact.Name, value, Contact, (contact, name) => Contact.Name = name, true);
+            set => SetProperty(Contact.FirstName, value, Contact, (contact, name) => Contact.FirstName = name, true);
         }
 
         [Required]
         [Phone]
-        public string? PhoneNumber
+        public string? Phone
         {
-            get => Contact.PhoneNumber;
+            get => Contact.Phone;
 
-            set => SetProperty(Contact.PhoneNumber, value, Contact, (contact, Name) => Contact.PhoneNumber = Name, true);
+            set => SetProperty(Contact.Phone, value, Contact, (contact, phone) => Contact.Phone = phone, true);
         }
 
         [Required]
@@ -33,7 +33,7 @@ namespace View.ViewModel
         {
             get => Contact.Email;
 
-            set => SetProperty(Contact.Email, value, Contact, (contact, name) => Contact.Email = name, true);
+            set => SetProperty(Contact.Email, value, Contact, (contact, email) => Contact.Email = email, true);
         }
         public ContactVM(Contact contact)
         {

@@ -8,12 +8,12 @@
         /// <summary>
         /// Имя.
         /// </summary>
-        public string? Name { get; set; }
+        public string? FirstName { get; set; }
 
         /// <summary>
         /// Номер телефона.
         /// </summary>
-        public string? PhoneNumber { get; set; }
+        public string? Phone { get; set; }
 
         /// <summary>
         /// Электронная почта.
@@ -36,8 +36,8 @@
         /// <param name="email">Электронная почта.</param>
         public Contact(string? name, string? phone, string? email)
         {
-            Name = name;
-            PhoneNumber = phone;
+            FirstName = name;
+            Phone = phone;
             Email = email;
         }
     }

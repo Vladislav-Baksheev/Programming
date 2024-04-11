@@ -81,7 +81,7 @@
                             Grid.Column="3"
                             Height="25" 
                             Margin="3" 
-                            Command="{Binding AddContactCommand}"
+                            Command="{Binding AutoGenerateContactCommand}"
                             IsEnabled="{Binding Path=IsReadOnly}"/>
                     </Grid>
                     <DockPanel>
@@ -94,7 +94,7 @@
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Margin="5">
-                                        <TextBlock Text="{Binding Path=Name}" />
+                                        <TextBlock Text="{Binding Path=FirstName}" />
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
@@ -147,13 +147,13 @@
                     Text="Name:"/>
                 <StackPanel Grid.Column="1" Grid.Row="1">
                     <TextBox 
-                    Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"
+                    Text="{Binding Path=FirstName, UpdateSourceTrigger=PropertyChanged}"
                     Margin="3"/>
                     <TextBlock 
                     Text="Phone Number:" 
                     Margin="3"/>
                     <TextBox 
-                    Text="{Binding Path=PhoneNumber, UpdateSourceTrigger=PropertyChanged}" 
+                    Text="{Binding Path=Phone, UpdateSourceTrigger=PropertyChanged}" 
                     Margin="3"/>
                     <TextBlock 
                     Text="Email:" 
