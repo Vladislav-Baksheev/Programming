@@ -8,21 +8,44 @@ using System.Threading.Tasks;
 
 namespace View
 {
+    /// <summary>
+    /// Содержит методы для работы с API.
+    /// </summary>
     public class DataAPI
     {
+        /// <summary>
+        /// URL сайта.
+        /// </summary>
         readonly private string url = "https://api.randomdatatools.ru/?unescaped=false&params=";
 
+        /// <summary>
+        /// Запрос для сайта.
+        /// </summary>
         private HttpWebRequest _request;
 
+        /// <summary>
+        /// Ответ от сайта.
+        /// </summary>
         private HttpWebResponse _response;
 
+        /// <summary>
+        /// Параметры.
+        /// </summary>
         public string Parameters { get; set; }
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="DataAPI"./>
+        /// </summary>
+        /// <param name="parameters">Параметры.</param>
         public DataAPI(string parameters)
         {
             Parameters = parameters;
         }
 
+        /// <summary>
+        /// Получает данные с сайта в формате JSON.
+        /// </summary>
+        /// <returns>Данные в формате JSON.</returns>
         public string GetJsonData()
         {
             string jsonText;

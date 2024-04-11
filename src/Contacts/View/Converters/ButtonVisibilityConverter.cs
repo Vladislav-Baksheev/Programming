@@ -5,6 +5,9 @@ using System.Windows.Data;
 
 namespace View.Converters
 {
+    /// <summary>
+    /// Конвертер значений Visibility для кнопки.
+    /// </summary>
     public class ButtonVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

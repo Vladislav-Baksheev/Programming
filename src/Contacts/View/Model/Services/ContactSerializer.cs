@@ -27,7 +27,7 @@ namespace View.Model.Services
         /// <summary>
         /// Сохраняет объект в файл.
         /// </summary>
-        /// <param name="contact">Контакт.</param>
+        /// <param name="contacts">Контакты.</param>
         public void Save(ObservableCollection<ContactVM>? contacts)
         {
             if (!File.Exists(Path))

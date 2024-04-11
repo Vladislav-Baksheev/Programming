@@ -16,6 +16,9 @@ namespace View.ViewModel
         /// </summary>
         private ContactSerializer _serializer = new ContactSerializer();
 
+        /// <summary>
+        /// Экземпляр класса, предоставляющий доступ к методам для создания контакта с случайными данными.
+        /// </summary>
         private ContactVMFactoty _contactVMFactoty = new ContactVMFactoty();
 
         /// <summary>
@@ -30,32 +33,56 @@ namespace View.ViewModel
         [NotifyCanExecuteChangedFor(nameof(AddContactCommand), nameof(EditContactCommand))]
         private ContactVM _currentContact;
 
+        /// <summary>
+        /// Объект, хранящий контакты.
+        /// </summary>
         public ObservableCollection<ContactVM> Contacts { get; set; } = new ObservableCollection<ContactVM>();
 
+        /// <summary>
+        /// Доступен ли элемент только на чтение.
+        /// </summary>
         [ObservableProperty]
         private bool _isReadOnly = true;
 
+        /// <summary>
+        /// Доступен ли элемент для нажатия.
+        /// </summary>
         [ObservableProperty]
         private bool _isEnabled = false;
 
+        /// <summary>
+        /// Виден ли элемент.
+        /// </summary>
         [ObservableProperty]
         private bool _isVisible = false;
 
+        /// <summary>
+        /// Проверяет, была ли нажата кнопка Edit.
+        /// </summary>
         private bool IsEdit { get; set; }
 
+        /// <summary>
+        /// Проверяет, была ли нажата кнопка Apply
+        /// </summary>
         [ObservableProperty]
         private bool _isApply = false;
 
+        /// <summary>
+        /// Хранит текущий индекс контакта.
+        /// </summary>
         private int CurrentIndex { get; set; }
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="MainVM"/>.
+        /// Создает экземпляр класса <see cref="MainVM"./>.
         /// </summary>
         public MainVM()
         {
             Contacts = _serializer.Load();
         }
 
+        /// <summary>
+        /// Команда добавления контакта.
+        /// </summary>
         [RelayCommand]
         private void AddContact()
         {
@@ -64,11 +91,18 @@ namespace View.ViewModel
             IsApply = false;
         }
 
+        /// <summary>
+        /// Проверяет, может ли выполняться команда удаления контакта.
+        /// </summary>
+        /// <returns>True, если количество контактов больше 0 и если текущий контакт не равен null, иначе false.</returns>
         private bool CanExecuteRemove()
         {
             return Contacts.Count > 0 && CurrentContact != null;
         }
 
+        /// <summary>
+        /// Команда удаления контакта.
+        /// </summary>
         [RelayCommand(CanExecute = nameof(CanExecuteRemove))]
         private void RemoveContact()
         {
@@ -88,11 +122,18 @@ namespace View.ViewModel
             }
         }
 
+        /// <summary>
+        /// Проверяет, может ли выполняться команда редактирования контакта.
+        /// </summary>
+        /// <returns>True, если количество контактов больше 0 и если текущий контакт не равен null, иначе false.</returns>
         private bool CanExecuteEdit()
         {
             return Contacts.Count > 0 && CurrentContact != null;
         }
 
+        /// <summary>
+        /// Команда редактирования контакта.
+        /// </summary>
         [RelayCommand(CanExecute = nameof(CanExecuteEdit))]
         private void EditContact()
         {
@@ -101,6 +142,9 @@ namespace View.ViewModel
             IsApply = false;
         }
 
+        /// <summary>
+        /// Команда принятия изменений контакта.
+        /// </summary>
         [RelayCommand]
         private void ApplyContact()
         {
@@ -118,12 +162,18 @@ namespace View.ViewModel
             IsApply = true;
         }
 
+        /// <summary>
+        /// Команда сохранения контакта.
+        /// </summary>
         [RelayCommand]
         private void SaveContacts()
         {
             _serializer.Save(Contacts);
         }
 
+        /// <summary>
+        /// Команда автоматической генерации контакта.
+        /// </summary>
         [RelayCommand]
         private void AutoGenerateContact()
         {
