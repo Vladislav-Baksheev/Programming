@@ -122,8 +122,7 @@
             </Grid.RowDefinitions>
 
             <Grid 
-                Validation.ErrorTemplate="{x:Null}"
-                DataContext="{Binding Path=CurrentContact, UpdateSourceTrigger=PropertyChanged}">
+                Validation.ErrorTemplate="{x:Null}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
@@ -147,19 +146,22 @@
                     Text="Name:"/>
                 <StackPanel Grid.Column="1" Grid.Row="1">
                     <TextBox 
-                    Text="{Binding Path=FirstName, UpdateSourceTrigger=PropertyChanged}"
+                    Text="{Binding Path=CurrentContact.FirstName, UpdateSourceTrigger=PropertyChanged}"
+                    IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
                     Margin="3"/>
                     <TextBlock 
                     Text="Phone Number:" 
                     Margin="3"/>
                     <TextBox 
-                    Text="{Binding Path=Phone, UpdateSourceTrigger=PropertyChanged}" 
+                    Text="{Binding Path=CurrentContact.Phone, UpdateSourceTrigger=PropertyChanged}"
+                    IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
                     Margin="3"/>
                     <TextBlock 
                     Text="Email:" 
                     Margin="3"/>
                     <TextBox 
-                    Text="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged}" 
+                    IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
+                    Text="{Binding Path=CurrentContact.Email, UpdateSourceTrigger=PropertyChanged}"
                     Margin="3"/>
                 </StackPanel>
             </Grid>
