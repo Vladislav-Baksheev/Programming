@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
+using View.ViewModel;
+
 namespace View.Model.Services
 {
     /// <summary>
@@ -28,12 +27,17 @@ namespace View.Model.Services
         /// <summary>
         /// Сохраняет объект в файл.
         /// </summary>
-        /// <param name="contact">Контакт.</param>
-        public void Save(Contact? contact)
+        /// <param name="contacts">Контакты.</param>
+        public void Save(ObservableCollection<ContactVM>? contacts)
         {
+            if (!File.Exists(Path))
+            {
+                File.Create(Path).Close();
+            }
+
             using (StreamWriter wr = new StreamWriter(Path))
             {
-                wr.Write(JsonConvert.SerializeObject(contact));
+                wr.Write(JsonConvert.SerializeObject(contacts));
             }
         }
 
@@ -41,19 +45,19 @@ namespace View.Model.Services
         /// Загружает данные из файла в приложение. 
         /// </summary>
         /// <returns>Объект класса <see cref="ContactSerializer"/>.</returns>
-        public Contact? Load() 
+        public ObservableCollection<ContactVM>? Load() 
         {
-            var contact = new Contact();
+            var contacts = new ObservableCollection<ContactVM>();
 
             if (File.Exists(Path))
             {
                 using (StreamReader sr = new StreamReader(Path))
                 {
-                    contact = JsonConvert.DeserializeObject<Contact?>(sr.ReadToEnd());
+                    contacts = JsonConvert.DeserializeObject<ObservableCollection<ContactVM>?>(sr.ReadToEnd());
                 }
             }
 
-            return contact;
+            return contacts;
         }
     }
 }
