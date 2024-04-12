@@ -62,6 +62,10 @@ namespace View.ViewModel
             ValidateAllProperties();
         }
 
+        /// <summary>
+        /// Создает клон объекта.
+        /// </summary>
+        /// <returns>Возвращает объект класса <see cref="ContactVM"/></returns>
         public object Clone()
         {
             return new ContactVM((Contact)Contact.Clone());
