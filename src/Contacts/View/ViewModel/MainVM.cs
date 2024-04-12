@@ -113,7 +113,7 @@ namespace View.ViewModel
             else if (CurrentIndex < Contacts.Count - 1)
             {
                 Contacts.Remove(CurrentContact);
-                CurrentContact = Contacts[CurrentIndex + 1];
+                CurrentContact = Contacts[CurrentIndex];
             }
             else
             {
