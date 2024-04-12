@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.ComponentModel.DataAnnotations;
 using View.Model;
 
@@ -7,7 +8,7 @@ namespace View.ViewModel
     /// <summary>
     /// ViewModel для контакта.
     /// </summary>
-    public class ContactVM : ObservableValidator
+    public class ContactVM : ObservableValidator, ICloneable
     {
         /// <summary>
         /// Хранит контакт.
@@ -59,6 +60,11 @@ namespace View.ViewModel
         {
             Contact = contact;
             ValidateAllProperties();
+        }
+
+        public object Clone()
+        {
+            return new ContactVM((Contact)Contact.Clone());
         }
     }
 }

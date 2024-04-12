@@ -138,7 +138,10 @@ namespace View.ViewModel
         private void EditContact()
         {
             IsEdit = true;
+            var tempContact = CurrentContact;
 
+            CurrentContact = null;
+            CurrentContact = (ContactVM?)tempContact.Clone();
             IsApply = false;
         }
 

@@ -1,9 +1,11 @@
-﻿namespace View.Model
+﻿using System;
+
+namespace View.Model
 {
     /// <summary>
     /// Хранит данные о контакте.
     /// </summary>
-    public class Contact
+    public class Contact : ICloneable
     {
         /// <summary>
         /// Имя.
@@ -39,6 +41,11 @@
             FirstName = name;
             Phone = phone;
             Email = email;
+        }
+
+        public object Clone()
+        {
+            return new Contact(FirstName, Phone, Email);
         }
     }
 }
