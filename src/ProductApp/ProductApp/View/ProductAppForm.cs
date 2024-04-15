@@ -26,7 +26,7 @@ namespace ProductApp
             Products = SortName(Products);
             foreach (var value in Products)
             {
-                ProductListBox.Items.Add(value.OutputInformation());
+                ProductListBox.Items.Add(value.Name);
             }
             var index = Products.IndexOf(_currentProduct);
             ProductListBox.SelectedIndex = Convert.ToInt32(index);
@@ -64,13 +64,21 @@ namespace ProductApp
 
         private void RemoveButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("sdf");
+            if (ProductListBox.SelectedIndex == -1)
+            {
+                return;
+            }
+
+            if (Products.Count > 0)
+            {
+                ProductListBox.Items.RemoveAt(Products.IndexOf(_currentProduct));
+                Products.RemoveAt(Products.IndexOf(_currentProduct));
+                ProductListBox.SelectedIndex = Products.Count > 0 ? 0 : -1;
+            }
+            UpdateSelectedProduct(_currentProduct);
         }
 
-        private void EditButton_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("sdf");
-        }
+
         private List<Product> SortName(List<Product> product)
         {
             var sortedProducts = from value in product
@@ -82,32 +90,55 @@ namespace ProductApp
         }
         private void ProductListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (ProductListBox.SelectedIndex == -1) return;
+
             _currentProduct = Products[ProductListBox.SelectedIndex];
             UpdateSelectedProduct(_currentProduct);
         }
 
         private void NameTextBox_TextChanged(object sender, EventArgs e)
         {
-            _currentProduct.Name = NameTextBox.Text;
-            UpdateTextBoxes();
+            try
+            {
+                NameTextBox.BackColor = Colors.NormalColor;
+                _currentProduct.Name = NameTextBox.Text;
+                ProductListBox.Items[Products.IndexOf(_currentProduct)] = _currentProduct.Name;
+            }
+            catch
+            {
+                NameTextBox.BackColor = Colors.BadColor;
+            }
         }
 
         private void ManufacturerTextBox_TextChanged(object sender, EventArgs e)
         {
-            _currentProduct.Manufacturer = ManufacturerTextBox.Text;
-            UpdateTextBoxes();
+            try
+            {
+                ManufacturerTextBox.BackColor = Colors.NormalColor;
+                _currentProduct.Manufacturer = ManufacturerTextBox.Text;
+            }
+            catch
+            {
+                ManufacturerTextBox.BackColor = Colors.BadColor;
+            }
         }
 
         private void AmountTextBox_TextChanged(object sender, EventArgs e)
         {
-            _currentProduct.Amount = Convert.ToInt32(AmountTextBox.Text);
-            UpdateTextBoxes();
+            try
+            {
+                AmountTextBox.BackColor = Colors.NormalColor;
+                _currentProduct.Amount = Convert.ToInt32(AmountTextBox.Text);
+            }
+            catch
+            {
+                AmountTextBox.BackColor = Colors.BadColor;
+            }
         }
 
         private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             _currentProduct.Category = (Category)CategoryComboBox.SelectedItem;
-            UpdateTextBoxes();
         }
     }
 }

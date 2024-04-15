@@ -8,11 +8,13 @@ namespace ProductApp.Model
 {
     public class Product
     {
-        private string? _name;
+        private string _name;
 
-        private string? _manufacturer;
+        private string _manufacturer;
 
         private int _amount;
+
+        private int _maxSymbols = 100;
 
         public Category Category { get; set; }
 
@@ -23,11 +25,10 @@ namespace ProductApp.Model
                 return _name; 
             } 
             set
-            {
-                if (_name != value)
-                {
-                    _name = value;
-                }   
+            {  
+                Validator.AssertOnValue(value, _maxSymbols, nameof(Name));
+                Validator.AssertOnEmptyValue(value, nameof(Name));
+                _name = value; 
             }
         }
 
@@ -39,10 +40,10 @@ namespace ProductApp.Model
             }
             set
             {
-                if (_manufacturer != value)
-                {
-                    _manufacturer = value;
-                }
+
+                Validator.AssertOnValue(value, _maxSymbols, nameof(Manufacturer));
+                _manufacturer = value;
+                
             }
         }
 
@@ -54,6 +55,7 @@ namespace ProductApp.Model
             }
             set
             {
+                Validator.AssertOnPositiveValue(value, nameof(Amount));
                 _amount = value;
             }
         }
@@ -71,11 +73,6 @@ namespace ProductApp.Model
             Name = "None";
             Manufacturer = "None";
             Amount = 0;
-        }
-
-        public string OutputInformation()
-        {
-            return $"{Name} - {Manufacturer}/{Amount}";
         }
     }
 }

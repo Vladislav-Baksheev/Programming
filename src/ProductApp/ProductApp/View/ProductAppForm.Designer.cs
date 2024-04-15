@@ -39,13 +39,13 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            EditButton = new Button();
             SelectedProductGroupBox = new GroupBox();
             SelectedProductGroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // AddButton
             // 
+            AddButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             AddButton.Location = new Point(13, 415);
             AddButton.Name = "AddButton";
             AddButton.Size = new Size(75, 23);
@@ -56,7 +56,8 @@
             // 
             // RemoveButton
             // 
-            RemoveButton.Location = new Point(172, 415);
+            RemoveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            RemoveButton.Location = new Point(94, 415);
             RemoveButton.Name = "RemoveButton";
             RemoveButton.Size = new Size(75, 23);
             RemoveButton.TabIndex = 0;
@@ -144,18 +145,9 @@
             label5.TabIndex = 4;
             label5.Text = "Name:";
             // 
-            // EditButton
-            // 
-            EditButton.Location = new Point(94, 415);
-            EditButton.Name = "EditButton";
-            EditButton.Size = new Size(75, 23);
-            EditButton.TabIndex = 5;
-            EditButton.Text = "Edit";
-            EditButton.UseVisualStyleBackColor = true;
-            EditButton.Click += EditButton_Click;
-            // 
             // SelectedProductGroupBox
             // 
+            SelectedProductGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             SelectedProductGroupBox.Controls.Add(label5);
             SelectedProductGroupBox.Controls.Add(NameTextBox);
             SelectedProductGroupBox.Controls.Add(AmountTextBox);
@@ -166,7 +158,7 @@
             SelectedProductGroupBox.Controls.Add(label2);
             SelectedProductGroupBox.Location = new Point(281, 12);
             SelectedProductGroupBox.Name = "SelectedProductGroupBox";
-            SelectedProductGroupBox.Size = new Size(404, 296);
+            SelectedProductGroupBox.Size = new Size(507, 426);
             SelectedProductGroupBox.TabIndex = 6;
             SelectedProductGroupBox.TabStop = false;
             SelectedProductGroupBox.Text = "Selected Product";
@@ -177,7 +169,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(SelectedProductGroupBox);
-            Controls.Add(EditButton);
             Controls.Add(ProductListBox);
             Controls.Add(RemoveButton);
             Controls.Add(AddButton);
@@ -201,7 +192,6 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private Button EditButton;
         private GroupBox SelectedProductGroupBox;
     }
 }
