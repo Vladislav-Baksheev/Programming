@@ -24,7 +24,7 @@ namespace ProductApp.Model
             } 
             set
             {
-                if (_name != value && _name.Length < 100)
+                if (_name != value)
                 {
                     _name = value;
                 }   
@@ -39,7 +39,7 @@ namespace ProductApp.Model
             }
             set
             {
-                if (_manufacturer != value && _manufacturer.Length < 100)
+                if (_manufacturer != value)
                 {
                     _manufacturer = value;
                 }
@@ -68,9 +68,14 @@ namespace ProductApp.Model
 
         public Product()
         {
-            Name = string.Empty;
-            Manufacturer = string.Empty;
+            Name = "None";
+            Manufacturer = "None";
             Amount = 0;
+        }
+
+        public string OutputInformation()
+        {
+            return $"{Name} - {Manufacturer}/{Amount}";
         }
     }
 }

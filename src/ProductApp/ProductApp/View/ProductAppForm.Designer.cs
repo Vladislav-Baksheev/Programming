@@ -31,15 +31,17 @@
             AddButton = new Button();
             RemoveButton = new Button();
             ProductListBox = new ListBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            comboBox1 = new ComboBox();
-            label1 = new Label();
+            NameTextBox = new TextBox();
+            ManufacturerTextBox = new TextBox();
+            AmountTextBox = new TextBox();
+            CategoryComboBox = new ComboBox();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
+            EditButton = new Button();
+            SelectedProductGroupBox = new GroupBox();
+            SelectedProductGroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // AddButton
@@ -50,17 +52,17 @@
             AddButton.TabIndex = 0;
             AddButton.Text = "Add";
             AddButton.UseVisualStyleBackColor = true;
-            AddButton.Click += button1_Click;
+            AddButton.Click += AddButton_Click;
             // 
             // RemoveButton
             // 
-            RemoveButton.Location = new Point(94, 415);
+            RemoveButton.Location = new Point(172, 415);
             RemoveButton.Name = "RemoveButton";
             RemoveButton.Size = new Size(75, 23);
             RemoveButton.TabIndex = 0;
             RemoveButton.Text = "Remove";
             RemoveButton.UseVisualStyleBackColor = true;
-            RemoveButton.Click += button1_Click;
+            RemoveButton.Click += RemoveButton_Click;
             // 
             // ProductListBox
             // 
@@ -71,49 +73,45 @@
             ProductListBox.Name = "ProductListBox";
             ProductListBox.Size = new Size(235, 394);
             ProductListBox.TabIndex = 1;
+            ProductListBox.SelectedIndexChanged += ProductListBox_SelectedIndexChanged;
             // 
-            // textBox1
+            // NameTextBox
             // 
-            textBox1.Location = new Point(367, 49);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(132, 23);
-            textBox1.TabIndex = 2;
+            NameTextBox.Location = new Point(97, 26);
+            NameTextBox.Name = "NameTextBox";
+            NameTextBox.Size = new Size(222, 23);
+            NameTextBox.TabIndex = 2;
+            NameTextBox.TextChanged += NameTextBox_TextChanged;
             // 
-            // textBox2
+            // ManufacturerTextBox
             // 
-            textBox2.Location = new Point(367, 91);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(132, 23);
-            textBox2.TabIndex = 2;
+            ManufacturerTextBox.Location = new Point(97, 68);
+            ManufacturerTextBox.Name = "ManufacturerTextBox";
+            ManufacturerTextBox.Size = new Size(222, 23);
+            ManufacturerTextBox.TabIndex = 2;
+            ManufacturerTextBox.TextChanged += ManufacturerTextBox_TextChanged;
             // 
-            // textBox3
+            // AmountTextBox
             // 
-            textBox3.Location = new Point(367, 138);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(132, 23);
-            textBox3.TabIndex = 2;
+            AmountTextBox.Location = new Point(97, 115);
+            AmountTextBox.Name = "AmountTextBox";
+            AmountTextBox.Size = new Size(132, 23);
+            AmountTextBox.TabIndex = 2;
+            AmountTextBox.TextChanged += AmountTextBox_TextChanged;
             // 
-            // comboBox1
+            // CategoryComboBox
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(367, 178);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(132, 23);
-            comboBox1.TabIndex = 3;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(279, 12);
-            label1.Name = "label1";
-            label1.Size = new Size(99, 15);
-            label1.TabIndex = 4;
-            label1.Text = "Selected Product:";
+            CategoryComboBox.FormattingEnabled = true;
+            CategoryComboBox.Location = new Point(97, 155);
+            CategoryComboBox.Name = "CategoryComboBox";
+            CategoryComboBox.Size = new Size(132, 23);
+            CategoryComboBox.TabIndex = 3;
+            CategoryComboBox.SelectedIndexChanged += CategoryComboBox_SelectedIndexChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(279, 94);
+            label2.Location = new Point(9, 71);
             label2.Name = "label2";
             label2.Size = new Size(82, 15);
             label2.TabIndex = 4;
@@ -122,7 +120,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(307, 141);
+            label3.Location = new Point(37, 118);
             label3.Name = "label3";
             label3.Size = new Size(54, 15);
             label3.TabIndex = 4;
@@ -131,7 +129,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(303, 181);
+            label4.Location = new Point(33, 158);
             label4.Name = "label4";
             label4.Size = new Size(58, 15);
             label4.TabIndex = 4;
@@ -140,33 +138,54 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(319, 52);
+            label5.Location = new Point(49, 29);
             label5.Name = "label5";
             label5.Size = new Size(42, 15);
             label5.TabIndex = 4;
             label5.Text = "Name:";
+            // 
+            // EditButton
+            // 
+            EditButton.Location = new Point(94, 415);
+            EditButton.Name = "EditButton";
+            EditButton.Size = new Size(75, 23);
+            EditButton.TabIndex = 5;
+            EditButton.Text = "Edit";
+            EditButton.UseVisualStyleBackColor = true;
+            EditButton.Click += EditButton_Click;
+            // 
+            // SelectedProductGroupBox
+            // 
+            SelectedProductGroupBox.Controls.Add(label5);
+            SelectedProductGroupBox.Controls.Add(NameTextBox);
+            SelectedProductGroupBox.Controls.Add(AmountTextBox);
+            SelectedProductGroupBox.Controls.Add(label4);
+            SelectedProductGroupBox.Controls.Add(ManufacturerTextBox);
+            SelectedProductGroupBox.Controls.Add(label3);
+            SelectedProductGroupBox.Controls.Add(CategoryComboBox);
+            SelectedProductGroupBox.Controls.Add(label2);
+            SelectedProductGroupBox.Location = new Point(281, 12);
+            SelectedProductGroupBox.Name = "SelectedProductGroupBox";
+            SelectedProductGroupBox.Size = new Size(404, 296);
+            SelectedProductGroupBox.TabIndex = 6;
+            SelectedProductGroupBox.TabStop = false;
+            SelectedProductGroupBox.Text = "Selected Product";
             // 
             // ProductAppForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(comboBox1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox3);
-            Controls.Add(textBox1);
+            Controls.Add(SelectedProductGroupBox);
+            Controls.Add(EditButton);
             Controls.Add(ProductListBox);
             Controls.Add(RemoveButton);
             Controls.Add(AddButton);
             Name = "ProductAppForm";
             Text = "Product App";
+            SelectedProductGroupBox.ResumeLayout(false);
+            SelectedProductGroupBox.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -174,14 +193,15 @@
         private Button AddButton;
         private Button RemoveButton;
         private ListBox ProductListBox;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private ComboBox comboBox1;
-        private Label label1;
+        private TextBox NameTextBox;
+        private TextBox ManufacturerTextBox;
+        private TextBox AmountTextBox;
+        private ComboBox CategoryComboBox;
         private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
+        private Button EditButton;
+        private GroupBox SelectedProductGroupBox;
     }
 }
