@@ -8,6 +8,13 @@ namespace ProductApp.Model
 {
     public enum Category
     {
-
+        Food,
+        Medicine,
+        Car,
+        Phone,
+        Electronic,
+        Sport,
+        Gift,
+        Clother
     }
 }
