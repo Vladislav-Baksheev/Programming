@@ -1,8 +1,8 @@
 namespace ProductApp
 {
-    public partial class Form1 : Form
+    public partial class ProductAppForm : Form
     {
-        public Form1()
+        public ProductAppForm()
         {
             InitializeComponent();
         }
