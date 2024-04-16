@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-namespace Programming.Model.Classes
+﻿namespace Programming.Model.Classes
 {
     /// <summary>
     /// Хранит данные о контакте человека.
@@ -37,7 +29,6 @@ namespace Programming.Model.Classes
             {
                 return _firstName;
             }
-
             set
             {
                 Validator.AssertStringContainsOnlyLetters(value, nameof(FirstName));
@@ -54,7 +45,6 @@ namespace Programming.Model.Classes
             {
                 return _surname;
             }
-
             set
             {
                 Validator.AssertStringContainsOnlyLetters(value, nameof(Surname));
@@ -73,11 +63,11 @@ namespace Programming.Model.Classes
             }
             set 
             {
-                if (value.Length != 11)
+                if(value.Length != 11)
                 {
                     throw new ArgumentException("Некорректная длина номера телефона");
                 }
-                if (!long.TryParse(value, out long result))
+                if(!long.TryParse(value, out long result))
                 {
                     throw new ArgumentException("Некорректные символы в номере телефона");
                 }
@@ -86,7 +76,7 @@ namespace Programming.Model.Classes
         }
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="Contact"/>
+        /// Создает экземпляр класса <see cref="Contact"/>.
         /// </summary>
         /// <param name="firstName">Имя.</param>
         /// <param name="surname">Фамилия.</param>
@@ -99,7 +89,7 @@ namespace Programming.Model.Classes
         }
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="Contact"/>
+        /// Создает экземпляр класса <see cref="Contact"/>.
         /// </summary>
         public Contact()
         {

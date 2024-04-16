@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Programming.Model.Classes
+﻿namespace Programming.Model.Classes
 {
     /// <summary>
     /// Содержит методы для проверки входных значений.
@@ -22,7 +16,7 @@ namespace Programming.Model.Classes
             string lowercaseWord = value.ToLower();
             for (int i = 0; i < lowercaseWord.Length; i++)
             {
-                if (!((lowercaseWord[i] >= 'a') && (lowercaseWord[i] <= 'z')))
+                if(!((lowercaseWord[i] >= 'a') && (lowercaseWord[i] <= 'z')))
                 {
                     throw new ArgumentException($"Некорректное значение в поле: {propertyName}.");
                 }
@@ -51,7 +45,7 @@ namespace Programming.Model.Classes
         /// <exception cref="ArgumentException">Выбрасывается, если число меньше нуля.</exception>
         public static void AssertOnPositiveValue(double value, string propertyName)
         {
-            if (value < 0)
+            if(value < 0)
             {
                 throw new ArgumentException($"Отрицательное значение в поле: {propertyName}.");
             }
@@ -67,7 +61,7 @@ namespace Programming.Model.Classes
         /// <exception cref="ArgumentException">Выбрасывается, если входное число находится вне диапазоне значений.</exception>
         public static void AssertValueInRange(int value, int min, int max, string propertyName)
         {
-            if ((value < min) || (value > max))
+            if((value < min) || (value > max))
             {
                 throw new ArgumentException($"Некорректное значение в поле: {propertyName}.");
             }
@@ -83,7 +77,7 @@ namespace Programming.Model.Classes
         /// <exception cref="ArgumentException">Выбрасывается, если входное число находится вне диапазоне значений.</exception>
         public static void AssertValueInRange(double value, int min, int max, string propertyName)
         {
-            if ((value < min) || (value > max))
+            if((value < min) || (value > max))
             {
                 throw new ArgumentException($"Некорректное значение в поле: {propertyName}.");
             }

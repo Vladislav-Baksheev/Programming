@@ -1,31 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Programming.Model.Classes
+﻿namespace Programming.Model.Classes
 {
     /// <summary>
     /// Хранит данные о песне.
     /// </summary>
     public class Song
     {
-        /// <summary>
-        /// Название песни.
-        /// </summary>
-        private string _name;
-
-        /// <summary>
-        /// Исполнитель песни.
-        /// </summary>
-        private string _artist;
-
-        /// <summary>
-        /// Играет ли песня.
-        /// </summary>
-        private bool _isPlaying;
-
         /// <summary>
         /// Возвращает и задает название песни.
         /// </summary>
@@ -42,7 +21,7 @@ namespace Programming.Model.Classes
         public bool IsPlaying { get; set; }
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="Song"/>
+        /// Создает экземпляр класса <see cref="Song"/>.
         /// </summary>
         /// <param name="name">Название песни.</param>
         /// <param name="artist">Исполнитель.</param>
@@ -55,7 +34,7 @@ namespace Programming.Model.Classes
         }
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="Song"/>
+        /// Создает экземпляр класса <see cref="Song"/>.
         /// </summary>
         public Song()
         {

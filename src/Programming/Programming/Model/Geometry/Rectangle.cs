@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Programming.Model.Classes;
+﻿using Programming.Model.Classes;
 
 namespace Programming.Model.Geometry
 {
@@ -12,16 +7,6 @@ namespace Programming.Model.Geometry
     /// </summary>
     public class Rectangle
     {
-        /// <summary>
-        /// Количество всех прямоугольников.
-        /// </summary>
-        private static int _allRectanglesCount = 0;
-
-        /// <summary>
-        /// ID прямоугольника.
-        /// </summary>
-        private int _id;
-
         /// <summary>
         /// Длина прямоугольника.
         /// </summary>
@@ -72,13 +57,7 @@ namespace Programming.Model.Geometry
         /// <summary>
         /// Возвращает количество всех прямоугольников.
         /// </summary>
-        public static int AllRectanglesCount
-        {
-            get
-            {
-                return _allRectanglesCount;
-            }
-        }
+        public static int AllRectanglesCount{ get; set;}
 
         /// <summary>
         /// Возвращает и задает цвет прямоугольника.
@@ -104,10 +83,7 @@ namespace Programming.Model.Geometry
         /// <summary>
         /// Возвращает ID прямоугольника.
         /// </summary>
-        public int Id
-        {
-            get => _id;
-        }
+        public int Id { get; private set; }
 
         /// <summary>
         /// Создает экземпляр класса <see cref="Rectangle"/>
@@ -117,14 +93,18 @@ namespace Programming.Model.Geometry
         /// <param name="color">Цвет прямоугольника.</param>
         /// <param name="xCenter">Центральная точка Х.</param>
         /// <param name="yCenter">Центральная точка Y.</param>
-        public Rectangle(int length, int width, string color, int xCenter, int yCenter)
+        public Rectangle(int length, 
+            int width, 
+            string color, 
+            int xCenter, 
+            int yCenter)
         {
             Length = length;
             Width = width;
             Color = color;
             Center = new Point2D(xCenter, yCenter);
-            _allRectanglesCount++;
-            _id = _allRectanglesCount;
+            AllRectanglesCount++;
+            Id = AllRectanglesCount;
         }
 
         /// <summary>
@@ -135,8 +115,8 @@ namespace Programming.Model.Geometry
             Length = 0;
             Width = 0;
             Color = string.Empty;
-            _allRectanglesCount++;
-            _id = _allRectanglesCount;
+            AllRectanglesCount++;
+            Id = AllRectanglesCount;
         }
 
         /// <summary>

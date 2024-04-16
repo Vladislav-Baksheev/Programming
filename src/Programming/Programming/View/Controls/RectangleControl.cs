@@ -1,36 +1,14 @@
 ﻿using Programming.Model.Classes;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Color = Programming.Model.Enums.Color;
 using Rectangle = Programming.Model.Geometry.Rectangle;
 
 namespace Programming.View.Controls
 {
+    /// <summary>
+    /// Пользовательский интерфейс для создания и работы с прямоугольниками.
+    /// </summary>
     public partial class RectangleControl : UserControl
     {
-        /// <summary>
-        /// Список объектов класса <see cref="Rectangle"/>
-        /// </summary>
-        private Rectangle[] _rectangles;
-
-        /// <summary>
-        /// Текущий прямоугольник.
-        /// </summary>
-        private Rectangle _currentRectangle;
-
-        Random random = new Random();
-
-        /// <summary>
-        /// Массив цветов.
-        /// </summary>
-        private string[] _colors;
-
         /// <summary>
         /// Минимальное количество символов в TextBoxes.
         /// </summary>
@@ -41,6 +19,29 @@ namespace Programming.View.Controls
         /// </summary>
         private readonly int _max = 999;
 
+        /// <summary>
+        /// Список объектов класса <see cref="Rectangle"/>.
+        /// </summary>
+        private Rectangle[] _rectangles { get; set; }
+
+        /// <summary>
+        /// Текущий прямоугольник.
+        /// </summary>
+        private Rectangle _currentRectangle;
+
+        /// <summary>
+        /// Экземпляр класса <see cref="Random"/>, создающий случайную генерацию прямоугольника.
+        /// </summary>
+        Random random = new Random();
+
+        /// <summary>
+        /// Массив цветов.
+        /// </summary>
+        private string[] _colors;
+
+        /// <summary>
+        /// Создает экземпляр класса <see cref="RectangleControl"/>.
+        /// </summary>
         public RectangleControl()
         {
             InitializeComponent();
@@ -55,6 +56,28 @@ namespace Programming.View.Controls
 
                 RectanglesListBox.Items.Add(_rectangles[i].ToString());
             }
+        }
+
+        /// <summary>
+        /// Ищет прямоугольник с максимальной шириной.
+        /// </summary>
+        /// <param name="rectangles">Массив прямоугольников.</param>
+        /// <returns>Индекс прямоугольника с максимальной шириной.</returns>
+        private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
+        {
+            int indexMaxWidth = 0;
+            double maxWidth = 0;
+
+            for (int i = 0; i < rectangles.Length; i++)
+            {
+                if (rectangles[i].Width > maxWidth)
+                {
+                    maxWidth = rectangles[i].Width;
+                    indexMaxWidth = i;
+                }
+            }
+
+            return indexMaxWidth;
         }
 
         private void RectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -100,28 +123,6 @@ namespace Programming.View.Controls
         private void ColorTextBox_TextChanged(object sender, EventArgs e)
         {
             _currentRectangle.Color = ColorTextBox.Text;
-        }
-
-        /// <summary>
-        /// Ищет прямоугольник с максимальной шириной.
-        /// </summary>
-        /// <param name="rectangles">Массив прямоугольников.</param>
-        /// <returns>Индекс прямоугольника с максимальной шириной.</returns>
-        private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
-        {
-            int indexMaxWidth = 0;
-            double maxWidth = 0;
-
-            for (int i = 0; i < rectangles.Length; i++)
-            {
-                if (rectangles[i].Width > maxWidth)
-                {
-                    maxWidth = rectangles[i].Width;
-                    indexMaxWidth = i;
-                }
-            }
-
-            return indexMaxWidth;
         }
 
         private void FindButton_Click(object sender, EventArgs e)

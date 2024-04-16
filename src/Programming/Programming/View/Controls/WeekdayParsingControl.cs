@@ -1,18 +1,15 @@
 ﻿using Programming.Model.Enums;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Programming.View.Controls
 {
+    /// <summary>
+    /// Пользовательский интерфейс для работы с днями недели.
+    /// </summary>
     public partial class WeekdayParsingControl : UserControl
     {
+        /// <summary>
+        /// Создает экземпляр класса <see cref="WeekdayParsingControl"/>.
+        /// </summary>
         public WeekdayParsingControl()
         {
             InitializeComponent();
@@ -20,7 +17,7 @@ namespace Programming.View.Controls
 
         private void ParseButton_Click(object sender, EventArgs e)
         {
-            string text = ParseTextBox.Text;
+            var text = ParseTextBox.Text;
 
             if (Enum.TryParse(text, out Weekday weekday))
             {

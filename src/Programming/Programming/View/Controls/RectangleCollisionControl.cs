@@ -1,31 +1,31 @@
-﻿using Programming.Model.Enums;
-using Programming.Model.Classes;
+﻿using Programming.Model.Classes;
 using Rectangle = Programming.Model.Geometry.Rectangle;
 using Programming.Model.Geometry;
 
 namespace Programming.View.Controls
 {
+    /// <summary>
+    /// Пользовательский интерфейс для рисования прямоугольников.
+    /// </summary>
     public partial class RectangleCollisionControl : UserControl
     {
-        public RectangleCollisionControl()
-        {
-            InitializeComponent();
-        }
-
         /// <summary>
-        /// Список объектов класса <see cref="Rectangle"/>
+        /// Список объектов класса <see cref="Rectangle"/>.
         /// </summary>
         private List<Rectangle> _rectangles = new List<Rectangle>();
 
         /// <summary>
         /// Выбранный прямоугольник.
         /// </summary>
-        private Rectangle _currentRectangle;
+        private Rectangle _currentRectangle { get; set; }
 
+        /// <summary>
+        /// Экземпляр класса <see cref="Random"/>, для случайной генерации прямоугольника.
+        /// </summary>
         public Random random = new Random();
 
         /// <summary>
-        /// Список объектов класса <see cref="Panel"/>
+        /// Список объектов класса <see cref="Panel"/>.
         /// </summary>
         private List<Panel> _rectanglePanels = new List<Panel>();
 
@@ -34,14 +34,12 @@ namespace Programming.View.Controls
         /// </summary>
         private int _currentIndexRectangle;
 
-        private void RectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Создает экземпляр класса <see cref="RectangleCollisionControl"/>.
+        /// </summary>
+        public RectangleCollisionControl()
         {
-            if (RectanglesListBox.SelectedIndex != -1)
-            {
-                _currentRectangle = _rectangles[RectanglesListBox.SelectedIndex];
-                _currentIndexRectangle = RectanglesListBox.SelectedIndex;
-                UpdateRectangleInfo();
-            }
+            InitializeComponent();
         }
 
         /// <summary>
@@ -93,6 +91,15 @@ namespace Programming.View.Controls
             WidthTextBox.Text = _currentRectangle.Width.ToString();
             XTextBox.Text = _currentRectangle.Center.X.ToString();
             YTextBox.Text = _currentRectangle.Center.Y.ToString();
+        }
+        private void RectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (RectanglesListBox.SelectedIndex != -1)
+            {
+                _currentRectangle = _rectangles[RectanglesListBox.SelectedIndex];
+                _currentIndexRectangle = RectanglesListBox.SelectedIndex;
+                UpdateRectangleInfo();
+            }
         }
 
         private void XTextBox_TextChanged(object sender, EventArgs e)

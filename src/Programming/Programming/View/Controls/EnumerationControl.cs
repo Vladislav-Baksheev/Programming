@@ -1,18 +1,13 @@
-﻿using Programming.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Programming.View.Controls
+﻿namespace Programming.View.Controls
 {
+    /// <summary>
+    /// Пользовательский интерфейс для работы с перечислениями.
+    /// </summary>
     public partial class EnumerationControl : UserControl
     {
+        /// <summary>
+        /// Создает экземпляр класса <see cref="EnumerationControl"/>.
+        /// </summary>
         public EnumerationControl()
         {
             InitializeComponent();

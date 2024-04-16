@@ -1,29 +1,26 @@
 ﻿using Programming.Model.Classes;
 using Programming.Model.Enums;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Programming.View.Controls
 {
+    /// <summary>
+    /// Пользовательский интерфейс для работы с списком фильмов.
+    /// </summary>
     public partial class FilmsControl : UserControl
     {
         /// <summary>
         /// Массив фильмов.
         /// </summary>
-        private Film[] _films;
+        private Film[] _films { get; set; }
 
         /// <summary>
         /// Текущий фильм.
         /// </summary>
         private Film _currentFilm;
 
+        /// <summary>
+        /// Экземпляр класса <see cref="Random"/>, для случайной генерации фильмов.
+        /// </summary>
         Random random = new Random();
 
         /// <summary>
@@ -36,6 +33,9 @@ namespace Programming.View.Controls
         /// </summary>
         private string[] _names = { "Evangelion", "Breaking Bad", "The Walking Dead", "Schindler's List", "Godfather" };
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="FilmsControl"/>.
+        /// </summary>
         public FilmsControl()
         {
             InitializeComponent();

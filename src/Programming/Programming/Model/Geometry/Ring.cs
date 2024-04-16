@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Programming.Model.Classes;
+﻿using Programming.Model.Classes;
 
 namespace Programming.Model.Geometry
 {
     public class Ring
     {
-        /// <summary>
-        /// Возвращает и задает центральную точку.
-        /// </summary>
-        public Point2D _point { get; set; }
-
         /// <summary>
         /// Внутренний радиус.
         /// </summary>
@@ -37,6 +27,7 @@ namespace Programming.Model.Geometry
             {
                 Validator.AssertOnPositiveValue(_innerRadius, nameof(InnerRadius));
                 Validator.AssertOnBiggerValue(_innerRadius, _outerRadius, nameof(OuterRadius));
+                _innerRadius = value;
             }
         }
 
@@ -67,6 +58,11 @@ namespace Programming.Model.Geometry
                 return Math.PI * Math.Pow(OuterRadius, 2) - Math.PI * Math.Pow(InnerRadius, 2);
             }
         }
+
+        /// <summary>
+        /// Возвращает и задает центральную точку.
+        /// </summary>
+        public Point2D Point { get; set; }
 
         /// <summary>
         /// Возвращает и задает начальную точку построения.

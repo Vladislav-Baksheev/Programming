@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Programming.Model.Classes
+﻿namespace Programming.Model.Classes
 {
     /// <summary>
     /// Хранит данные о дисциплине.
@@ -27,6 +21,16 @@ namespace Programming.Model.Classes
         public string Name { get; set; }
 
         /// <summary>
+        /// Минимальная оценка по дисциплине.
+        /// </summary>
+        private int _minMark = 2;
+
+        /// <summary>
+        /// Максимальная оценка по дисциплине.
+        /// </summary>
+        private int _maxMark = 5;
+
+        /// <summary>
         /// Возвращает и задает оценку по дисциплине.
         /// </summary>
         public int Mark
@@ -37,7 +41,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value >= 2 && value <= 5)
+                if(value >= _minMark && value <= _maxMark)
                     _mark = value;
             }
         }
@@ -53,13 +57,13 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value >= 0 && value <= 23)
+                if(value >= 0 && value <= 23)
                     _hours = value;
             }
         }
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="Discipline"/>
+        /// Создает экземпляр класса <see cref="Discipline"/>.
         /// </summary>
         /// <param name="name">Название дисциплины.</param>
         /// <param name="mark">Оценка дисциплины.</param>
@@ -72,12 +76,12 @@ namespace Programming.Model.Classes
         }
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="Discipline"/>
+        /// Создает экземпляр класса <see cref="Discipline"/>.
         /// </summary>
         public Discipline()
         {
             Name = string.Empty;
-            Mark = 2;
+            Mark = _minMark;
             Hours = 0;
         }
     }

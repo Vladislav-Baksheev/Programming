@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Programming.Model.Classes
+﻿namespace Programming.Model.Classes
 {
     /// <summary>
     /// Хранит данные о времени.
@@ -37,7 +31,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value >= 0 && value <= 23)
+                if(value >= 0 && value <= 23)
                     _hours = value;
             }
         }
@@ -53,7 +47,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value >= 0 && value <= 60)
+                if(value >= 0 && value <= 60)
                     _minutes = value;
             }
         }
@@ -69,13 +63,13 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value >= 0 && value <= 60)
+                if(value >= 0 && value <= 60)
                     _seconds = value;
             }
         }
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="Time"/>
+        /// Создает экземпляр класса <see cref="Time"/>.
         /// </summary>
         /// <param name="hours">Часы.</param>
         /// <param name="minutes">Минуты.</param>
@@ -88,7 +82,7 @@ namespace Programming.Model.Classes
         }
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="Time"/>
+        /// Создает экземпляр класса <see cref="Time"/>.
         /// </summary>
         public Time()
         {

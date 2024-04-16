@@ -1,26 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Programming.Model.Classes
+﻿namespace Programming.Model.Classes
 {
     /// <summary>
     /// Хранит информацию о рейсах.
     /// </summary>
     public class Flight
     {
-        /// <summary>
-        /// Точка вылета.
-        /// </summary>
-        private string _departurePoint;
-
-        /// <summary>
-        /// Пункт прибытия.
-        /// </summary>
-        private string _destination;
-
         /// <summary>
         /// Время полета.
         /// </summary>
@@ -53,7 +37,7 @@ namespace Programming.Model.Classes
         }
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="Flight"/>
+        /// Создает экземпляр класса <see cref="Flight"/>.
         /// </summary>
         /// <param name="departurePoint">Точка вылета.</param>
         /// <param name="destination">Пункт прибытия.</param>
@@ -66,7 +50,7 @@ namespace Programming.Model.Classes
         }
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="Flight"/>
+        /// Создает экземпляр класса <see cref="Flight"/>.
         /// </summary>
         public Flight()
         {
