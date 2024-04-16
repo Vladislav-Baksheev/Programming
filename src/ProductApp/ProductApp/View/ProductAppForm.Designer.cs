@@ -40,6 +40,7 @@
             label4 = new Label();
             label5 = new Label();
             SelectedProductGroupBox = new GroupBox();
+            SortButton = new Button();
             SelectedProductGroupBox.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,7 +58,7 @@
             // RemoveButton
             // 
             RemoveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            RemoveButton.Location = new Point(94, 415);
+            RemoveButton.Location = new Point(91, 415);
             RemoveButton.Name = "RemoveButton";
             RemoveButton.Size = new Size(75, 23);
             RemoveButton.TabIndex = 0;
@@ -78,6 +79,7 @@
             // 
             // NameTextBox
             // 
+            NameTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             NameTextBox.Location = new Point(97, 26);
             NameTextBox.Name = "NameTextBox";
             NameTextBox.Size = new Size(222, 23);
@@ -86,6 +88,7 @@
             // 
             // ManufacturerTextBox
             // 
+            ManufacturerTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             ManufacturerTextBox.Location = new Point(97, 68);
             ManufacturerTextBox.Name = "ManufacturerTextBox";
             ManufacturerTextBox.Size = new Size(222, 23);
@@ -94,6 +97,7 @@
             // 
             // AmountTextBox
             // 
+            AmountTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             AmountTextBox.Location = new Point(97, 115);
             AmountTextBox.Name = "AmountTextBox";
             AmountTextBox.Size = new Size(132, 23);
@@ -102,6 +106,7 @@
             // 
             // CategoryComboBox
             // 
+            CategoryComboBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             CategoryComboBox.FormattingEnabled = true;
             CategoryComboBox.Location = new Point(97, 155);
             CategoryComboBox.Name = "CategoryComboBox";
@@ -163,17 +168,30 @@
             SelectedProductGroupBox.TabStop = false;
             SelectedProductGroupBox.Text = "Selected Product";
             // 
+            // SortButton
+            // 
+            SortButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            SortButton.Location = new Point(172, 415);
+            SortButton.Name = "SortButton";
+            SortButton.Size = new Size(75, 23);
+            SortButton.TabIndex = 5;
+            SortButton.Text = "Sort";
+            SortButton.UseVisualStyleBackColor = true;
+            SortButton.Click += SortButton_Click;
+            // 
             // ProductAppForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(SortButton);
             Controls.Add(SelectedProductGroupBox);
             Controls.Add(ProductListBox);
             Controls.Add(RemoveButton);
             Controls.Add(AddButton);
             Name = "ProductAppForm";
             Text = "Product App";
+            FormClosing += ProductAppForm_FormClosing;
             SelectedProductGroupBox.ResumeLayout(false);
             SelectedProductGroupBox.PerformLayout();
             ResumeLayout(false);
@@ -193,5 +211,6 @@
         private Label label4;
         private Label label5;
         private GroupBox SelectedProductGroupBox;
+        private Button SortButton;
     }
 }

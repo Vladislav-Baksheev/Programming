@@ -11,19 +11,19 @@ namespace ProductApp
         public ProductAppForm()
         {
             InitializeComponent();
-
+            Products = Serializator.Load();
             var category = Enum.GetValues(typeof(Category));
 
             foreach (var value in category)
             {
                 CategoryComboBox.Items.Add(value);
             }
+            UpdateTextBoxes();
         }
 
         private void UpdateTextBoxes()
         {
             ProductListBox.Items.Clear();
-            Products = SortName(Products);
             foreach (var value in Products)
             {
                 ProductListBox.Items.Add(value.Name);
@@ -139,6 +139,17 @@ namespace ProductApp
         private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             _currentProduct.Category = (Category)CategoryComboBox.SelectedItem;
+        }
+
+        private void ProductAppForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Serializator.Save(Products);
+        }
+
+        private void SortButton_Click(object sender, EventArgs e)
+        {
+            Products = SortName(Products);
+            UpdateTextBoxes();
         }
     }
 }
