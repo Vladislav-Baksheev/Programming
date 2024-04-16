@@ -4,8 +4,14 @@ namespace ProductApp
 {
     public partial class ProductAppForm : Form
     {
+        /// <summary>
+        /// Содержит список товаров экземпляра класса <see cref="Product"/>.
+        /// </summary>
         public List<Product> Products = new List<Product>();
 
+        /// <summary>
+        /// Содержит текущий товар экземпляра класса <see cref="Product"/>.
+        /// </summary>
         private Product _currentProduct;
 
         public ProductAppForm()
@@ -21,6 +27,9 @@ namespace ProductApp
             UpdateTextBoxes();
         }
 
+        /// <summary>
+        /// Обновляет значения в TextBoxes и в ListBox.
+        /// </summary>
         private void UpdateTextBoxes()
         {
             ProductListBox.Items.Clear();
@@ -32,6 +41,10 @@ namespace ProductApp
             ProductListBox.SelectedIndex = Convert.ToInt32(index);
         }
 
+        /// <summary>
+        /// Обновляет значения в TextBoxes выбранного товара.
+        /// </summary>
+        /// <param name="product">Товар.</param>
         private void UpdateSelectedProduct(Product product)
         {
             NameTextBox.Text = product.Name;
@@ -69,7 +82,11 @@ namespace ProductApp
             UpdateSelectedProduct(_currentProduct);
         }
 
-
+        /// <summary>
+        /// Сортирует названия товаров в алфавитном порядке.
+        /// </summary>
+        /// <param name="product">Товар.</param>
+        /// <returns>Возвращает отсортированный список товаров.</returns>
         private List<Product> SortName(List<Product> product)
         {
             var sortedProducts = from value in product

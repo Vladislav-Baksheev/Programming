@@ -1,23 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProductApp.Model
+﻿namespace ProductApp.Model
 {
     public class Product
     {
+        /// <summary>
+        /// Название товара.
+        /// </summary>
         private string _name;
 
+        /// <summary>
+        /// Производитель товара.
+        /// </summary>
         private string _manufacturer;
 
+        /// <summary>
+        /// Количество товара.
+        /// </summary>
         private int _amount;
 
+        /// <summary>
+        /// Максимальное количество символов для названия и производителя товара.
+        /// </summary>
         private int _maxSymbols = 100;
 
+        /// <summary>
+        /// Категория товара.
+        /// </summary>
         public Category Category { get; set; }
 
+        /// <summary>
+        /// Возвращает и задает название товара.
+        /// </summary>
         public string? Name 
         { 
             get 
@@ -32,6 +44,9 @@ namespace ProductApp.Model
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает производителя товара.
+        /// </summary>
         public string? Manufacturer
         {
             get
@@ -47,6 +62,9 @@ namespace ProductApp.Model
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает количество товара.
+        /// </summary>
         public int Amount
         {
             get
@@ -60,6 +78,13 @@ namespace ProductApp.Model
             }
         }
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Product"/>.
+        /// </summary>
+        /// <param name="name">Название.</param>
+        /// <param name="manufacturer">Производитель.</param>
+        /// <param name="category">Категория.</param>
+        /// <param name="amount">Количество.</param>
         public Product(string name, string manufacturer, Category category, int amount)
         {
             Name = name;
@@ -68,6 +93,9 @@ namespace ProductApp.Model
             Amount = amount;
         }
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Product"/>.
+        /// </summary>
         public Product()
         {
             Name = "None";

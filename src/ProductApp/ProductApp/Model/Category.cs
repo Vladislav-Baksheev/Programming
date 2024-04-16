@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProductApp.Model
+﻿namespace ProductApp.Model
 {
+    /// <summary>
+    /// Перечисление категорий товара.
+    /// </summary>
     public enum Category
     {
         Food,
