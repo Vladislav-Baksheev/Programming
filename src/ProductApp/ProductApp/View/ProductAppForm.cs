@@ -46,15 +46,6 @@ namespace ProductApp
             }
 
         }
-
-        private void ClearTextBoxes()
-        {
-            NameTextBox.Text = string.Empty;
-            ManufacturerTextBox.Text = string.Empty;
-            AmountTextBox.Text = string.Empty;
-            CategoryComboBox.Text = string.Empty;
-        }
-
         private void AddButton_Click(object sender, EventArgs e)
         {
             _currentProduct = new Product();
