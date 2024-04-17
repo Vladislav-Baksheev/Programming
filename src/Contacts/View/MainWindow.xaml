@@ -16,6 +16,17 @@
         <Image x:Key="resImage" Source="Resources/photo_placeholder_100x100.png"/>
         <local:BoolInvertedValueConverter x:Key="BoolInvertedValueConverter"/>
         <local:ButtonVisibilityConverter x:Key="ButtonVisibilityConverter"/>
+        <DataTemplate x:Key="contactTemplate">
+            <StackPanel Margin="3">
+                <TextBlock 
+                    Text="{Binding Path=FirstName}" 
+                    FontSize="12"
+                    FontWeight="SemiBold"/>
+                <TextBlock 
+                    Text="{Binding Path=Phone}"
+                    FontSize="10"/>
+            </StackPanel>
+        </DataTemplate>
     </Window.Resources>
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Closing">
@@ -90,14 +101,8 @@
                             Margin="3"
                             Validation.ErrorTemplate="{x:Null}"
                             ItemsSource="{Binding Path=Contacts}"
-                            SelectedItem="{Binding Path=CurrentContact, UpdateSourceTrigger=PropertyChanged}">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Margin="3">
-                                        <TextBlock Text="{Binding Path=FirstName}" />
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
+                            SelectedItem="{Binding Path=CurrentContact, UpdateSourceTrigger=PropertyChanged}"
+                            ItemTemplate="{StaticResource contactTemplate}">
                         </ListBox>
                     </DockPanel>
                 </DockPanel>
