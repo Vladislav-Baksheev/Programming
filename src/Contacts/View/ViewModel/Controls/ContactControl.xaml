@@ -6,6 +6,17 @@
              xmlns:local="clr-namespace:View.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="400">
+    <UserControl.Resources>
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)/ErrorContent}"/>
+                    <Setter Property="Background" Value="LightPink"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
     <Grid 
         Validation.ErrorTemplate="{x:Null}">
         <Grid.ColumnDefinitions>
