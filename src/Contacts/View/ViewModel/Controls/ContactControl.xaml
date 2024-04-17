@@ -50,6 +50,8 @@
                 Margin="3"/>
             <TextBox 
                 Text="{Binding Path=CurrentContact.Phone, UpdateSourceTrigger=PropertyChanged}"
+                PreviewTextInput="TextBox_PreviewTextInput"
+                DataObject.Pasting="TextBox_Pasting"
                 IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
                 Margin="3"/>
             <TextBlock 
