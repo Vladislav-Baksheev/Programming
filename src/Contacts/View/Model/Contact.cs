@@ -43,6 +43,10 @@ namespace View.Model
             Email = email;
         }
 
+        /// <summary>
+        /// Создает клон объекта.
+        /// </summary>
+        /// <returns>Возвращает объект класса <see cref="Contact"/>.</returns>
         public object Clone()
         {
             return new Contact(FirstName, Phone, Email);

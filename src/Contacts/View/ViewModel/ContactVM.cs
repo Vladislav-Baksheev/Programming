@@ -76,7 +76,7 @@ namespace View.ViewModel
         /// <summary>
         /// Создает клон объекта.
         /// </summary>
-        /// <returns>Возвращает объект класса <see cref="ContactVM"/></returns>
+        /// <returns>Возвращает объект класса <see cref="ContactVM"/>.</returns>
         public object Clone()
         {
             return new ContactVM((Contact)Contact.Clone());

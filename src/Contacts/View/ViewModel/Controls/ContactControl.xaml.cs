@@ -24,7 +24,13 @@ namespace View.ViewModel
         /// <summary>
         /// Допустимые символы.
         /// </summary>
-        private static readonly Regex _regex = new Regex("[^0-9()+-]+"); //regex that matches disallowed text
+        private static readonly Regex _regex = new Regex("[^0-9()+-]+");
+
+        /// <summary>
+        /// Проверка на доступность вставки.
+        /// </summary>
+        /// <param name="text">Текст.</param>
+        /// <returns>True, если была попытка вставить допустимые символы, false, если была попытка вставить недопустимые символы.</returns>
         private static bool IsTextAllowed(string text)
         {
             return !_regex.IsMatch(text);
