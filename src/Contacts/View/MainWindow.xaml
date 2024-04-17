@@ -93,7 +93,7 @@
                             SelectedItem="{Binding Path=CurrentContact, UpdateSourceTrigger=PropertyChanged}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <StackPanel Margin="5">
+                                    <StackPanel Margin="3">
                                         <TextBlock Text="{Binding Path=FirstName}" />
                                     </StackPanel>
                                 </DataTemplate>
