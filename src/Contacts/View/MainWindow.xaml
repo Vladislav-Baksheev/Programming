@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:View.ViewModel"
         mc:Ignorable="d"
         Title="Contacts" 
         xmlns:local="clr-namespace:View.Converters"
@@ -126,51 +127,8 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Grid 
-                Validation.ErrorTemplate="{x:Null}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+            <uc:ContactControl/>
 
-                <Image 
-                    Grid.Row="1"
-                    Grid.Column="0" 
-                    Width="100" 
-                    Height="100"
-                    Margin="3"
-                    Source="Resources/photo_placeholder_100x100.png"
-                    VerticalAlignment="Top"/>
-                <TextBlock
-                    Grid.Column="1"
-                    Margin="3"
-                    Text="Name:"/>
-                <StackPanel Grid.Column="1" Grid.Row="1">
-                    <TextBox 
-                    Text="{Binding Path=CurrentContact.FirstName, UpdateSourceTrigger=PropertyChanged}"
-                    IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
-                    Margin="3"/>
-                    <TextBlock 
-                    Text="Phone Number:" 
-                    Margin="3"/>
-                    <TextBox 
-                    Text="{Binding Path=CurrentContact.Phone, UpdateSourceTrigger=PropertyChanged}"
-                    IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
-                    Margin="3"/>
-                    <TextBlock 
-                    Text="Email:" 
-                    Margin="3"/>
-                    <TextBox 
-                    IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
-                    Text="{Binding Path=CurrentContact.Email, UpdateSourceTrigger=PropertyChanged}"
-                    Margin="3"/>
-                </StackPanel>
-            </Grid>
-            
             <Button
                 x:Name="ApplyButton"
                 Width="75"
