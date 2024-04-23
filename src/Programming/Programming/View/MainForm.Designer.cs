@@ -28,104 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            EnumsGroupBox = new GroupBox();
-            EnumsListBox = new ListBox();
-            IntValueTextBox = new TextBox();
-            ValueListBox = new ListBox();
-            IntValueLabel = new Label();
-            ChooseValueLabel = new Label();
-            EnumsLabel = new Label();
             tabControl1 = new TabControl();
             EnumsTabPage = new TabPage();
-            SeasonGroupBox = new GroupBox();
-            GoButton = new Button();
-            SeasonComboBox = new ComboBox();
-            label2 = new Label();
-            ParsingGroupBox = new GroupBox();
-            WeekdayLabel = new Label();
-            ParseButton = new Button();
-            ParseTextBox = new TextBox();
-            label1 = new Label();
-            EnumsGroupBox.SuspendLayout();
+            seasonHandleControl1 = new View.Controls.SeasonHandleControl();
+            weekdayParsingControl1 = new View.Controls.WeekdayParsingControl();
+            enumerationControl1 = new View.Controls.EnumerationControl();
+            ClassesTabPage = new TabPage();
+            filmsControl1 = new View.Controls.FilmsControl();
+            rectangleControl1 = new View.Controls.RectangleControl();
+            tabPage1 = new TabPage();
+            rectangleCollisionControl1 = new View.Controls.RectangleCollisionControl();
             tabControl1.SuspendLayout();
             EnumsTabPage.SuspendLayout();
-            SeasonGroupBox.SuspendLayout();
-            ParsingGroupBox.SuspendLayout();
+            ClassesTabPage.SuspendLayout();
+            tabPage1.SuspendLayout();
             SuspendLayout();
-            // 
-            // EnumsGroupBox
-            // 
-            EnumsGroupBox.Controls.Add(EnumsListBox);
-            EnumsGroupBox.Controls.Add(IntValueTextBox);
-            EnumsGroupBox.Controls.Add(ValueListBox);
-            EnumsGroupBox.Controls.Add(IntValueLabel);
-            EnumsGroupBox.Controls.Add(ChooseValueLabel);
-            EnumsGroupBox.Controls.Add(EnumsLabel);
-            EnumsGroupBox.Location = new Point(3, 6);
-            EnumsGroupBox.Name = "EnumsGroupBox";
-            EnumsGroupBox.Size = new Size(776, 266);
-            EnumsGroupBox.TabIndex = 0;
-            EnumsGroupBox.TabStop = false;
-            EnumsGroupBox.Text = "Enumerations";
-            // 
-            // EnumsListBox
-            // 
-            EnumsListBox.FormattingEnabled = true;
-            EnumsListBox.ItemHeight = 15;
-            EnumsListBox.Items.AddRange(new object[] { "Color", "EducationForm", "Genre", "Manufactures", "Season", "Weekday" });
-            EnumsListBox.Location = new Point(6, 50);
-            EnumsListBox.Name = "EnumsListBox";
-            EnumsListBox.Size = new Size(147, 184);
-            EnumsListBox.TabIndex = 3;
-            EnumsListBox.SelectedIndexChanged += EnumsListBox_SelectedIndexChanged;
-            // 
-            // IntValueTextBox
-            // 
-            IntValueTextBox.Location = new Point(348, 50);
-            IntValueTextBox.Name = "IntValueTextBox";
-            IntValueTextBox.Size = new Size(100, 23);
-            IntValueTextBox.TabIndex = 5;
-            // 
-            // ValueListBox
-            // 
-            ValueListBox.FormattingEnabled = true;
-            ValueListBox.ItemHeight = 15;
-            ValueListBox.Location = new Point(181, 50);
-            ValueListBox.Name = "ValueListBox";
-            ValueListBox.Size = new Size(145, 184);
-            ValueListBox.TabIndex = 4;
-            ValueListBox.SelectedIndexChanged += ValueListBox_SelectedIndexChanged;
-            // 
-            // IntValueLabel
-            // 
-            IntValueLabel.AutoSize = true;
-            IntValueLabel.Location = new Point(348, 32);
-            IntValueLabel.Name = "IntValueLabel";
-            IntValueLabel.Size = new Size(55, 15);
-            IntValueLabel.TabIndex = 2;
-            IntValueLabel.Text = "Int value:";
-            // 
-            // ChooseValueLabel
-            // 
-            ChooseValueLabel.AutoSize = true;
-            ChooseValueLabel.Location = new Point(181, 32);
-            ChooseValueLabel.Name = "ChooseValueLabel";
-            ChooseValueLabel.Size = new Size(81, 15);
-            ChooseValueLabel.TabIndex = 1;
-            ChooseValueLabel.Text = "Choose value:";
-            // 
-            // EnumsLabel
-            // 
-            EnumsLabel.AutoSize = true;
-            EnumsLabel.Location = new Point(6, 32);
-            EnumsLabel.Name = "EnumsLabel";
-            EnumsLabel.Size = new Size(121, 15);
-            EnumsLabel.TabIndex = 0;
-            EnumsLabel.Text = "Choose enumeration:";
             // 
             // tabControl1
             // 
             tabControl1.Controls.Add(EnumsTabPage);
+            tabControl1.Controls.Add(ClassesTabPage);
+            tabControl1.Controls.Add(tabPage1);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
@@ -136,9 +59,9 @@
             // EnumsTabPage
             // 
             EnumsTabPage.BackColor = Color.Transparent;
-            EnumsTabPage.Controls.Add(SeasonGroupBox);
-            EnumsTabPage.Controls.Add(ParsingGroupBox);
-            EnumsTabPage.Controls.Add(EnumsGroupBox);
+            EnumsTabPage.Controls.Add(seasonHandleControl1);
+            EnumsTabPage.Controls.Add(weekdayParsingControl1);
+            EnumsTabPage.Controls.Add(enumerationControl1);
             EnumsTabPage.Location = new Point(4, 24);
             EnumsTabPage.Name = "EnumsTabPage";
             EnumsTabPage.Padding = new Padding(3);
@@ -146,94 +69,74 @@
             EnumsTabPage.TabIndex = 0;
             EnumsTabPage.Text = "Enums";
             // 
-            // SeasonGroupBox
+            // seasonHandleControl1
             // 
-            SeasonGroupBox.Controls.Add(GoButton);
-            SeasonGroupBox.Controls.Add(SeasonComboBox);
-            SeasonGroupBox.Controls.Add(label2);
-            SeasonGroupBox.Location = new Point(361, 280);
-            SeasonGroupBox.Name = "SeasonGroupBox";
-            SeasonGroupBox.Size = new Size(397, 151);
-            SeasonGroupBox.TabIndex = 2;
-            SeasonGroupBox.TabStop = false;
-            SeasonGroupBox.Text = "Season Handle";
+            seasonHandleControl1.Location = new Point(368, 276);
+            seasonHandleControl1.Name = "seasonHandleControl1";
+            seasonHandleControl1.Size = new Size(405, 160);
+            seasonHandleControl1.TabIndex = 5;
             // 
-            // GoButton
+            // weekdayParsingControl1
             // 
-            GoButton.Location = new Point(249, 49);
-            GoButton.Name = "GoButton";
-            GoButton.Size = new Size(75, 23);
-            GoButton.TabIndex = 2;
-            GoButton.Text = "Go!";
-            GoButton.UseVisualStyleBackColor = true;
-            GoButton.Click += GoButton_Click;
+            weekdayParsingControl1.Location = new Point(6, 276);
+            weekdayParsingControl1.Name = "weekdayParsingControl1";
+            weekdayParsingControl1.Size = new Size(356, 176);
+            weekdayParsingControl1.TabIndex = 4;
             // 
-            // SeasonComboBox
+            // enumerationControl1
             // 
-            SeasonComboBox.FormattingEnabled = true;
-            SeasonComboBox.Location = new Point(7, 49);
-            SeasonComboBox.Name = "SeasonComboBox";
-            SeasonComboBox.Size = new Size(224, 23);
-            SeasonComboBox.TabIndex = 1;
+            enumerationControl1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            enumerationControl1.Location = new Point(-4, 0);
+            enumerationControl1.Name = "enumerationControl1";
+            enumerationControl1.Size = new Size(796, 270);
+            enumerationControl1.TabIndex = 3;
             // 
-            // label2
+            // ClassesTabPage
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(7, 30);
-            label2.Name = "label2";
-            label2.Size = new Size(89, 15);
-            label2.TabIndex = 0;
-            label2.Text = "Choose season:";
+            ClassesTabPage.Controls.Add(filmsControl1);
+            ClassesTabPage.Controls.Add(rectangleControl1);
+            ClassesTabPage.Location = new Point(4, 24);
+            ClassesTabPage.Name = "ClassesTabPage";
+            ClassesTabPage.Padding = new Padding(3);
+            ClassesTabPage.Size = new Size(792, 510);
+            ClassesTabPage.TabIndex = 1;
+            ClassesTabPage.Text = "Classes";
+            ClassesTabPage.UseVisualStyleBackColor = true;
             // 
-            // ParsingGroupBox
+            // filmsControl1
             // 
-            ParsingGroupBox.Controls.Add(WeekdayLabel);
-            ParsingGroupBox.Controls.Add(ParseButton);
-            ParsingGroupBox.Controls.Add(ParseTextBox);
-            ParsingGroupBox.Controls.Add(label1);
-            ParsingGroupBox.Location = new Point(3, 278);
-            ParsingGroupBox.Name = "ParsingGroupBox";
-            ParsingGroupBox.Size = new Size(352, 153);
-            ParsingGroupBox.TabIndex = 1;
-            ParsingGroupBox.TabStop = false;
-            ParsingGroupBox.Text = "Weekday Parsing";
+            filmsControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            filmsControl1.Location = new Point(365, 3);
+            filmsControl1.Name = "filmsControl1";
+            filmsControl1.Size = new Size(419, 504);
+            filmsControl1.TabIndex = 1;
             // 
-            // WeekdayLabel
+            // rectangleControl1
             // 
-            WeekdayLabel.AutoSize = true;
-            WeekdayLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            WeekdayLabel.ForeColor = SystemColors.ButtonShadow;
-            WeekdayLabel.Location = new Point(6, 87);
-            WeekdayLabel.Name = "WeekdayLabel";
-            WeekdayLabel.Size = new Size(16, 15);
-            WeekdayLabel.TabIndex = 5;
-            WeekdayLabel.Text = "...";
+            rectangleControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            rectangleControl1.Location = new Point(3, 3);
+            rectangleControl1.Name = "rectangleControl1";
+            rectangleControl1.Size = new Size(356, 504);
+            rectangleControl1.TabIndex = 0;
             // 
-            // ParseButton
+            // tabPage1
             // 
-            ParseButton.Location = new Point(261, 50);
-            ParseButton.Name = "ParseButton";
-            ParseButton.Size = new Size(75, 23);
-            ParseButton.TabIndex = 4;
-            ParseButton.Text = "Parse";
-            ParseButton.UseVisualStyleBackColor = true;
-            ParseButton.Click += ParseButton_Click;
+            tabPage1.Controls.Add(rectangleCollisionControl1);
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(792, 510);
+            tabPage1.TabIndex = 2;
+            tabPage1.Text = "Rectangles";
+            tabPage1.UseVisualStyleBackColor = true;
             // 
-            // ParseTextBox
+            // rectangleCollisionControl1
             // 
-            ParseTextBox.Location = new Point(6, 50);
-            ParseTextBox.Name = "ParseTextBox";
-            ParseTextBox.Size = new Size(235, 23);
-            ParseTextBox.TabIndex = 3;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(6, 32);
-            label1.Name = "label1";
-            label1.Size = new Size(125, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Type value for parsing:";
+            rectangleCollisionControl1.Dock = DockStyle.Fill;
+            rectangleCollisionControl1.Location = new Point(3, 3);
+            rectangleCollisionControl1.Name = "rectangleCollisionControl1";
+            rectangleCollisionControl1.Size = new Size(786, 504);
+            rectangleCollisionControl1.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -243,36 +146,23 @@
             Controls.Add(tabControl1);
             Name = "MainForm";
             Text = "Programming Demo";
-            EnumsGroupBox.ResumeLayout(false);
-            EnumsGroupBox.PerformLayout();
             tabControl1.ResumeLayout(false);
             EnumsTabPage.ResumeLayout(false);
-            SeasonGroupBox.ResumeLayout(false);
-            SeasonGroupBox.PerformLayout();
-            ParsingGroupBox.ResumeLayout(false);
-            ParsingGroupBox.PerformLayout();
+            ClassesTabPage.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private GroupBox EnumsGroupBox;
-        private ListBox ValueListBox;
-        private ListBox EnumsListBox;
-        private Label IntValueLabel;
-        private Label ChooseValueLabel;
-        private Label EnumsLabel;
-        private TextBox IntValueTextBox;
         private TabControl tabControl1;
         private TabPage EnumsTabPage;
-        private GroupBox ParsingGroupBox;
-        private Label WeekdayLabel;
-        private Button ParseButton;
-        private TextBox ParseTextBox;
-        private Label label1;
-        private GroupBox SeasonGroupBox;
-        private Button GoButton;
-        private ComboBox SeasonComboBox;
-        private Label label2;
+        private TabPage ClassesTabPage;
+        private View.Controls.EnumerationControl enumerationControl1;
+        private View.Controls.WeekdayParsingControl weekdayParsingControl1;
+        private View.Controls.SeasonHandleControl seasonHandleControl1;
+        private View.Controls.RectangleControl rectangleControl1;
+        private View.Controls.FilmsControl filmsControl1;
+        private TabPage tabPage1;
+        private View.Controls.RectangleCollisionControl rectangleCollisionControl1;
     }
 }
