@@ -36,16 +36,25 @@ namespace View.ViewModel
             return !_regex.IsMatch(text);
         }
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="ContactControl"./>
+        /// </summary>
         public ContactControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Запрещает ввод любых символов кроме: цифр, пробела, "()", "-".
+        /// </summary>
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            e.Handled = "0123456789 ".IndexOf(e.Text) < 0;
+            e.Handled = "0123456789()- ".IndexOf(e.Text) < 0;
         }
 
+        /// <summary>
+        /// Запрещает вставку из буфера обмена любых символов кроме: цифр, пробела, "()", "-".
+        /// </summary>
         private void TextBox_Pasting(object sender, DataObjectPastingEventArgs e)
         {
             if (e.DataObject.GetDataPresent(typeof(String)))
