@@ -1,8 +1,8 @@
 ﻿using View.Model;
-using View.Model.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
+using ViewModel.Services;
 
 namespace View.ViewModel
 {

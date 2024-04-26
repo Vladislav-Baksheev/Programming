@@ -4,7 +4,7 @@ using System.IO;
 using Newtonsoft.Json;
 using View.ViewModel;
 
-namespace View.Model.Services
+namespace ViewModel.Services
 {
     /// <summary>
     /// Представляет реализацию для сериализации.
@@ -45,7 +45,7 @@ namespace View.Model.Services
         /// Загружает данные из файла в приложение. 
         /// </summary>
         /// <returns>Объект класса <see cref="ContactSerializer"/>.</returns>
-        public ObservableCollection<ContactVM>? Load() 
+        public ObservableCollection<ContactVM>? Load()
         {
             var contacts = new ObservableCollection<ContactVM>();
 
