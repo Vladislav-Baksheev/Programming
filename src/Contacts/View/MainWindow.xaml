@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:View.ViewModel"
         mc:Ignorable="d"
         Title="Contacts" 
         xmlns:local="clr-namespace:View.Converters"
@@ -16,6 +17,17 @@
         <Image x:Key="resImage" Source="Resources/photo_placeholder_100x100.png"/>
         <local:BoolInvertedValueConverter x:Key="BoolInvertedValueConverter"/>
         <local:ButtonVisibilityConverter x:Key="ButtonVisibilityConverter"/>
+        <DataTemplate x:Key="contactTemplate">
+            <StackPanel Margin="3">
+                <TextBlock 
+                    Text="{Binding Path=FirstName}" 
+                    FontSize="12"
+                    FontWeight="SemiBold"/>
+                <TextBlock 
+                    Text="{Binding Path=Phone}"
+                    FontSize="10"/>
+            </StackPanel>
+        </DataTemplate>
     </Window.Resources>
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Closing">
@@ -90,14 +102,8 @@
                             Margin="3"
                             Validation.ErrorTemplate="{x:Null}"
                             ItemsSource="{Binding Path=Contacts}"
-                            SelectedItem="{Binding Path=CurrentContact, UpdateSourceTrigger=PropertyChanged}">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Margin="5">
-                                        <TextBlock Text="{Binding Path=FirstName}" />
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
+                            SelectedItem="{Binding Path=CurrentContact, UpdateSourceTrigger=PropertyChanged}"
+                            ItemTemplate="{StaticResource contactTemplate}">
                         </ListBox>
                     </DockPanel>
                 </DockPanel>
@@ -121,51 +127,8 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Grid 
-                Validation.ErrorTemplate="{x:Null}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+            <uc:ContactControl/>
 
-                <Image 
-                    Grid.Row="1"
-                    Grid.Column="0" 
-                    Width="100" 
-                    Height="100"
-                    Margin="3"
-                    Source="Resources/photo_placeholder_100x100.png"
-                    VerticalAlignment="Top"/>
-                <TextBlock
-                    Grid.Column="1"
-                    Margin="3"
-                    Text="Name:"/>
-                <StackPanel Grid.Column="1" Grid.Row="1">
-                    <TextBox 
-                    Text="{Binding Path=CurrentContact.FirstName, UpdateSourceTrigger=PropertyChanged}"
-                    IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
-                    Margin="3"/>
-                    <TextBlock 
-                    Text="Phone Number:" 
-                    Margin="3"/>
-                    <TextBox 
-                    Text="{Binding Path=CurrentContact.Phone, UpdateSourceTrigger=PropertyChanged}"
-                    IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
-                    Margin="3"/>
-                    <TextBlock 
-                    Text="Email:" 
-                    Margin="3"/>
-                    <TextBox 
-                    IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
-                    Text="{Binding Path=CurrentContact.Email, UpdateSourceTrigger=PropertyChanged}"
-                    Margin="3"/>
-                </StackPanel>
-            </Grid>
-            
             <Button
                 x:Name="ApplyButton"
                 Width="75"
