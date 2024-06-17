@@ -40,7 +40,6 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
-Name: "groupfolder"; Description: "Ñîçäàòü ïàïêó â ìåíþ ïóñê";  GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 
 [Files]
@@ -49,7 +48,6 @@ Source: "C:\Users\Vladislav\Desktop\Programming\src\ProductApp\ProductApp\bin\Re
 Source: "C:\Users\Vladislav\Desktop\Programming\src\ProductApp\ProductApp\Resources\*"; DestDir: "{app}\Resources"; Flags: ignoreversion recursesubdirs createallsubdirs
 [Icons]
 Name: "{group}\Uninstall.exe"; Filename: "Uninstallexe"; IconFilename: "{app}\Resources\{#IconName}";
-Name: "{group}\{#Name}"; Filename: "{app}\{#ExeName}"; Tasks: groupfolder; WorkingDir: "{app}"; IconFilename: "{app}\Resources\{#IconName}"
 Name: "{commondesktop}\{#Name}"; Filename: "{app}\{#ExeName}"; Tasks: desktopicon; IconFilename: "{app}\Resources\{#IconName}"
 
 [Run]
