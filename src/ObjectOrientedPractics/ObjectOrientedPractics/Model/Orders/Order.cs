@@ -70,6 +70,9 @@ namespace ObjectOrientedPractics.Model.Orders
             }
         }
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Order"./>
+        /// </summary>
         public Order()
         {
             Id = IdGenerator.GetIdNext();
@@ -78,6 +81,12 @@ namespace ObjectOrientedPractics.Model.Orders
             OrderCreationDate = DateTime.Now.ToString();
         }
 
+        /// <summary>
+        /// Сравнивает два объекта класса <see cref="Order"./>
+        /// </summary>
+        /// <param name="other">Передаваемый объект.</param>
+        /// <returns>true - если объекты равны,
+        /// false - если объекты не равны.</returns>
         public bool Equals(Order other)
         {
             if (other == null)

@@ -45,6 +45,10 @@ namespace ObjectOrientedPractics.Model
             Items = new List<Item>();
         }
 
+        /// <summary>
+        /// Создает копию объекта класса <see cref="Cart"./>
+        /// </summary>
+        /// <returns>Копия объекта.</returns>
         public object Clone()
         {
             return new Cart();

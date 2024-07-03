@@ -116,6 +116,15 @@ namespace ObjectOrientedPractics.Model.Discounts
             Points += (int)(sum / 100 * 10);
         }
 
+        /// <summary>
+        /// Сравнивает исходный объект с передаваемым.
+        /// </summary>
+        /// <param name="other">Объект класса <see cref="PointsDiscount"/>.</param>
+        /// <returns>
+        /// 0 - Если размер скидки равен;
+        /// 1 - Если у исходного объекта скидка больше;
+        /// -1 - Если у передаваемого объекта скидка больше.
+        /// </returns>
         public int CompareTo(PointsDiscount other)
         {
             var pointsDiscount2 = (PointsDiscount)other;

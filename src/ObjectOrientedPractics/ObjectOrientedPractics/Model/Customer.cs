@@ -154,6 +154,10 @@ namespace ObjectOrientedPractics.Model
             Orders = new List<Order>();
             Discounts.Add(pointsDiscount);
         }
+
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Customer"./>
+        /// </summary>
         public Customer()
         {
             Id = IdGenerator.GetIdNext();

@@ -216,11 +216,21 @@ namespace ObjectOrientedPractics.Model
             Category = Category.None;
         }
 
+        /// <summary>
+        /// Создает копию объекта класса <see cref="Item"./>
+        /// </summary>
+        /// <returns>Копия объекта.</returns>
         public object Clone()
         {
             return new Item(this.Name, this.Info, this.Cost, this.Category);
         }
 
+        /// <summary>
+        /// Сравнивает два объекта класса <see cref="Item"./>
+        /// </summary>
+        /// <param name="other">Передаваемый объект.</param>
+        /// <returns>true - если объекты равны,
+        /// false - если объекты не равны.</returns>
         public bool Equals(Item other)
         {
             if (other == null)
@@ -237,6 +247,15 @@ namespace ObjectOrientedPractics.Model
             return (this.Id == item2.Id);
         }
 
+        /// <summary>
+        /// Сравнивает исходный объект с передаваемым.
+        /// </summary>
+        /// <param name="other">Объект класса <see cref="Item"/>.</param>
+        /// <returns>
+        /// 0 - Если цена равна;
+        /// 1 - Если у исходного объекта цена больше;
+        /// -1 - Если у передаваемого объекта цена больше.
+        /// </returns>
         public int CompareTo(Item other)
         {
             var item2 = (Item)other;

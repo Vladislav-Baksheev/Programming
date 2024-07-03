@@ -185,6 +185,10 @@ namespace ObjectOrientedPractics.Model
             Apartment = "None";
         }
 
+        /// <summary>
+        /// Создает копию объекта <see cref="Address"./>
+        /// </summary>
+        /// <returns>Копия объекта.</returns>
         public object Clone()
         {
             return new Address(
@@ -196,6 +200,12 @@ namespace ObjectOrientedPractics.Model
                 this.Apartment);
         }
 
+        /// <summary>
+        /// Сравнивает два объекта класса <see cref="Address"./>
+        /// </summary>
+        /// <param name="other">Передаваемый объект.</param>
+        /// <returns>true - если объекты равны,
+        /// false - если объекты не равны.</returns>
         public bool Equals(Address other)
         {
             if (other == null)
