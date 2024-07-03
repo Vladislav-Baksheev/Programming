@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ObjectOrientedPractics.Services;
 using ObjectOrientedPractics.Model.Discounts;
 using ObjectOrientedPractics.Model.Orders;

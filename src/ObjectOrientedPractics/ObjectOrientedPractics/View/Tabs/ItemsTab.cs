@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Model.Enums;
@@ -84,7 +85,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             _currentItem = new Item();
             Items.Add(_currentItem);
-            ItemsListBox.Items.Add(_currentItem.Name);           
+            ItemsListBox.Items.Add(_currentItem.Name);
             UpdateTextboxes(_currentItem);
         }
 

@@ -1,15 +1,14 @@
 ﻿using ObjectOrientedPractics.Services;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using ObjectOrientedPractics.Model.Enums;
 namespace ObjectOrientedPractics.Model.Orders
 {
-    public class Order
+    public class Order : IEquatable<Order>
     {
+        /// <summary>
+        /// Возвращает ID заказа.
+        /// </summary>
         public int Id { get; }
 
         /// <summary>
@@ -79,5 +78,20 @@ namespace ObjectOrientedPractics.Model.Orders
             OrderCreationDate = DateTime.Now.ToString();
         }
 
+        public bool Equals(Order other)
+        {
+            if (other == null)
+                return false;
+
+            if (!(other is Order))
+                return false;
+
+            if (object.ReferenceEquals(this, other))
+                return true;
+
+            var order2 = (Order)other;
+
+            return (this.Id == order2.Id);
+        }
     }
 }

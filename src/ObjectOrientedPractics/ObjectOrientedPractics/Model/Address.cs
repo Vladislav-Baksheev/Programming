@@ -1,14 +1,9 @@
 ﻿using ObjectOrientedPractics.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace ObjectOrientedPractics.Model
 {
-    public class Address : ICloneable
+    public class Address : ICloneable, IEquatable<Address>
     {
         /// <summary>
         /// Почтовый индекс.
@@ -199,6 +194,24 @@ namespace ObjectOrientedPractics.Model
                 this.Street, 
                 this.House, 
                 this.Apartment);
+        }
+
+        public bool Equals(Address other)
+        {
+            if (other == null)
+                return false;
+
+            if(!(other is Address)) 
+                return false;
+
+            if (ReferenceEquals(this, other))
+                return true;
+
+            var address2 = (Address)other;
+
+            return ((this.Index == address2.Index) & (this.Country == address2.Country) &
+                (this.City == address2.City) & (this.Street == address2.Street) &
+                (this.House == address2.House) & (this.Apartment == address2.Apartment));
         }
     }
 }

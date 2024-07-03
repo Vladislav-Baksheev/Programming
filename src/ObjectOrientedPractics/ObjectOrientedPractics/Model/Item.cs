@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq.Expressions;
 using ObjectOrientedPractics.Model.Enums;
 using ObjectOrientedPractics.Services;
 namespace ObjectOrientedPractics.Model
@@ -7,7 +6,7 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Хранит данные о товарах.
     /// </summary>
-    public class Item : ICloneable
+    public class Item : ICloneable, IEquatable<Item>
     {
         /// <summary>
         /// Id товара.
@@ -221,5 +220,22 @@ namespace ObjectOrientedPractics.Model
         {
             return new Item(this.Name, this.Info, this.Cost, this.Category);
         }
+
+        public bool Equals(Item other)
+        {
+            if (other == null)
+                return false;
+
+            if (!(other is Item))
+                return false;
+
+            if (object.ReferenceEquals(this, other))
+                return true;
+
+            var item2 = (Item)other;
+            
+            return (this.Id == item2.Id);
+        }
+
     }
 }
