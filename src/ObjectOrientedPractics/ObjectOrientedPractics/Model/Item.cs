@@ -6,7 +6,7 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Хранит данные о товарах.
     /// </summary>
-    public class Item : ICloneable, IEquatable<Item>
+    public class Item : ICloneable, IEquatable<Item>, IComparable<Item>
     {
         /// <summary>
         /// Id товара.
@@ -237,5 +237,17 @@ namespace ObjectOrientedPractics.Model
             return (this.Id == item2.Id);
         }
 
+        public int CompareTo(Item other)
+        {
+            var item2 = (Item)other;
+            if (this.Cost == item2.Cost)
+                return 0;
+
+            else if (this.Cost < item2.Cost)
+                return -1;
+
+            else
+                return 1;          
+        }
     }
 }

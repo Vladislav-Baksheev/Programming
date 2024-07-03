@@ -9,7 +9,7 @@ namespace ObjectOrientedPractics.Model.Discounts
     /// <summary>
     /// Хранит информацию о скидочных баллах.
     /// </summary>
-    public class PointsDiscount : IDiscount
+    public class PointsDiscount : IDiscount, IComparable<PointsDiscount>
     {
         /// <summary>
         /// Кол-во скидочных баллов.
@@ -114,6 +114,20 @@ namespace ObjectOrientedPractics.Model.Discounts
             }
 
             Points += (int)(sum / 100 * 10);
+        }
+
+        public int CompareTo(PointsDiscount other)
+        {
+            var pointsDiscount2 = (PointsDiscount)other;
+
+            if (this.Points == pointsDiscount2.Points)
+                return 0;
+
+            else if(this.Points > pointsDiscount2.Points)
+                return 1;
+
+            else
+                return -1;
         }
     }
 }
