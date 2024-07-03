@@ -7,7 +7,7 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Хранит данные о товарах.
     /// </summary>
-    public class Item
+    public class Item : ICloneable
     {
         /// <summary>
         /// Id товара.
@@ -215,6 +215,11 @@ namespace ObjectOrientedPractics.Model
             Info = "None";
             Cost = 0;
             Category = Category.None;
-        }       
+        }
+
+        public object Clone()
+        {
+            return new Item(this.Name, this.Info, this.Cost, this.Category);
+        }
     }
 }

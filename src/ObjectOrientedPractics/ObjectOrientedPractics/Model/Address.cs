@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace ObjectOrientedPractics.Model
 {
-    public class Address
+    public class Address : ICloneable
     {
         /// <summary>
         /// Почтовый индекс.
@@ -157,6 +157,7 @@ namespace ObjectOrientedPractics.Model
             return $"{Index} {Country}, {City}, {Street}, {House}, {Apartment}";
         }
 
+
         /// <summary>
         /// Создает экземпляр класса <see cref="Address"/>
         /// </summary>
@@ -187,6 +188,17 @@ namespace ObjectOrientedPractics.Model
             Street = "None";
             House = "None";
             Apartment = "None";
+        }
+
+        public object Clone()
+        {
+            return new Address(
+                this.Index, 
+                this.Country, 
+                this.City, 
+                this.Street, 
+                this.House, 
+                this.Apartment);
         }
     }
 }

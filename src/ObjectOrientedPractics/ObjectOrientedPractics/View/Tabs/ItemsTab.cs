@@ -84,7 +84,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             _currentItem = new Item();
             Items.Add(_currentItem);
-            ItemsListBox.Items.Add(_currentItem.Name);
+            ItemsListBox.Items.Add(_currentItem.Name);           
             UpdateTextboxes(_currentItem);
         }
 
