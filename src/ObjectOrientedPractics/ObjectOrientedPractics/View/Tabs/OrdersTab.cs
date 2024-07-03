@@ -148,7 +148,7 @@ namespace ObjectOrientedPractics.View.Tabs
             StatusComboBox.SelectedItem = _selectedOrder.OrderStatus;
             addressControl1.Address = _selectedOrder.DeliveryAddress;
             TotalCostLabel.Text = _selectedOrder.TotalCost.ToString();
-            foreach (var item in Items)
+            foreach (var item in _selectedOrder.Items)
             {
                 OrderItemsListBox.Items.Add(item.Name);
             }
