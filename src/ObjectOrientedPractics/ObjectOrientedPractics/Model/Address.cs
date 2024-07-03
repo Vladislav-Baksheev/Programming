@@ -1,14 +1,9 @@
 ﻿using ObjectOrientedPractics.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace ObjectOrientedPractics.Model
 {
-    public class Address
+    public class Address : ICloneable, IEquatable<Address>
     {
         /// <summary>
         /// Почтовый индекс.
@@ -157,6 +152,7 @@ namespace ObjectOrientedPractics.Model
             return $"{Index} {Country}, {City}, {Street}, {House}, {Apartment}";
         }
 
+
         /// <summary>
         /// Создает экземпляр класса <see cref="Address"/>
         /// </summary>
@@ -187,6 +183,45 @@ namespace ObjectOrientedPractics.Model
             Street = "None";
             House = "None";
             Apartment = "None";
+        }
+
+        /// <summary>
+        /// Создает копию объекта <see cref="Address"./>
+        /// </summary>
+        /// <returns>Копия объекта.</returns>
+        public object Clone()
+        {
+            return new Address(
+                this.Index, 
+                this.Country, 
+                this.City, 
+                this.Street, 
+                this.House, 
+                this.Apartment);
+        }
+
+        /// <summary>
+        /// Сравнивает два объекта класса <see cref="Address"./>
+        /// </summary>
+        /// <param name="other">Передаваемый объект.</param>
+        /// <returns>true - если объекты равны,
+        /// false - если объекты не равны.</returns>
+        public bool Equals(Address other)
+        {
+            if (other == null)
+                return false;
+
+            if(!(other is Address)) 
+                return false;
+
+            if (ReferenceEquals(this, other))
+                return true;
+
+            var address2 = (Address)other;
+
+            return ((this.Index == address2.Index) & (this.Country == address2.Country) &
+                (this.City == address2.City) & (this.Street == address2.Street) &
+                (this.House == address2.House) & (this.Apartment == address2.Apartment));
         }
     }
 }

@@ -4,11 +4,6 @@ using ObjectOrientedPractics.Model.Orders;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -148,7 +143,7 @@ namespace ObjectOrientedPractics.View.Tabs
             StatusComboBox.SelectedItem = _selectedOrder.OrderStatus;
             addressControl1.Address = _selectedOrder.DeliveryAddress;
             TotalCostLabel.Text = _selectedOrder.TotalCost.ToString();
-            foreach (var item in Items)
+            foreach (var item in _selectedOrder.Items)
             {
                 OrderItemsListBox.Items.Add(item.Name);
             }

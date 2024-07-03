@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using ObjectOrientedPractics.Model.Enums;
 namespace ObjectOrientedPractics.Model.Discounts
 {
-    public class PercentDiscount : IDiscount
+    public class PercentDiscount : IDiscount, IComparable<PercentDiscount>
     {
         /// <summary>
         /// Текущая скидка.
@@ -140,6 +140,29 @@ namespace ObjectOrientedPractics.Model.Discounts
                     _currentDiscount += _maxDiscount - _currentDiscount;
                 }
             }
+        }
+
+        /// <summary>
+        /// Сравнивает исходный объект с передаваемым.
+        /// </summary>
+        /// <param name="other">Объект класса <see cref="PercentDiscount"/>.</param>
+        /// <returns>
+        /// 0 - Если размер скидки равен;
+        /// 1 - Если у исходного объекта скидка больше;
+        /// -1 - Если у передаваемого объекта скидка больше.
+        /// </returns>
+        public int CompareTo(PercentDiscount other)
+        {
+            var percentDiscount2 = (PercentDiscount)other;
+
+            if (this.CurrentDiscount == percentDiscount2.CurrentDiscount)
+                return 0;
+
+            else if (this.CurrentDiscount > percentDiscount2.CurrentDiscount)
+                return 1;
+
+            else
+                return -1;
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq.Expressions;
 using ObjectOrientedPractics.Model.Enums;
 using ObjectOrientedPractics.Services;
 namespace ObjectOrientedPractics.Model
@@ -7,7 +6,7 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Хранит данные о товарах.
     /// </summary>
-    public class Item
+    public class Item : ICloneable, IEquatable<Item>, IComparable<Item>
     {
         /// <summary>
         /// Id товара.
@@ -215,6 +214,59 @@ namespace ObjectOrientedPractics.Model
             Info = "None";
             Cost = 0;
             Category = Category.None;
-        }       
+        }
+
+        /// <summary>
+        /// Создает копию объекта класса <see cref="Item"./>
+        /// </summary>
+        /// <returns>Копия объекта.</returns>
+        public object Clone()
+        {
+            return new Item(this.Name, this.Info, this.Cost, this.Category);
+        }
+
+        /// <summary>
+        /// Сравнивает два объекта класса <see cref="Item"./>
+        /// </summary>
+        /// <param name="other">Передаваемый объект.</param>
+        /// <returns>true - если объекты равны,
+        /// false - если объекты не равны.</returns>
+        public bool Equals(Item other)
+        {
+            if (other == null)
+                return false;
+
+            if (!(other is Item))
+                return false;
+
+            if (object.ReferenceEquals(this, other))
+                return true;
+
+            var item2 = (Item)other;
+            
+            return (this.Id == item2.Id);
+        }
+
+        /// <summary>
+        /// Сравнивает исходный объект с передаваемым.
+        /// </summary>
+        /// <param name="other">Объект класса <see cref="Item"/>.</param>
+        /// <returns>
+        /// 0 - Если цена равна;
+        /// 1 - Если у исходного объекта цена больше;
+        /// -1 - Если у передаваемого объекта цена больше.
+        /// </returns>
+        public int CompareTo(Item other)
+        {
+            var item2 = (Item)other;
+            if (this.Cost == item2.Cost)
+                return 0;
+
+            else if (this.Cost < item2.Cost)
+                return -1;
+
+            else
+                return 1;          
+        }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ObjectOrientedPractics.Services;
 using ObjectOrientedPractics.Model.Discounts;
 using ObjectOrientedPractics.Model.Orders;
@@ -155,6 +154,10 @@ namespace ObjectOrientedPractics.Model
             Orders = new List<Order>();
             Discounts.Add(pointsDiscount);
         }
+
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Customer"./>
+        /// </summary>
         public Customer()
         {
             Id = IdGenerator.GetIdNext();
