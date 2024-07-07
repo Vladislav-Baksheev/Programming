@@ -11,12 +11,6 @@ namespace ObjectOrientedPractics.Services
     public static class DataTools
     {
         /// <summary>
-        /// Делегат для методов фильтрации.
-        /// </summary>
-        /// <param name="item">Товар.</param>
-        public delegate bool FilterItem(Item item);
-
-        /// <summary>
         /// Сравнение двух цен для фильтрации товаров.
         /// </summary>
         public static bool CompareCost(Item item)
@@ -38,7 +32,7 @@ namespace ObjectOrientedPractics.Services
         /// <param name="items">Список товаров.</param>
         /// <param name="filter">Делегат для методов фильтрации.</param>
         /// <returns></returns>
-        public static List<Item> Filter(List<Item> items, FilterItem filter)
+        public static List<Item> Filter(List<Item> items, Func<Item, bool> filter)
         {
             List<Item> newItems = new List<Item>();
 
