@@ -29,6 +29,14 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private Item _currentItem;
 
+        /// <summary>
+        /// Возвращает и задает делегат критерия сортировки.
+        /// </summary>
+        private DataTools.CompareItems SortCompare { get; set; }
+
+        /// <summary>
+        /// Товары, которые будуи показаны в списке.
+        /// </summary>
         private List<Item> _displayedItems = new List<Item>();
 
         /// <summary>
@@ -69,6 +77,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 CategoryComboBox.Items.Add(valueCategory);
             }
+            SorterComboBox.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -81,6 +90,18 @@ namespace ObjectOrientedPractics.View.Tabs
             DescriptionTextBox.Text = item.Info;
             IDTextBox.Text = item.Id.ToString();
             CategoryComboBox.Text = item.Category.ToString();
+        }
+
+        /// <summary>
+        /// Обновляет список товаров, после сортировки.
+        /// </summary>
+        private void UpdateItemsAfterSort()
+        {
+            if(SortCompare != null)
+            {
+                _displayedItems = DataTools.Sorter(_displayedItems, SortCompare);
+            }
+            
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -186,6 +207,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             ItemsListBox.Items.Clear();
             string searchText = FindTextBox.Text;
+
             if (string.IsNullOrEmpty(searchText))
             {
                 _displayedItems = new List<Item>(Items);
@@ -194,6 +216,49 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 _displayedItems = DataTools.Filter(Items, item => item.Name.Contains(searchText));
             }
+            UpdateItemsAfterSort();
+            foreach (Item item in _displayedItems)
+            {
+                ItemsListBox.Items.Add(item.Name);
+            }
+            
+        }
+
+        private void SorterComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ItemsListBox.Items.Clear();
+
+            switch (SorterComboBox.SelectedIndex)
+            {
+                case 0:
+                    {
+                        SortCompare = (firstItem, secondItem) =>
+                        {
+                            return firstItem.Name.CompareTo(secondItem.Name) < 0;
+                        };
+                    }
+                    break;
+
+                case 1:
+                    {
+                        SortCompare = (firstItem, secondItem) =>
+                        {
+                            return firstItem.Cost.CompareTo(secondItem.Cost) < 0;
+                        };
+                    }
+                    break;
+
+                case 2:
+                    {
+                        SortCompare = (firstItem, secondItem) =>
+                        {
+                            return firstItem.Cost.CompareTo(secondItem.Cost) > 0;
+                        };
+                    }
+                    break;
+            }
+            
+            UpdateItemsAfterSort();
 
             foreach (Item item in _displayedItems)
             {
