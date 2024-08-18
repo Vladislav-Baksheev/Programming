@@ -81,6 +81,11 @@ namespace ObjectOrientedPractics.View.Tabs
         }
 
         /// <summary>
+        /// СОбытие изменения товаров.
+        /// </summary>
+        public event EventHandler<EventArgs> ItemsChanged;
+
+        /// <summary>
         /// Обновляет все текстовые поля.
         /// </summary>
         private void UpdateTextboxes(Item item)
@@ -97,11 +102,11 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void UpdateItemsAfterSort()
         {
-            if(SortCompare != null)
+            if (SortCompare != null)
             {
                 _displayedItems = DataTools.Sorter(_displayedItems, SortCompare);
             }
-            
+
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -110,6 +115,7 @@ namespace ObjectOrientedPractics.View.Tabs
             Items.Add(_currentItem);
             _displayedItems.Add(_currentItem);
             ItemsListBox.Items.Add(_currentItem.Name);
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
             UpdateTextboxes(_currentItem);
         }
 
@@ -133,6 +139,7 @@ namespace ObjectOrientedPractics.View.Tabs
             Items.Remove(_currentItem);
             ItemsListBox.Items.Remove(_currentItem.Name);
             ItemsListBox.SelectedIndex = Items.Count > 0 ? 0 : -1;
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
             UpdateTextboxes(_currentItem);
         }
 
@@ -143,6 +150,7 @@ namespace ObjectOrientedPractics.View.Tabs
             _displayedItems.Add(_currentItem);
             ItemsListBox.Items.Add(_currentItem.Name);
             ItemsListBox.SelectedIndex = Items.Count - 1;
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
             UpdateTextboxes(_currentItem);
         }
 
@@ -152,6 +160,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 CostTextBox.BackColor = AppColor.GoodBackColor;
                 _currentItem.Cost = Convert.ToDouble(CostTextBox.Text);
+                ItemsChanged?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
@@ -170,6 +179,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 NameTextBox.BackColor = AppColor.GoodBackColor;
                 _currentItem.Name = NameTextBox.Text;
                 ItemsListBox.Items[_displayedItems.IndexOf(_currentItem)] = _currentItem.Name;
+                ItemsChanged?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
@@ -187,6 +197,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 DescriptionTextBox.BackColor = AppColor.GoodBackColor;
                 _currentItem.Info = DescriptionTextBox.Text;
+                ItemsChanged?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
@@ -201,6 +212,7 @@ namespace ObjectOrientedPractics.View.Tabs
         private void CategoryComboBox_TextChanged(object sender, EventArgs e)
         {
             _currentItem.Category = (Category)CategoryComboBox.SelectedIndex;
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
         }
 
         private void FindTextBox_TextChanged(object sender, EventArgs e)
@@ -221,7 +233,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 ItemsListBox.Items.Add(item.Name);
             }
-            
+
         }
 
         private void SorterComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -257,7 +269,7 @@ namespace ObjectOrientedPractics.View.Tabs
                     }
                     break;
             }
-            
+
             UpdateItemsAfterSort();
 
             foreach (Item item in _displayedItems)

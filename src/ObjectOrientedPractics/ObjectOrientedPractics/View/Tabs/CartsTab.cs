@@ -99,6 +99,8 @@ namespace ObjectOrientedPractics.View.Tabs
             InitializeComponent();
         }
 
+        public event EventHandler<EventArgs> CartsChanged;
+
         private void UpdateCartListBox()
         {
             CartListBox.Items.Clear();
@@ -224,7 +226,8 @@ namespace ObjectOrientedPractics.View.Tabs
                 Order.Items.AddRange(CurrentCustomer.Cart.Items);
                 Order.DeliveryAddress = CurrentCustomer.Address;
                 Order.DiscountAmount = ApplyDiscount();
-                CurrentCustomer.Orders.Add(Order);  
+                CurrentCustomer.Orders.Add(Order);
+                CartsChanged.Invoke(this, EventArgs.Empty);
             }
             else
             {
@@ -233,6 +236,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 Order.DeliveryAddress = CurrentCustomer.Address;
                 Order.DiscountAmount = ApplyDiscount();
                 CurrentCustomer.Orders.Add(Order);
+                CartsChanged.Invoke(this, EventArgs.Empty);
             }           
             CurrentCustomer.Cart.Items.Clear();
             CartListBox.Items.Clear();
