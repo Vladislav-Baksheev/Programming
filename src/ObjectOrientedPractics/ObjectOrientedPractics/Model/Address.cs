@@ -41,15 +41,18 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public int Index
         {
-            get 
-            { 
-                return _index; 
+            get
+            {
+                return _index;
             }
             set
             {
                 Validator.AssertCountSymbols(value, 6, nameof(value));
-                if (value != _index) 
+                if (value != _index)
+                {
                     _index = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 
@@ -59,15 +62,18 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public string Country
         {
-            get 
-            { 
-                return _country; 
+            get
+            {
+                return _country;
             }
             set
             {
                 Validator.AssertStringOnLength(value, 50, nameof(value));
                 if (value != _country)
+                {
                     _country = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 
@@ -85,7 +91,10 @@ namespace ObjectOrientedPractics.Model
             {
                 Validator.AssertStringOnLength(value, 50, nameof(value));
                 if (value != _city)
+                {
                     _city = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 
@@ -103,7 +112,10 @@ namespace ObjectOrientedPractics.Model
             {
                 Validator.AssertStringOnLength(value, 100, nameof(value));
                 if (value != _street)
+                {
                     _street = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 
@@ -113,15 +125,18 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public string House
         {
-            get 
-            { 
+            get
+            {
                 return _building;
             }
             set
             {
                 Validator.AssertStringOnLength(value, 10, nameof(value));
                 if (value != _building)
+                {
                     _building = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 
@@ -139,19 +154,12 @@ namespace ObjectOrientedPractics.Model
             {
                 Validator.AssertStringOnLength(value, 10, nameof(value));
                 if (value != _apartment)
+                {
                     _apartment = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
-
-        /// <summary>
-        /// Возвращает адрес в виде строки.
-        /// </summary>
-        /// <returns></returns>
-        public string AddressToString()
-        {
-            return $"{Index} {Country}, {City}, {Street}, {House}, {Apartment}";
-        }
-
 
         /// <summary>
         /// Создает экземпляр класса <see cref="Address"/>
@@ -186,18 +194,32 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
+        /// Событие изменение адреса.
+        /// </summary>
+        public event EventHandler<EventArgs> AddressChanged;
+
+        /// <summary>
         /// Создает копию объекта <see cref="Address"./>
         /// </summary>
         /// <returns>Копия объекта.</returns>
         public object Clone()
         {
             return new Address(
-                this.Index, 
-                this.Country, 
-                this.City, 
-                this.Street, 
-                this.House, 
+                this.Index,
+                this.Country,
+                this.City,
+                this.Street,
+                this.House,
                 this.Apartment);
+        }
+
+        /// <summary>
+        /// Возвращает адрес в виде строки.
+        /// </summary>
+        /// <returns></returns>
+        public string AddressToString()
+        {
+            return $"{Index} {Country}, {City}, {Street}, {House}, {Apartment}";
         }
 
         /// <summary>
@@ -211,7 +233,7 @@ namespace ObjectOrientedPractics.Model
             if (other == null)
                 return false;
 
-            if(!(other is Address)) 
+            if (!(other is Address))
                 return false;
 
             if (ReferenceEquals(this, other))

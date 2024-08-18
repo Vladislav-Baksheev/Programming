@@ -1,6 +1,6 @@
-﻿using System;
-using ObjectOrientedPractics.Model.Enums;
+﻿using ObjectOrientedPractics.Model.Enums;
 using ObjectOrientedPractics.Services;
+using System;
 namespace ObjectOrientedPractics.Model
 {
     /// <summary>
@@ -61,7 +61,7 @@ namespace ObjectOrientedPractics.Model
         {
             get
             {
-                if(CarBrand != "")
+                if (CarBrand != "")
                 {
                     Name = CarBrand;
                 }
@@ -70,13 +70,12 @@ namespace ObjectOrientedPractics.Model
             set
             {
                 Validator.AssertStringOnLength(value, 200, nameof(value));
-                if(value != _name) 
-                { 
+                if (value != _name)
+                {
                     _name = value;
+                    NameChanged?.Invoke(this, EventArgs.Empty);
                 }
-                
             }
-
         }
 
         /// <summary>
@@ -94,11 +93,11 @@ namespace ObjectOrientedPractics.Model
             set
             {
                 Validator.AssertStringOnLength(value, 1000, nameof(value));
-                if(value != _info)
+                if (value != _info)
                 {
                     _info = value;
+                    InfoChanged?.Invoke(this, EventArgs.Empty);
                 }
-                _info = value;
             }
         }
 
@@ -115,9 +114,13 @@ namespace ObjectOrientedPractics.Model
             set
             {
                 Validator.AssertValueInRange(value, 0, 100000, nameof(value));
-                _cost = value;
-            }
 
+                if (value != _cost)
+                {
+                    _cost = value;
+                    CostChanged?.Invoke(this, EventArgs.Empty);
+                }
+            }
         }
         /// <summary>
         /// Возвращает и задает значения модели машины.
@@ -134,7 +137,7 @@ namespace ObjectOrientedPractics.Model
                 _carModel = value;
             }
         }
-        
+
         /// <summary>
         /// Возвращает и задает значения цвета машины. 
         /// </summary>
@@ -186,7 +189,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает и задает категорию товара.
         /// </summary>
-        public Category Category {get; set; }
+        public Category Category { get; set; }
 
         /// <summary>
         /// Создает экземпляр класса <see cref="Item"/>.
@@ -217,6 +220,21 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
+        /// Событие изменения имени.
+        /// </summary>
+        public event EventHandler<EventArgs> NameChanged;
+
+        /// <summary>
+        /// Событие изменения стоимости.
+        /// </summary>
+        public event EventHandler<EventArgs> CostChanged;
+
+        /// <summary>
+        /// Событие изменения описания.
+        /// </summary>
+        public event EventHandler<EventArgs> InfoChanged;
+
+        /// <summary>
         /// Создает копию объекта класса <see cref="Item"./>
         /// </summary>
         /// <returns>Копия объекта.</returns>
@@ -243,7 +261,7 @@ namespace ObjectOrientedPractics.Model
                 return true;
 
             var item2 = (Item)other;
-            
+
             return (this.Id == item2.Id);
         }
 
@@ -266,7 +284,7 @@ namespace ObjectOrientedPractics.Model
                 return -1;
 
             else
-                return 1;          
+                return 1;
         }
     }
 }
