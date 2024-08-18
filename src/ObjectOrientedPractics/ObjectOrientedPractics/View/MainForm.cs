@@ -1,13 +1,5 @@
 ﻿using ObjectOrientedPractics.Model;
-using ObjectOrientedPractics.View.Tabs;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ObjectOrientedPractics
@@ -19,25 +11,22 @@ namespace ObjectOrientedPractics
         {
             _store = new Store();
             InitializeComponent();
-            
+
             MainItemsTab.Items = _store.Items;
             MainCustomersTab.Customers = _store.Customers;
             MainCartsTab.Items = _store.Items;
             MainCartsTab.Customers = _store.Customers;
             MainOrdersTab.Customers = _store.Customers;
+
+            MainItemsTab.ItemsChanged += ItemsTab_ItemsChanged;
+            MainCustomersTab.CustomersChanged += ItemsTab_ItemsChanged;
+            MainCartsTab.CartsChanged += ItemsTab_ItemsChanged;
         }
 
-        private void MainTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        private void ItemsTab_ItemsChanged(object sender, EventArgs e)
         {
-            if(MainTabControl.SelectedIndex == 2) 
-            {
-                MainCartsTab.RefreshData();
-            }
-
-            if (MainTabControl.SelectedIndex == 3)
-            {
-                MainOrdersTab.RefreshData();
-            }
+            MainCartsTab.RefreshData();
+            MainOrdersTab.RefreshData();
         }
     }
 }

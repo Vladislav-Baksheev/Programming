@@ -60,6 +60,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 
             }
         }
+
         /// <summary>
         /// Создает экземпляр класса <see cref="CustomerTab"/>
         /// </summary>
@@ -68,6 +69,9 @@ namespace ObjectOrientedPractics.View.Tabs
             InitializeComponent();
             _customerFactory = new CustomerFactory();
         }
+
+        public event EventHandler CustomersChanged;
+
         /// <summary>
         /// Обновляет информацию в текст боксах.
         /// </summary>
@@ -85,6 +89,7 @@ namespace ObjectOrientedPractics.View.Tabs
             Customers.Add(_currentCustomer);
             CustomersListBox.Items.Add(_currentCustomer.FullName);
             CustomersListBox.SelectedIndex = Customers.Count - 1;
+            CustomersChanged.Invoke(this, EventArgs.Empty);
             UpdateTextboxes(_currentCustomer);
         }
 
@@ -97,6 +102,7 @@ namespace ObjectOrientedPractics.View.Tabs
             Customers.Remove(_currentCustomer);
             CustomersListBox.Items.Remove(_currentCustomer.FullName);
             CustomersListBox.SelectedIndex = Customers.Count > 0 ? 0 : -1;
+            CustomersChanged.Invoke(this, EventArgs.Empty);
             UpdateTextboxes(_currentCustomer);
         }
 
@@ -106,6 +112,7 @@ namespace ObjectOrientedPractics.View.Tabs
             Customers.Add(_currentCustomer);
             CustomersListBox.Items.Add(_currentCustomer.FullName);
             CustomersListBox.SelectedIndex = Customers.Count - 1;
+            CustomersChanged.Invoke(this, EventArgs.Empty);
             UpdateTextboxes(_currentCustomer);
         }
 
@@ -127,6 +134,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 FullnameTextBox.BackColor = AppColor.GoodBackColor;
                 _currentCustomer.FullName = FullnameTextBox.Text;
                 CustomersListBox.Items[Customers.IndexOf(_currentCustomer)] = _currentCustomer.FullName;
+                CustomersChanged.Invoke(this, EventArgs.Empty);
             }
             catch(Exception ex)
             {
