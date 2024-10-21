@@ -11,6 +11,13 @@ namespace ObjectOrientedPractics.Services
     public static class DataTools
     {
         /// <summary>
+        /// Делегат критерия сортировки.
+        /// </summary>
+        /// <param name="firstItem">Первый товар.</param>
+        /// <param name="secondItem">Следующий товар.</param>
+        public delegate bool CompareItems(Item firstItem, Item secondItem);
+
+        /// <summary>
         /// Сравнение двух цен для фильтрации товаров.
         /// </summary>
         public static bool CompareCost(Item item)
@@ -25,13 +32,6 @@ namespace ObjectOrientedPractics.Services
         {
             return Convert.ToInt32(item.Category) == Convert.ToInt32(Category.None);
         }
-
-        /// <summary>
-        /// Делегат критерия сортировки.
-        /// </summary>
-        /// <param name="firstItem">Первый товар.</param>
-        /// <param name="secondItem">Следующий товар.</param>
-        public delegate bool CompareItems(Item firstItem, Item secondItem);
 
         /// <summary>
         /// Фильтрует товары.
